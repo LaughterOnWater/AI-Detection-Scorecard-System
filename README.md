@@ -116,6 +116,13 @@ prerequisites, manual install, and troubleshooting are in
 4. **Save the scorecard** as `<title>_<id>_SCORE.txt` — plain text, because the
    output is designed to paste straight into a YouTube comment.
 
+> **Tell the scorer what you know.** In your prompt, say whether the video is a
+> **real person speaking, an AI voice, or an AI avatar** — this keeps an AI voice
+> from being mistaken for AI *writing* (a different thing). And if you know a real
+> person actually did the work shown, say **how you know it** — you watched it, or
+> someone who'd know vouches for it. A plain "trust me, it's real" can't be fully
+> confirmed; the scorer needs a source.
+
 ### File naming convention
 
 Reuse the exact `<title>_<id>` base that `getytcc` produces, so every artifact
