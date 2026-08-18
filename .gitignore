@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# getytcc output (transcripts fetched into a working folder)
+*.srt
+*.txt
+!requirements.txt
+
+# Editor / OS cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""getytcc — fetch a YouTube video's closed-caption transcript into the current folder.
+
+Usage:
+    getytcc <youtube video url> [-l en,de] [-o DIR] [--txt-only | --srt-only]
+
+Writes two files by default into the current directory:
+    <sanitized-title>_<videoId>.txt   (clean text, no timestamps)
+    <sanitized-title>_<videoId>.srt   (timestamped subtitles)
+
+Pure-Python, no binaries. Engine: youtube-transcript-api.
+"""
+
+import argparse
+import json
+import re
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+try:
+    from youtube_transcript_api import (
+        YouTubeTranscriptApi,
+        NoTranscriptFound,
+    )
+    from youtube_transcript_api._errors import CouldNotRetrieveTranscript
+    from youtube_transcript_api.formatters import SRTFormatter, TextFormatter
+except ModuleNotFoundError:
+    sys.exit(
+        "ERROR: youtube-transcript-api is not installed.\n"
+        "Install it with:  pip install youtube-transcript-api\n"
+        "(or run install.sh to set up the dedicated venv)."
+    )
+
+# --- Constants ---
+ALLOWED_HOSTS = {
+    "youtube.com",
+    "www.youtube.com",
+    "m.youtube.com",
+    "music.youtube.com",
+    "youtu.be",
+    "www.youtu.be",
+}
+VIDEO_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+DEFAULT_LANGS = "en,en-US,en-GB"
+OEMBED_URL = "https://www.youtube.com/oembed"
+HTTP_TIMEOUT = 10  # seconds
+MAX_NAME_LEN = 100
+
+
+def extract_video_id(url: str) -> str:
+    """Return the 11-char video id from a YouTube URL, or raise ValueError.
+
+    Accepts only YouTube hosts and these forms: watch?v=, youtu.be/<id>,
+    /shorts/<id>, /embed/<id>, /live/<id>.
+    """
+    parts = urllib.parse.urlsplit(url.strip())
+    host = parts.hostname.lower() if parts.hostname else ""
+    if host not in ALLOWED_HOSTS:
+        raise ValueError(f"Not a recognized YouTube URL (host: {host or 'none'!r}).")
+
+    candidate = ""
+    if host in {"youtu.be", "www.youtu.be"}:
+        candidate = parts.path.lstrip("/").split("/", 1)[0]
+    elif parts.path == "/watch":
+        candidate = urllib.parse.parse_qs(parts.query).get("v", [""])[0]
+    else:
+        segments = [seg for seg in parts.path.split("/") if seg]
+        if len(segments) >= 2 and segments[0] in {"shorts", "embed", "live", "v"}:
+            candidate = segments[1]
+
+    if not VIDEO_ID_RE.match(candidate):
+        raise ValueError("Could not find a valid 11-character video id in the URL.")
+    return candidate
+
+
+def fetch_title(video_id: str) -> str | None:
+    """Fetch the video title via YouTube's oEmbed endpoint; None on any failure."""
+    watch_url = f"https://www.youtube.com/watch?v={video_id}"
+    query = urllib.parse.urlencode({"format": "json", "url": watch_url})
+    request = urllib.request.Request(
+        f"{OEMBED_URL}?{query}",
+        headers={"User-Agent": "getytcc/1.0"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT) as response:
+            data = json.loads(response.read().decode("utf-8"))
+        title = data.get("title")
+        return title if isinstance(title, str) and title.strip() else None
+    except (urllib.error.URLError, json.JSONDecodeError, ValueError, OSError):
+        return None
+
+
+def sanitize_filename(name: str) -> str:
+    """Make a string safe to use as a single filename component."""
+    name = "".join(ch for ch in name if ch.isprintable())
+    name = re.sub(r'[\\/:*?"<>|]', "", name)   # illegal / path-separator chars
+    name = re.sub(r"[()\[\]{}]", "", name)      # drop brackets for cleaner names
+    name = re.sub(r"\s+", "-", name.strip())    # whitespace -> dash
+    name = re.sub(r"-{2,}", "-", name)          # collapse repeats
+    name = name.strip("-.")                      # no leading/trailing dot or dash
+    return name[:MAX_NAME_LEN]
+
+
+def get_transcript(video_id: str, languages: list[str]):
+    """Return a FetchedTranscript, preferring `languages`, else the first available."""
+    transcript_list = YouTubeTranscriptApi().list(video_id)
+    try:
+        transcript = transcript_list.find_transcript(languages)
+    except NoTranscriptFound:
+        transcript = next(iter(transcript_list), None)
+        if transcript is None:
+            raise
+    return transcript.fetch()
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        prog="getytcc",
+        description="Fetch a YouTube video's closed-caption transcript "
+        "(.txt + .srt) into the current folder.",
+    )
+    parser.add_argument("url", help="YouTube video URL")
+    parser.add_argument(
+        "-l", "--lang", default=DEFAULT_LANGS,
+        help=f"Comma-separated language preference (default: {DEFAULT_LANGS}). "
+        "Falls back to the first available transcript.",
+    )
+    parser.add_argument(
+        "-o", "--outdir", default=".",
+        help="Directory to write into (default: current folder).",
+    )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--txt-only", action="store_true", help="Write only the .txt file.")
+    group.add_argument("--srt-only", action="store_true", help="Write only the .srt file.")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str]) -> int:
+    args = parse_args(argv)
+
+    try:
+        video_id = extract_video_id(args.url)
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+
+    outdir = Path(args.outdir).expanduser().resolve()
+    if not outdir.is_dir():
+        print(f"ERROR: output directory does not exist: {outdir}", file=sys.stderr)
+        return 2
+
+    languages = [code.strip() for code in args.lang.split(",") if code.strip()]
+
+    try:
+        fetched = get_transcript(video_id, languages)
+    except CouldNotRetrieveTranscript as exc:
+        print(f"ERROR: {str(exc).strip()}", file=sys.stderr)
+        return 1
+
+    title = fetch_title(video_id)
+    base = f"{sanitize_filename(title)}_{video_id}" if title else video_id
+    if not base or base.startswith("_"):
+        base = video_id
+
+    written: list[Path] = []
+    if not args.srt_only:
+        txt_path = outdir / f"{base}.txt"
+        with open(txt_path, "w", encoding="utf-8") as handle:
+            handle.write(TextFormatter().format_transcript(fetched))
+        written.append(txt_path)
+    if not args.txt_only:
+        srt_path = outdir / f"{base}.srt"
+        with open(srt_path, "w", encoding="utf-8") as handle:
+            handle.write(SRTFormatter().format_transcript(fetched))
+        written.append(srt_path)
+
+    for path in written:
+        print(path)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main(sys.argv[1:]))
+    except KeyboardInterrupt:
+        sys.exit(130)

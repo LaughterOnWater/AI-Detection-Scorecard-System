@@ -1,0 +1,4 @@
+# getytcc's only runtime dependency.
+# install.sh installs this into a dedicated venv at ~/.local/share/getytcc/venv
+# so nothing touches your system Python.
+youtube-transcript-api
