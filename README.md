@@ -62,6 +62,9 @@ getytcc "https://www.youtube.com/watch?v=RCSSgxV9qNw"
 The `.srt` timestamps make it easy to give a line reference for every claim, as
 the rubric requires.
 
+> **Just want the subtitles?** `getytcc --srt-only "<url>"` writes only the
+> `.srt` and skips the `.txt`. (Use `--txt-only` for the reverse.)
+
 ### Install
 
 There is **one required setup step** — a dedicated venv with
