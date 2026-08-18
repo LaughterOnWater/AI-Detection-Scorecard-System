@@ -32,6 +32,8 @@ Do not collapse the two axes into one number. Report both.
 
 ## How to Use
 
+**Inputs (recommended workflow).** Fetch the transcript with `getytcc`, which writes `<title>_<id>.txt` (plus a timestamped `.srt`). Then **manually copy the relevant parts of the video's description** into a sibling file named `<title>_<id>_DESCRIPTION.txt` — specifically: companion-source links (the paper, repo, dataset, or notes the piece distills), any reviewer/user **attestation** of embodied work, and any "AI voice / synthetic narration" **disclosure**. These are exactly the signals the Companion-Source rule (v2.5), the Embodiment Gate (v2.4), and the Delivery-Medium Gate (v2.5) read; without the description those gates cannot fire and human-led, well-sourced work can be wrongly convicted. Then hand the scoring agent (Claude or another trusted AI) **this rubric plus both files** and ask it to score using the system below.
+
 1. Copy the template at the bottom. Fill in title, date, platform, and **genre** (see Genre Calibration).
 2. **EXCLUDE platform-generated elements** (YouTube chapters, timestamps, auto-captions).
 3. **IGNORE caption transcription errors** (misspelled names, garbled technical terms). Assess the *intended* wording.
@@ -41,6 +43,7 @@ Do not collapse the two axes into one number. Report both.
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
 8. Provide a timestamp or line reference for every claim.
 9. Report all scores (Axis C only if it fired) and a one-line verdict. Add the challenge to the creator.
+10. **Save the finished scorecard** as a sibling file named `<title>_<id>_SCORE.txt`, reusing the exact `<title>_<id>` base from the transcript so all of a video's files sort together. Keep it **plain text** — the template output is designed to paste directly as a YouTube comment (see OUTPUT FORMAT below), so do not save it as markdown.
 
 ---
 

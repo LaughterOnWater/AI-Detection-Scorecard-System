@@ -94,13 +94,36 @@ prerequisites, manual install, and troubleshooting are in
 
 ## Typical workflow
 
-1. Fetch the transcript: `getytcc "<youtube-url>"`.
-2. Open the rubric and copy the template at the bottom of
-   [AI-Detection-Scorecard-System-V2.5.md](AI-Detection-Scorecard-System-V2.5.md).
-3. Score **Axis A first**, then apply the gates, then **Axis B**, then run the
-   Net-Value relay test for Axis C.
-4. Give a timestamp or line reference (from the `.srt`) for every claim.
-5. Report all scores and a one-line verdict.
+1. **Fetch the transcript:** `getytcc "<youtube-url>"` → `<title>_<id>.txt`
+   (and a timestamped `.srt`).
+2. **Capture the description:** open the YouTube video's description and copy the
+   parts that matter for scoring — companion-source links (paper, repo, dataset,
+   notes), any reviewer/user **attestation** of hands-on work, and any "AI voice /
+   synthetic narration" **disclosure** — into a sibling file
+   `<title>_<id>_DESCRIPTION.txt`. This isn't busywork: the Companion-Source rule,
+   the Embodiment Gate, and the Delivery-Medium Gate all read the description, and
+   **without it those gates can't fire** — well-sourced, human-led work can get
+   wrongly convicted as AI slop.
+3. **Hand it to a trusted AI:** give Claude (or another trusted assistant) the
+   rubric — [AI-Detection-Scorecard-System-V2.5.md](AI-Detection-Scorecard-System-V2.5.md) —
+   plus the transcript and description files, and ask it to score the content
+   using that system. It scores **Axis A first**, applies the gates, then **Axis B**,
+   then runs the Net-Value relay test for Axis C, giving a timestamp/line reference
+   (from the `.srt`) for every claim.
+4. **Save the scorecard** as `<title>_<id>_SCORE.txt` — plain text, because the
+   output is designed to paste straight into a YouTube comment.
+
+### File naming convention
+
+Reuse the exact `<title>_<id>` base that `getytcc` produces, so every artifact
+for one video sorts together in the folder:
+
+| File | Source |
+| --- | --- |
+| `<title>_<id>.txt` | transcript (getytcc) |
+| `<title>_<id>.srt` | subtitles / timestamps (getytcc) |
+| `<title>_<id>_DESCRIPTION.txt` | the video description (you paste it) |
+| `<title>_<id>_SCORE.txt` | the finished scorecard (the AI writes it) |
 
 ---
 
