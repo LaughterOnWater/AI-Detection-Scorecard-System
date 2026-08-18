@@ -1,4 +1,4 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.5
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.6
 
 ## What Changed and Why (read this first)
 
@@ -28,6 +28,8 @@ Do not collapse the two axes into one number. Report both.
 
 **v2.5 adds two delivery-and-sourcing corrections.** The Delivery-Medium Gate stops synthetic narration (an AI avatar or TTS reading a script) from being misread as machine *authorship* — voicing is authorship-neutral, and when synthetic delivery is attested the script is judged as written prose, not speech. The Companion-Source rule generalizes the description check: before calling a claim fog, look for the paper, repo, or notes the piece distills, and score the substance against it. Both close blind spots that can otherwise convict human-led, well-sourced work of being AI slop.
 
+**v2.6 adds a genre the system did not cover — disclosed AI art — and extends companion sources across a series.** Openly generative work (an AI music video, an image series, an AI short film) broke the two-axis machine in two ways: it read a high-AI Provenance as an accusation when for this genre the number merely *describes* an openly collaborative work, and it tried to fire prose gates on song lyrics. The new "Scoring AI Art / Generative Media" section fixes both — Provenance labels the human/AI mix without moral valence, Axis B is judged on artistic craft with the analytical categories reinterpreted, and a narrative-vs-tableau ceiling separates a moving mood-piece from a story actually told in image and song. Separately, the Companion-Source rule now reaches back through a creator's series: a followup that established its rig, model, or method in an earlier episode has traceable substance and is not dinged for "missing" what it already published.
+
 ---
 
 ## How to Use
@@ -39,7 +41,7 @@ Do not collapse the two axes into one number. Report both.
 3. **IGNORE caption transcription errors** (misspelled names, garbled technical terms). Assess the *intended* wording.
 4. **Score Axis A (Provenance) first**, using only the Provenance Signals. Record the delivery medium (Delivery-Medium Gate, v2.5) — attested synthetic narration is scored as written prose, so spoken-voice signals do not apply.
 5. **Apply the Gate**, then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2.
-6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5), not just the description.
+6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
 8. Provide a timestamp or line reference for every claim.
 9. Report all scores (Axis C only if it fired) and a one-line verdict. Add the challenge to the creator.
@@ -68,6 +70,8 @@ Do not collapse the two axes into one number. Report both.
 
 **Companion sources count too (v2.5 — generalizing the description check).** A short piece is often the visible tip of deeper sourced work. Before scoring any claim as fog or any statistic as "floating," look beyond the piece itself for a companion source the creator produced or that the piece explicitly explains: a linked paper, a repo, a position document, show notes, a pinned comment. If such a source is provided (or attested, or reasonably findable) and the substance is genuinely sourced there, score the sourcing against it — the claims are traceable, not fog. What remains is a *transparency* shortfall: the piece did not surface its sources at the point of viewing. Dock Sourcing & Transparency partially for that packaging gap, but do not classify well-sourced-elsewhere claims as unsourced. Guardrail: do not invent a companion source. Absent one that is provided or genuinely available, floating stats stay floating.
 
+**Series and prior-episode sources (v2.6 — the companion can be an earlier video).** When a piece is an explicit followup in a creator's series, the companion source often lives in an earlier episode: the setup video that documents the rig, the model, the harness, or the baseline runs this one builds on. A followup that points back to where it established its method ("same harness as last time," a named or linked prior video, a channel that plainly runs this as an ongoing series) has traceable substance — do NOT ding it for "missing sources" it already published earlier in the series. What remains is the same transparency/packaging shortfall: this episode did not re-surface the links for a first-time viewer, so dock Sourcing lightly for that, not for absence. Same guardrail: the prior-episode source must genuinely exist and be findable, not merely gestured at. And keep the distinction sharp — a description padded with promo, course, and cross-sell links is not sourcing; the credit is for the earlier episode that actually documents the method, not for the act of linking to oneself.
+
 ---
 
 ## Genre Calibration (set this before scoring Axis B)
@@ -80,8 +84,29 @@ Axis B is judged against what the genre can reasonably deliver. "No original tes
 | **Review / Hands-on** | Firsthand use, reproducible results, screenshots/terminals, failures shown | Reliance on marketing numbers, no artifacts shown → this IS a defect here |
 | **Original Research / Essay** | A thesis, evidence the author gathered, a traceable argument | — |
 | **Tutorial / How-to** | Correct, runnable steps; stated prerequisites | Lack of opinion or novelty |
+| **AI Art / Generative Media** | Disclosed tools, a human-authored layer (lyrics/script/storyboard), a coherent directed aesthetic, and — where a story is claimed — narrative told through both image and song | Being AI-generated (that is the genre, not a defect); absence of live human performance. See "Scoring AI Art" below. |
 
 Name the genre in the scorecard header. If content mixes genres, score Axis B against the genre it is *claiming* to be.
+
+---
+
+## Scoring AI Art / Generative Media (v2.6)
+
+Some work is openly, wholly built with generative tools — an AI music video, an AI image series, an AI short film — and presented as such. The two-axis machine was built for analytical prose and misfires here in two ways this section corrects. (Do not confuse this with the *undisclosed* case: work that hides the machine is still scored normally, and the transparency failure counts against it.)
+
+**1. For disclosed AI art, a high-AI Provenance score is descriptive, not damning.** Axis A still reports the human/AI mix, but the usual moral valence drops away: the whole point of the genre is human+AI collaboration, and a piece that says so is being honest, not caught. Score the mix on the merits — human-authored layers (lyrics, script, storyboard, the curatorial eye) pull toward the human pole; AI-generated layers (voice, music, image, motion) pull toward the AI pole — and print the number with a one-line reminder that, for this genre, it *labels the collaboration rather than grading it*. The Provenance Floor Gate does not apply to song lyrics or other art forms; its structural-tell measure is a prose instrument. The Delivery-Medium Gate does the heavy lifting instead: an AI singing voice or narrator is authorship-neutral, so human-written words delivered by an AI voice are still human-written.
+  - Worked anchor: human-written lyrics + human creative direction, executed through AI music/voice/visuals (all disclosed), lands around **4 — hybrid, leaning to a human-authored concept realized through AI.** Fully AI-generated words *and* execution with only prompt-level human input sits higher; a live-sung human vocal over AI backing sits lower.
+
+**2. Axis B is judged on artistic craft, with the analytical categories reinterpreted — never mechanically applied.** The Prose-Revision Penalty Gate and the Cheat-Sheet tells are prose instruments and do NOT fire on lyrics, images, or motion. Reinterpret the five categories for the form, and say so in each note:
+  - **Sourcing & Transparency → tool disclosure & authorship attribution.** Naming every generative tool and stating what the human wrote or directed is this genre's version of citation. Full disclosure scores high; hiding the machine scores low.
+  - **Accuracy & Mechanism → does the artifact deliver what it claims** — a directed, coherent piece, not a pile of unrelated generations.
+  - **Specificity → concreteness of image and craft** — particular, chosen imagery over generic uplift; a held aesthetic over chance.
+  - **Value-Add → original artistic contribution** — the human layers built on top of the tools.
+  - **Prose Craft → lyrical / compositional / audiovisual craft.**
+
+**The narrative-vs-tableau ceiling.** The most common thing separating a strong AI music video from a top one is *story*. Compelling visuals that set a mood — beautiful figures moving through beautiful environments — make a **tableau**, and a tableau emotes; it does not narrate. When the song carries an actual arc (a beginning, a turn, a resolution) and the imagery only accompanies its feeling rather than dramatizing its events, cap the audiovisual-craft category short of the top and route the reason through Value-Add. This is a ceiling, not a floor: a beautifully made tableau still scores well (an 8 is a strong result), it just does not reach 9–10 while the pictures share only the feeling. **Genre exception:** a piece whose form *is* the mood — a dance video, a visualizer, an ambient loop — earns the tableau outright and is not docked for it. The test is whether the work is *claiming* to tell a story (lyrics with a plot, a titled narrative) and leaning on the pictures to carry only the feeling of it.
+
+Axis C (Net Value) almost never fires on original art — a made song is the opposite of a relay. Do not fish for it here.
 
 ---
 
@@ -474,7 +499,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.5)
+ AI-DETECTION SCORECARD (v2.6)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -586,7 +611,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.5
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.6
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -620,7 +645,7 @@ do not lean on it.
        Reserve "AI Slop" for the AI + unrevised case that still added something (Axis C did NOT fire).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.5)
+ AI-DETECTION SCORECARD (v2.6)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -698,6 +723,11 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 ---
 
 ## Changelog
+
+**v2.6 (2026-08-17)**
+
+- **Added the AI Art / Generative Media genre and a dedicated "Scoring AI Art" section.** Disclosed generative work (AI music video, image series, AI short film) was breaking the two-axis machine: a high-AI Provenance read as an accusation when for this genre it merely *describes* an openly collaborative piece, and the prose gates tried to fire on song lyrics. Fixes: (1) for disclosed AI art, Provenance labels the human/AI mix without moral valence — human-authored layers (lyrics/script/storyboard/curation) pull human, AI-generated layers (voice/music/image/motion) pull AI, and the Delivery-Medium Gate keeps an AI voice from making human-written words "AI"; the Provenance Floor Gate does not apply to art. (2) Axis B is scored on artistic craft with the five categories reinterpreted (Sourcing→tool disclosure; Accuracy→delivers-what-it-claims; Specificity→concrete imagery; Value-Add→original artistic contribution; Prose Craft→lyrical/audiovisual craft); the Penalty Gate and Cheat-Sheet tells do not fire. (3) Added the **narrative-vs-tableau ceiling**: visuals that set a mood make a tableau and cap short of 9–10 when the song claims a story the pictures only accompany — with a genre exception for work whose form *is* the mood (dance, visualizer, ambient). Worked anchor: human lyrics + human direction executed through AI ≈ Provenance 4, and a well-made tableau ≈ Craft 8.
+- **Extended the Companion-Source rule across a series.** A followup episode's companion source can be an *earlier video* that documented the rig, model, harness, or baseline runs. A piece that points back to where it established its method has traceable substance and is not dinged for "missing" sources it already published; the residual is the usual transparency/packaging dock for not re-surfacing them. Guardrail unchanged, plus a sharpened distinction: a description padded with promo/course/cross-sell links is not sourcing — credit attaches to the earlier episode that documents the method, not to the act of self-linking.
 
 **v2.5 (2026-08-17)**
 

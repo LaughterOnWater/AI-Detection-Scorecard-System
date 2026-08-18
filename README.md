@@ -30,7 +30,7 @@ The two axes run in **opposite directions** — Axis A is a *classification*
 (low = Human), Axis B is a *quality* score (high = good). That trips people up;
 label every number.
 
-### Key gates (v2.5)
+### Key gates (v2.6)
 
 - **The Gate** — once Axis A lands confidently on "human," stylistic tells stop
   counting as authorship evidence and drop to Axis-B craft notes.
@@ -39,11 +39,17 @@ label every number.
   human pole at **2**; a **1** requires outside corroboration.
 - **Delivery-Medium Gate (v2.5)** — an AI avatar or TTS voicing a script is
   authorship-neutral. Attested synthetic narration is scored as *written prose*.
-- **Companion-Source rule (v2.5)** — before calling a claim "fog," look for the
-  paper, repo, or notes the piece distills, and score the substance against it.
+- **Companion-Source rule (v2.5, extended v2.6)** — before calling a claim "fog,"
+  look for the paper, repo, or notes the piece distills — including an earlier
+  episode in a creator's series — and score the substance against it.
+- **AI Art / Generative Media (v2.6)** — for *disclosed* generative work (an AI
+  music video, image series, or short film), a high-AI Provenance **describes the
+  collaboration rather than grading it**; Axis B is judged on artistic craft with
+  the categories reinterpreted, and a **narrative-vs-tableau ceiling** separates a
+  moving mood-piece from a story actually told in image and song.
 
 The full rubric, scoring dials, worked examples, and the fill-in template live
-in **[AI-Detection-Scorecard-System-V2.5.md](AI-Detection-Scorecard-System-V2.5.md)**.
+in **[AI-Detection-Scorecard-System-V2.6.md](AI-Detection-Scorecard-System-V2.6.md)**.
 
 ---
 
@@ -85,7 +91,7 @@ prerequisites, manual install, and troubleshooting are in
 ```
 .
 ├── README.md                              ← you are here
-├── AI-Detection-Scorecard-System-V2.5.md  ← the rubric (the main artifact)
+├── AI-Detection-Scorecard-System-V2.6.md  ← the rubric (the main artifact)
 ├── getytcc                                ← the transcript-fetcher script
 ├── install.sh                             ← installs getytcc + its venv
 ├── requirements.txt                       ← getytcc's one dependency
@@ -108,7 +114,7 @@ prerequisites, manual install, and troubleshooting are in
    **without it those gates can't fire** — well-sourced, human-led work can get
    wrongly convicted as AI slop.
 3. **Hand it to a trusted AI:** give Claude (or another trusted assistant) the
-   rubric — [AI-Detection-Scorecard-System-V2.5.md](AI-Detection-Scorecard-System-V2.5.md) —
+   rubric — [AI-Detection-Scorecard-System-V2.6.md](AI-Detection-Scorecard-System-V2.6.md) —
    plus the transcript and description files, and ask it to score the content
    using that system. It scores **Axis A first**, applies the gates, then **Axis B**,
    then runs the Net-Value relay test for Axis C, giving a timestamp/line reference
