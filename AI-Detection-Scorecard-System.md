@@ -1,40 +1,26 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.6
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.7
 
-## What Changed and Why (read this first)
+## What This Is
 
-v1.x produced a single 1–10 "AI-generation" score. That conflated two questions that must be kept apart:
+An AI-detection scorecard: a rubric for judging a piece of writing — or a talking-head video's transcript — on **three independent axes**, kept deliberately apart so one number never has to answer two different questions.
 
-1. **Who wrote it?** (human, hybrid, or AI)
-2. **Is it any good?** (craft and rigor)
+The mistake it exists to prevent is collapsing *who wrote it* and *whether it's any good* into a single "AI score." Those are different questions. The stylistic tells people treat as proof of AI — blandifiers, vague attribution, assert-without-mechanism — are *correlated* with AI, not *exclusive* to it; humans talking off the cuff do all of them. Once strong human signals are present (a named person, first-person ownership, spoken self-correction), counting those same tells toward an "AI score" is double-counting. **Sloppy ≠ synthetic.** A human can write garbage; an AI can write cleanly. And whether the author did original work or summarized someone else's is a *genre and value* judgment, not an authorship one — folding it into provenance punishes every honest explainer.
 
-Two problems followed from blending them:
+So the scorecard splits the work into three axes, with a gate between the first two:
 
-- **The tells were treated as unconditional proof of AI.** Blandifiers, vague assertions, foggy attribution, and "assert without mechanism" are *correlated* with AI, not *exclusive* to it. Humans — especially people talking off the cuff — do all of them. Once you've already established strong human signals (a named person, first-person ownership, spoken self-correction), counting those same tells toward an "AI score" is double-counting. **Sloppy ≠ synthetic.**
-- **"Originality" was miscategorized and overweighted.** "Original research vs. summary of others' work" is a *genre/value* judgment, not an *authorship* judgment. A human can write an excellent derivative explainer; an AI can fabricate fake "hands-on testing." Weighting it 35% of an authorship score structurally punished every explainer, regardless of who wrote it — and punished it hardest on topics that are *impossible* to test firsthand.
+- **Axis A — Provenance (who wrote it):** Human ↔ AI, judged **first**, from authorship signals only.
+- **Axis B — Craft & Rigor (how good it is):** quality relative to genre — where prose tells, sourcing, and derivativeness live, as craft feedback rather than authorship evidence.
+- **Axis C — Net Value (did it deserve to exist):** conditional; runs 0 → −10 and prints only when negative, for a piece that merely relays what its own sources already say.
 
-**v2.0 fixes both by scoring on two independent axes with a gate between them.**
+**The two axes run in opposite directions — this trips people up.** Axis A is a *classification* (low = Human, high = AI; **neither pole is inherently "good"**). Axis B is a *quality* score (**high = good, low = bad**). Always print the pole label next to the number, e.g. `Provenance 2/10 (Human) · Craft 7.5/10 (good)`.
 
-- **Axis A — Provenance:** Human ↔ AI. Assessed *first*, only from authorship signals.
-- **Axis B — Craft & Rigor:** How good the work is, judged *relative to its genre*. This is where prose tells, sourcing, and derivativeness live — as quality feedback, not as authorship evidence.
-- **The Gate:** Once Axis A lands confidently on "human," the stylistic tells stop counting toward Axis A and become Axis-B craft notes only. The tells regain authorship weight *only* when provenance is genuinely ambiguous.
-
-Do not collapse the two axes into one number. Report both.
-
-**⚠️ The two axes run in opposite directions — this trips people up.** Axis A is a *classification* (low = Human, high = AI; **neither pole is inherently "good"** — a human can write garbage, an AI can write cleanly). Axis B is a *quality* score (**high = good, low = bad**). Always print the pole label next to the number, e.g. `Provenance 2/10 (Human) · Craft 7.5/10 (good)`.
-
-**v2.3 adds a third, conditional axis — Net Value.** A and B between them still cannot say one thing that matters: whether the piece *deserved to exist*. A work can be cleanly AI-authored and competently sourced and **still** leave the viewer worse off than if it had never been made — when all it does is relay, at length, what its own linked sources already say. That is not low value; it is *negative* value. Axis C (Net Value) exists to name that and only that. It runs 0 → −10, is **printed only when it is below zero**, and when it fires it **trumps** the other two as the headline verdict. Most scorecards will never show it. See AXIS C — NET VALUE below.
-
-**v2.4 splits the human pole of Provenance and adds the Embodiment Gate.** The old rubric could never award a 1: a transcript-only grader cannot prove that a real person did the embodied work a video depicts — audio can be scripted and voiced, and a transcript can *narrate* live testing that never happened. So the human pole now separates *textually human* (score 2 — the honest ceiling for text-alone analysis) from *confirmed human* (score 1), the latter reachable only when embodiment is corroborated from outside the text: a reviewer/user attestation (placed in the video description or given at the time scoring is requested) or the grader's own viewing of the recording. Default is UNVERIFIED, which caps the human pole at 2. Two companion changes follow: a new *embodied / real-time* human signal, and a *reactive-vs-structural placement test* that stops genuine in-the-moment human mess from being counted as unrevised machine prose. See PROVENANCE and the Embodiment Gate below.
-
-**v2.5 adds two delivery-and-sourcing corrections.** The Delivery-Medium Gate stops synthetic narration (an AI avatar or TTS reading a script) from being misread as machine *authorship* — voicing is authorship-neutral, and when synthetic delivery is attested the script is judged as written prose, not speech. The Companion-Source rule generalizes the description check: before calling a claim fog, look for the paper, repo, or notes the piece distills, and score the substance against it. Both close blind spots that can otherwise convict human-led, well-sourced work of being AI slop.
-
-**v2.6 adds a genre the system did not cover — disclosed AI art — and extends companion sources across a series.** Openly generative work (an AI music video, an image series, an AI short film) broke the two-axis machine in two ways: it read a high-AI Provenance as an accusation when for this genre the number merely *describes* an openly collaborative work, and it tried to fire prose gates on song lyrics. The new "Scoring AI Art / Generative Media" section fixes both — Provenance labels the human/AI mix without moral valence, Axis B is judged on artistic craft with the analytical categories reinterpreted, and a narrative-vs-tableau ceiling separates a moving mood-piece from a story actually told in image and song. Separately, the Companion-Source rule now reaches back through a creator's series: a followup that established its rig, model, or method in an earlier episode has traceable substance and is not dinged for "missing" what it already published.
+The Gate is the core move: once Axis A lands confidently on "human," the stylistic tells stop counting toward authorship and become Axis-B craft notes only. Report the axes separately; never collapse them into one number.
 
 ---
 
 ## How to Use
 
-**Inputs (recommended workflow).** Fetch the transcript with `getytcc`, which writes `<title>_<id>.txt` (plus a timestamped `.srt`). Then **manually copy the relevant parts of the video's description** into a sibling file named `<title>_<id>_DESCRIPTION.txt` — specifically: companion-source links (the paper, repo, dataset, or notes the piece distills), any reviewer/user **attestation** of embodied work, and any "AI voice / synthetic narration" **disclosure**. These are exactly the signals the Companion-Source rule (v2.5), the Embodiment Gate (v2.4), and the Delivery-Medium Gate (v2.5) read; without the description those gates cannot fire and human-led, well-sourced work can be wrongly convicted. Then hand the scoring agent (Claude or another trusted AI) **this rubric plus both files** and ask it to score using the system below. In your prompt, also say what you know directly: whether the video is a **real person speaking, an AI voice, or an AI avatar**, and — if you know a real person did the work shown — **how you know it** (you watched it, or someone who'd know vouches). Naming the delivery medium keeps an AI voice from being misread as AI *authorship*; an unbacked "trust me, it's real" stays UNVERIFIED and cannot earn a Provenance of 1.
+**Inputs (recommended workflow).** Run `getytcc <url>`, which now writes **both** files the scorer needs in one call: the timestamped `<title>_<id>.srt` and the video's full description as `<title>_<id>_DESCRIPTION.txt` (pulled from the same source as the captions — there is no longer a manual copy step). Keep each video's files in **their own folder** under `cc/` (e.g. `cc/NY-rats/`) so you can point the scorer at the folder instead of naming every file. If you want to leave a grader note (what you know about the delivery medium, an attestation, a hunch), add it **inside** the `_DESCRIPTION.txt` **after** fetching — `getytcc` will not overwrite an existing description file, so run it first, then annotate. Because the description now arrives whole, it already carries the signals the Companion-Source rule (v2.5), the Embodiment Gate (v2.4), and the Delivery-Medium Gate (v2.5) read; the scorer applies the usual Platform Exclusions to the promo/affiliate boilerplate around them. Then hand the scoring agent (Claude or another trusted AI) **this rubric plus the folder** and ask it to score using the system below. In your prompt, also say what you know directly: whether the video is a **real person speaking, an AI voice, or an AI avatar**, and — if you know a real person did the work shown — **how you know it** (you watched it, or someone who'd know vouches). Naming the delivery medium keeps an AI voice from being misread as AI *authorship*; an unbacked "trust me, it's real" stays UNVERIFIED and cannot earn a Provenance of 1.
 
 1. Copy the template at the bottom. Fill in title, date, platform, and **genre** (see Genre Calibration).
 2. **EXCLUDE platform-generated elements** (YouTube chapters, timestamps, auto-captions).
@@ -499,7 +485,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.6)
+ AI-DETECTION SCORECARD (v2.7)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -611,7 +597,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.6
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.7
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -623,8 +609,15 @@ This is the ONLY part actually posted. Repeat the header block so the comment
 identifies itself, then write four short paragraphs of plain prose. The paragraphs
 are judged by this same rubric, so they have to pass it: no "not X, it's Y", no
 staccato profundity fragments, no stacked triples, no throat-clearing, no em-dash
-cadence. Write to one reader in second person, keep it specific, and vary the
-sentence shapes.
+cadence. Keep it specific, and vary the sentence shapes.
+
+Voice and addressee (v2.7): write the comment as the person publishing it, speaking
+directly to the video's creator. First person "I" is the poster; second person "you"
+is the creator (the youtuber). The comment must stand on its own as a viewer's note —
+never refer to the grading assistant, to "the user," or to how the score was
+requested, and never surface anything said only in the grading conversation. An
+attested delivery medium becomes an observation ("the voiceover is clearly
+synthetic"), NOT a reference to the exchange ("you told me it's synthetic").
 
 Emphasis: YouTube renders `*word*` as BOLD and `_word_` as italic (and nothing
 else — no tables, headers, or backticks). Light emphasis on the axis names is fine;
@@ -645,7 +638,7 @@ do not lean on it.
        Reserve "AI Slop" for the AI + unrevised case that still added something (Axis C did NOT fire).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.6)
+ AI-DETECTION SCORECARD (v2.7)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -724,44 +717,19 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 
 ## Changelog
 
-**v2.6 (2026-08-17)**
+**v2.7 (2026-08-30)** — `getytcc` now writes the full description (`<base>_DESCRIPTION.txt`) alongside the `.srt` from the same InnerTube response (no manual copy step; won't overwrite an existing description file; default output is `.srt` + `_DESCRIPTION.txt`, with `--only-srt`/`--only-txt`/`--only-desc`). Recommended layout: one folder per video under `cc/`. Pinned the posted-comment voice: the poster speaks directly to the creator ("I" = poster, "you" = youtuber) and never leaks the grading conversation — triggered by a leak seen in real gradings. No scoring-logic change from v2.6; rubric file is now version-agnostically named (version lives inside).
 
-- **Added the AI Art / Generative Media genre and a dedicated "Scoring AI Art" section.** Disclosed generative work (AI music video, image series, AI short film) was breaking the two-axis machine: a high-AI Provenance read as an accusation when for this genre it merely *describes* an openly collaborative piece, and the prose gates tried to fire on song lyrics. Fixes: (1) for disclosed AI art, Provenance labels the human/AI mix without moral valence — human-authored layers (lyrics/script/storyboard/curation) pull human, AI-generated layers (voice/music/image/motion) pull AI, and the Delivery-Medium Gate keeps an AI voice from making human-written words "AI"; the Provenance Floor Gate does not apply to art. (2) Axis B is scored on artistic craft with the five categories reinterpreted (Sourcing→tool disclosure; Accuracy→delivers-what-it-claims; Specificity→concrete imagery; Value-Add→original artistic contribution; Prose Craft→lyrical/audiovisual craft); the Penalty Gate and Cheat-Sheet tells do not fire. (3) Added the **narrative-vs-tableau ceiling**: visuals that set a mood make a tableau and cap short of 9–10 when the song claims a story the pictures only accompany — with a genre exception for work whose form *is* the mood (dance, visualizer, ambient). Worked anchor: human lyrics + human direction executed through AI ≈ Provenance 4, and a well-made tableau ≈ Craft 8.
-- **Extended the Companion-Source rule across a series.** A followup episode's companion source can be an *earlier video* that documented the rig, model, harness, or baseline runs. A piece that points back to where it established its method has traceable substance and is not dinged for "missing" sources it already published; the residual is the usual transparency/packaging dock for not re-surfacing them. Guardrail unchanged, plus a sharpened distinction: a description padded with promo/course/cross-sell links is not sourcing — credit attaches to the earlier episode that documents the method, not to the act of self-linking.
+**v2.6 (2026-08-17)** — Added the AI Art / Generative Media genre and "Scoring AI Art" section: for disclosed AI art, Provenance labels the human/AI mix without moral valence, Axis B is reinterpreted for artistic craft, the prose gates and Cheat-Sheet tells do not fire on lyrics/visuals, and the **narrative-vs-tableau ceiling** caps a mood-only tableau short of 9–10 (genre exception for work whose form *is* the mood). Triggered by disclosed generative work breaking the two-axis machine. Extended the Companion-Source rule across a series — the companion can be an earlier episode that documented the method.
 
-**v2.5 (2026-08-17)**
+**v2.5 (2026-08-17)** — Added the Delivery-Medium Gate: voicing is authorship-neutral, so an AI voice/avatar reading a human script is still human-written; new Axis-A field (live-human / synthetic (attested) / unknown), and claiming synthetic requires attestation, else scored live-human. Generalized the description-check into the Companion-Source rule (sourced-elsewhere claims are traceable, not fog; don't invent a companion). Both triggered by a large false-positive "AI Slop" on an avatar-read, companion-sourced human explainer.
 
-- **Added the Delivery-Medium Gate.** Voicing is authorship-neutral: an AI avatar or TTS reading a human-written script has no disfluency, and that absence must not be read as evidence of a machine author. New Axis-A field — live-human / synthetic (attested) / unknown (default). Claiming synthetic requires attestation (mirror of the Embodiment Gate); absent it, narrated content is scored as live-human. When synthetic is attested, the script is scored as WRITTEN prose: absence of spoken disfluency/inflection carries no authorship weight, and the no-contractions-in-speech signal recalibrates to the written register. Synthetic delivery is never itself an AI signal and is independent of embodiment.
-- **Generalized the description-check into the Companion-Source rule.** Before scoring a claim as fog, look for a companion source the creator produced or that the piece explains (paper, repo, position doc, show notes). If the substance is sourced there, the claims are traceable; missing on-screen sourcing becomes a transparency/packaging ding, not a sourcing failure. Guardrail: do not invent a companion.
-- Rationale: both close blind spots that produced a large false-positive "AI Slop" verdict on a human-led, expert-reviewed explainer whose narration was avatar-read and whose sourcing lived in a companion position paper.
+**v2.4 (2026-08-17)** — Split the human pole and added the Embodiment Gate: 1 = confirmed human, unlocked only by out-of-band confirmation; 2 = textually human, the transcript-only ceiling; default UNVERIFIED caps the human pole at 2 (a 1 is a claim about the world a text-bound grader can't license). Added the embodied / real-time human signal (costly behavior a model can only claim, not perform). Added the reactive-vs-structural placement test to the Penalty Gate — only structurally placed tells count; reactive filler in live genres is excluded.
 
-**v2.4 (2026-08-17)**
+**v2.3 (2026-08-17)** — Added Axis C — Net Value: conditional, scale 0 → −10, printed only when below zero. Gate is a pure relay of *available* sources that fails the "name one thing it adds" test; when it fires it trumps both axes as the headline "Worse Than Useless." Distinguished "Worse Than Useless" (Axis C fired) from "AI Slop" (AI + unrevised, but still added something). Gate is strict by design — a false positive on an honest accessible explainer is the worst error this system can make.
 
-- **Split the human pole of Provenance and added the Embodiment Gate.** Score 1 was previously unreachable. It now means *confirmed human* — a real person verified from outside the text to have done the embodied, real-time work the piece depicts — and unlocks only under Embodiment Confirmation (a reviewer/user attestation in the description or at scoring time, or the grader's own viewing). Score 2 is *textually human*, the honest ceiling for transcript-only analysis. Default UNVERIFIED caps the human pole at 2. Rationale: a 1 is a claim about the world, not the prose, and a text-bound grader cannot license it — audio can be scripted, and a transcript can narrate live work that never happened. Mirror of the Provenance Floor Gate at the opposite pole.
-- **Added an embodied / real-time human signal.** Reacting to live software, interrupting running jobs, waiting out slow local generation, operating tools across a session, calibrating against a prior body of work — costly real-time behavior a model cannot perform, only claim. Distinct from the de-credited research/curation signal (desk work a model matches natively). Moderate weight from transcript alone (narrated), strong only under Embodiment Confirmation.
-- **Added the reactive-vs-structural placement test to the Prose-Revision Penalty Gate.** Human sloppiness is irregular and event-driven; AI "sloppiness" is regular and placed at seams. Reactive filler in spoken/live-reaction genres is now excluded from the tell-density count (as spoken hedges already are); only structurally placed tells count. Prose Craft docks reactive gush only where it *replaces* analysis, not enthusiasm itself.
+**v2.2 (2026-08-17)** — Added the Provenance Floor Gate (>50% structural tell density + no human voice → floored at 9.5). Reclassified research / curation / finding-distinctions as NOT authorship signals (closes a laundering path where good research inflated human provenance). Lowered the Penalty Gate top-tier cap 4.0 → 2.0 (30–50% tier 5.0 → 4.0). Rebuilt the output template as plain text, no markdown (YouTube comments wrap tables unpredictably). Added the COPY / PASTE condensed comment. Added the contraction signal (genre-gated and co-occurrence-gated; below ~10% tell density it reads as register choice, not evidence).
 
-**v2.3 (2026-08-17)**
-
-- **Added Axis C — Net Value.** A third, conditional axis answering whether the piece deserved to exist. Scale 0 → −10, printed ONLY when below zero (most scorecards never show it). Gate (necessary): a pure relay of *available* sources that fails the "name one thing it adds" test. Severity dials, once the gate is met: Provenance toward 10, Craft toward 1, time cost, false authority, and a false genre claim. When it fires it **trumps** both other axes as the headline verdict, and the posted tag becomes "Worse Than Useless." Rationale: a piece can be AI-authored (A high) and well-sourced (B raw high) and still leave the viewer worse off than not watching, by relaying at length what its own linked sources already say — Axes A and B could not express negative value.
-- **Distinguished "Worse Than Useless" (Axis C fired) from "AI Slop" (AI + unrevised, but the piece still added something).** The two tags now mean different things.
-- Provenance and Craft feed Axis C's *severity* but are never changed by it; the gate is strict by design, because a false positive on an honest accessible explainer is the worst error this system can make. Accessibility (making a dense source readable) counts as an added thing and passes the gate.
-- Added How-to step 7 (the Net Value Gate), a conditional header line, a conditional working-notes section, and copy/paste tag guidance. Worked example annotated to show Axis C firing on a claimed-review relay.
-
-**v2.2 (2026-08-17)**
-
-- **Added the Provenance Floor Gate:** structural tell density >50% + no distinctive human voice → Provenance floored at 9.5/10. Mirror of the original Gate — refuses to award a human verdict to text with no human voice in it.
-- **Reclassified research/curation/finding-distinctions as NOT authorship signals.** Current AI matches or beats humans at sourcing and at drawing theoretical/mathematical distinctions, so these can no longer be credited as evidence of a human author. Closes a laundering path where good research inflated a human provenance score.
-- **Lowered the Prose-Revision Penalty Gate top-tier cap 4.0 → 2.0** (and 30–50% tier 5.0 → 4.0). Unrevised machine prose can now score into the "Empty" band; the cap scores delivered craft, with the raw total still reported alongside.
-- **Rebuilt the output template as plain text (no markdown).** YouTube comments are plain text in a proportional font, where markdown tables and space-aligned columns wrap unpredictably. Replaced all tables with a one-label-per-line format; dropped `#`/`**`/backticks in favor of CAPS and single-character rules. Reference tables inside this spec (read, never posted) are unchanged. Worked example reformatted and recomputed under v2.2 weights.
-- **Added the COPY / PASTE condensed comment.** The full scorecard is working notes; the actual posted comment is four short prose paragraphs (metrics, Axis A with examples, Axis B with examples, bottom line + challenge). It must itself pass this rubric — clean prose, no tells — since a detector that writes like AI has no standing.
-- **Added the contraction signal.** Natural contractions in a spoken/casual register are a mild human signal; their near-total absence in content meant to be spoken is an AI and revision tell (the draft was never worked toward how a person talks). Genre-gated (only where a speaking voice is expected) and co-occurrence-gated on a mechanical threshold: if structural tell density (tells ÷ non-data sentences, as the Penalty Gate measures) is under ~10%, missing contractions read as an intentional register choice (e.g. Simplified Technical English for international audiences), not evidence — they must not move Provenance. At 10%+ they corroborate but never lead.
-
-**v2.1 (2026-08-17)**
-
-- **Reweighted Craft categories** so unrevised prose carries real weight: Prose Craft 10%→25%; Sourcing 30%→25%, Accuracy 25%→20%, Specificity 20%→15% (Value-Add unchanged at 15%).
-- **Added the Prose-Revision Penalty Gate:** a tell-density measure over non-data sentences that *caps* the Craft total (6.5 / 5.0 / 4.0 by density band), floored at 4.0. Lets lazy prose override otherwise-strong substance without double-counting into the substance categories.
-- Clarified that the gate is Axis-B only and independent of Axis-A provenance: it punishes unrevised prose, not AI authorship.
+**v2.1 (2026-08-17)** — Reweighted Craft categories so unrevised prose bites: Prose Craft 10%→25%; Sourcing 30%→25%, Accuracy 25%→20%, Specificity 20%→15% (Value-Add unchanged). Added the Prose-Revision Penalty Gate: a tell-density cap on the Craft total (6.5 / 5.0 / 4.0 by band), Axis-B only and independent of provenance — it punishes unrevised prose, not AI authorship.
 
 **v2.0 (2026-08-17)**
 

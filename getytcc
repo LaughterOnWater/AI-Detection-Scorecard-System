@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
-"""getytcc — fetch a YouTube video's closed-caption transcript into the current folder.
+"""getytcc — fetch a YouTube video's captions (and description) into a folder.
 
 Usage:
-    getytcc <youtube video url> [-l en,de] [-o DIR] [--txt-only | --srt-only]
+    getytcc <youtube video url> [-l en,de] [-o DIR]
+            [--only-srt | --only-txt | --only-desc]
 
-Writes two files by default into the current directory:
-    <sanitized-title>_<videoId>.txt   (clean text, no timestamps)
-    <sanitized-title>_<videoId>.srt   (timestamped subtitles)
+By default writes two files into the current directory:
+    <sanitized-title>_<videoId>.srt              (timestamped subtitles)
+    <sanitized-title>_<videoId>_DESCRIPTION.txt  (the video's full description)
 
-Pure-Python, no binaries. Engine: youtube-transcript-api.
+Available on request:
+    <sanitized-title>_<videoId>.txt              (clean text, no timestamps)
+
+Pure-Python, no binaries. Engine: youtube-transcript-api — whose InnerTube
+player endpoint also carries the description, so no extra dependency is needed.
 """
 
 import argparse
@@ -48,6 +53,16 @@ DEFAULT_LANGS = "en,en-US,en-GB"
 OEMBED_URL = "https://www.youtube.com/oembed"
 HTTP_TIMEOUT = 10  # seconds
 MAX_NAME_LEN = 100
+# Browser-like UA for the watch page / InnerTube fetches used by the description.
+BROWSER_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+# Fallbacks if youtube-transcript-api ever moves these private constants.
+FALLBACK_WATCH_URL = "https://www.youtube.com/watch?v={video_id}"
+FALLBACK_INNERTUBE_API_URL = (
+    "https://www.youtube.com/youtubei/v1/player?key={api_key}"
+)
+FALLBACK_INNERTUBE_CONTEXT = {
+    "client": {"clientName": "ANDROID", "clientVersion": "20.10.38"}
+}
 
 
 def extract_video_id(url: str) -> str:
@@ -76,6 +91,16 @@ def extract_video_id(url: str) -> str:
     return candidate
 
 
+def _http_get_text(url: str, data: bytes | None = None) -> str:
+    """GET (or POST if `data` is given) and return the decoded body."""
+    headers = {"User-Agent": BROWSER_USER_AGENT}
+    if data is not None:
+        headers["Content-Type"] = "application/json"
+    request = urllib.request.Request(url, data=data, headers=headers)
+    with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT) as response:
+        return response.read().decode("utf-8", "replace")
+
+
 def fetch_title(video_id: str) -> str | None:
     """Fetch the video title via YouTube's oEmbed endpoint; None on any failure."""
     watch_url = f"https://www.youtube.com/watch?v={video_id}"
@@ -90,6 +115,47 @@ def fetch_title(video_id: str) -> str | None:
         title = data.get("title")
         return title if isinstance(title, str) and title.strip() else None
     except (urllib.error.URLError, json.JSONDecodeError, ValueError, OSError):
+        return None
+
+
+def fetch_description(video_id: str) -> str | None:
+    """Return the video's full description, or None on any failure.
+
+    Reuses the SAME InnerTube player endpoint youtube-transcript-api calls for
+    captions; that JSON response also carries videoDetails.shortDescription.
+    Imports the library's own endpoint constants so this tracks its maintenance
+    (client version, url), falling back to local copies if that private module
+    ever moves. This is not HTML-content scraping: the only thing lifted from
+    the watch page is the public INNERTUBE_API_KEY, exactly as the library does.
+    An empty description comes back as "" (not None) so the caller can tell an
+    empty description apart from a fetch failure.
+    """
+    try:
+        from youtube_transcript_api._settings import (
+            WATCH_URL,
+            INNERTUBE_API_URL,
+            INNERTUBE_CONTEXT,
+        )
+    except Exception:
+        WATCH_URL = FALLBACK_WATCH_URL
+        INNERTUBE_API_URL = FALLBACK_INNERTUBE_API_URL
+        INNERTUBE_CONTEXT = FALLBACK_INNERTUBE_CONTEXT
+
+    try:
+        html = _http_get_text(WATCH_URL.format(video_id=video_id))
+        match = re.search(r'"INNERTUBE_API_KEY":\s*"([\w-]+)"', html)
+        if not match:
+            return None
+        body = json.dumps(
+            {"context": INNERTUBE_CONTEXT, "videoId": video_id}
+        ).encode("utf-8")
+        payload = _http_get_text(
+            INNERTUBE_API_URL.format(api_key=match.group(1)), data=body
+        )
+        details = json.loads(payload).get("videoDetails", {})
+        description = details.get("shortDescription")
+        return description if isinstance(description, str) else None
+    except (urllib.error.URLError, OSError, ValueError):
         return None
 
 
@@ -119,8 +185,8 @@ def get_transcript(video_id: str, languages: list[str]):
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog="getytcc",
-        description="Fetch a YouTube video's closed-caption transcript "
-        "(.txt + .srt) into the current folder.",
+        description="Fetch a YouTube video's captions (.srt) and description "
+        "(_DESCRIPTION.txt) into the current folder.",
     )
     parser.add_argument("url", help="YouTube video URL")
     parser.add_argument(
@@ -132,9 +198,22 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "-o", "--outdir", default=".",
         help="Directory to write into (default: current folder).",
     )
+    # By default getytcc writes the .srt and the _DESCRIPTION.txt. Each --only-*
+    # flag restricts output to just that one file. The *-only names are kept as
+    # aliases so older invocations keep working.
     group = parser.add_mutually_exclusive_group()
-    group.add_argument("--txt-only", action="store_true", help="Write only the .txt file.")
-    group.add_argument("--srt-only", action="store_true", help="Write only the .srt file.")
+    group.add_argument(
+        "--only-srt", "--srt-only", dest="only_srt", action="store_true",
+        help="Write only the .srt (timestamped) file.",
+    )
+    group.add_argument(
+        "--only-txt", "--txt-only", dest="only_txt", action="store_true",
+        help="Write only the .txt (clean transcript, no timestamps) file.",
+    )
+    group.add_argument(
+        "--only-desc", dest="only_desc", action="store_true",
+        help="Write only the _DESCRIPTION.txt file.",
+    )
     return parser.parse_args(argv)
 
 
@@ -152,13 +231,13 @@ def main(argv: list[str]) -> int:
         print(f"ERROR: output directory does not exist: {outdir}", file=sys.stderr)
         return 2
 
-    languages = [code.strip() for code in args.lang.split(",") if code.strip()]
+    # Decide outputs. Default (no --only-* flag): the .srt and the description.
+    only_one = args.only_srt or args.only_txt or args.only_desc
+    want_srt = args.only_srt or not only_one
+    want_txt = args.only_txt
+    want_desc = args.only_desc or not only_one
 
-    try:
-        fetched = get_transcript(video_id, languages)
-    except CouldNotRetrieveTranscript as exc:
-        print(f"ERROR: {str(exc).strip()}", file=sys.stderr)
-        return 1
+    languages = [code.strip() for code in args.lang.split(",") if code.strip()]
 
     title = fetch_title(video_id)
     base = f"{sanitize_filename(title)}_{video_id}" if title else video_id
@@ -166,19 +245,61 @@ def main(argv: list[str]) -> int:
         base = video_id
 
     written: list[Path] = []
-    if not args.srt_only:
-        txt_path = outdir / f"{base}.txt"
-        with open(txt_path, "w", encoding="utf-8") as handle:
-            handle.write(TextFormatter().format_transcript(fetched))
-        written.append(txt_path)
-    if not args.txt_only:
-        srt_path = outdir / f"{base}.srt"
-        with open(srt_path, "w", encoding="utf-8") as handle:
-            handle.write(SRTFormatter().format_transcript(fetched))
-        written.append(srt_path)
+
+    # Transcript — only fetch it if a transcript file is actually wanted.
+    if want_txt or want_srt:
+        try:
+            fetched = get_transcript(video_id, languages)
+        except CouldNotRetrieveTranscript as exc:
+            print(f"ERROR: {str(exc).strip()}", file=sys.stderr)
+            return 1
+        if want_txt:
+            txt_path = outdir / f"{base}.txt"
+            with open(txt_path, "w", encoding="utf-8") as handle:
+                handle.write(TextFormatter().format_transcript(fetched))
+            written.append(txt_path)
+        if want_srt:
+            srt_path = outdir / f"{base}.srt"
+            with open(srt_path, "w", encoding="utf-8") as handle:
+                handle.write(SRTFormatter().format_transcript(fetched))
+            written.append(srt_path)
+
+    # Description — best effort, and never overwrite an existing file (it may
+    # hold hand-added notes). A description failure does not fail the run unless
+    # the description was the only thing asked for.
+    desc_failed = False
+    if want_desc:
+        desc_path = outdir / f"{base}_DESCRIPTION.txt"
+        if desc_path.exists():
+            print(
+                f"(kept existing {desc_path.name}; not overwritten)",
+                file=sys.stderr,
+            )
+        else:
+            description = fetch_description(video_id)
+            if description is None:
+                print(
+                    "WARNING: could not fetch the description — paste it "
+                    f"manually into {desc_path.name}.",
+                    file=sys.stderr,
+                )
+                desc_failed = True
+            else:
+                with open(desc_path, "w", encoding="utf-8") as handle:
+                    handle.write(description)
+                written.append(desc_path)
+                if description.strip() == "":
+                    print(
+                        f"(note: {desc_path.name} is empty — the video has no "
+                        "description)",
+                        file=sys.stderr,
+                    )
 
     for path in written:
         print(path)
+
+    if desc_failed and not written:
+        return 1
     return 0
 
 

@@ -30,7 +30,7 @@ The two axes run in **opposite directions** — Axis A is a *classification*
 (low = Human), Axis B is a *quality* score (high = good). That trips people up;
 label every number.
 
-### Key gates (v2.6)
+### Key gates
 
 - **The Gate** — once Axis A lands confidently on "human," stylistic tells stop
   counting as authorship evidence and drop to Axis-B craft notes.
@@ -49,27 +49,31 @@ label every number.
   moving mood-piece from a story actually told in image and song.
 
 The full rubric, scoring dials, worked examples, and the fill-in template live
-in **[AI-Detection-Scorecard-System-V2.6.md](AI-Detection-Scorecard-System-V2.6.md)**.
+in **[AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md)** (the
+current version is stated inside the file; it is **v2.7** as of this writing).
 
 ---
 
 ## `getytcc` — transcript fetcher
 
-Scoring a video starts with its transcript. `getytcc` fetches a YouTube video's
-closed captions into the current folder as a clean `.txt` and a timestamped
-`.srt`. Pure Python, one dependency, isolated in its own virtual environment.
+Scoring a video starts with its files. By default `getytcc` fetches **both** of
+them into the current folder: a timestamped `.srt` and the video's full
+description. Pure Python, one dependency, isolated in its own virtual environment.
 
 ```bash
 getytcc "https://www.youtube.com/watch?v=RCSSgxV9qNw"
-# → <title>_<videoId>.txt   (clean text for scoring)
-# → <title>_<videoId>.srt   (timestamps for line references)
+# → <title>_<videoId>.srt              (timestamps for line references)
+# → <title>_<videoId>_DESCRIPTION.txt  (the full description, for the gates)
 ```
 
 The `.srt` timestamps make it easy to give a line reference for every claim, as
-the rubric requires.
+the rubric requires. The description is read from the same source as the
+captions (no manual copy), and an existing `_DESCRIPTION.txt` is never
+overwritten — so run `getytcc` first, then add any grader notes inside it.
 
-> **Just want the subtitles?** `getytcc --srt-only "<url>"` writes only the
-> `.srt` and skips the `.txt`. (Use `--txt-only` for the reverse.)
+> **Want just one file?** `getytcc --only-srt "<url>"` writes only the `.srt`;
+> `--only-desc` only the description; `--only-txt` the clean no-timestamp text.
+> (The older `--srt-only` / `--txt-only` still work.)
 
 ### Install
 
@@ -91,7 +95,7 @@ prerequisites, manual install, and troubleshooting are in
 ```
 .
 ├── README.md                              ← you are here
-├── AI-Detection-Scorecard-System-V2.6.md  ← the rubric (the main artifact)
+├── AI-Detection-Scorecard-System.md       ← the rubric (the main artifact; version inside)
 ├── getytcc                                ← the transcript-fetcher script
 ├── install.sh                             ← installs getytcc + its venv
 ├── requirements.txt                       ← getytcc's one dependency
@@ -103,24 +107,22 @@ prerequisites, manual install, and troubleshooting are in
 
 ## Typical workflow
 
-1. **Fetch the transcript:** `getytcc "<youtube-url>"` → `<title>_<id>.txt`
-   (and a timestamped `.srt`).
-2. **Capture the description:** open the YouTube video's description and copy the
-   parts that matter for scoring — companion-source links (paper, repo, dataset,
-   notes), any reviewer/user **attestation** of hands-on work, and any "AI voice /
-   synthetic narration" **disclosure** — into a sibling file
-   `<title>_<id>_DESCRIPTION.txt`. This isn't busywork: the Companion-Source rule,
-   the Embodiment Gate, and the Delivery-Medium Gate all read the description, and
-   **without it those gates can't fire** — well-sourced, human-led work can get
-   wrongly convicted as AI slop.
+1. **Fetch the files:** `getytcc "<youtube-url>"` → a timestamped `<title>_<id>.srt`
+   **and** the full `<title>_<id>_DESCRIPTION.txt`, in one call. Keep each video's
+   files in their own folder (e.g. `cc/NY-rats/`). The description feeds the
+   Companion-Source rule, the Embodiment Gate, and the Delivery-Medium Gate — the
+   gates that keep well-sourced, human-led work from being wrongly convicted.
+2. **Add any notes (optional):** drop a grader note inside `_DESCRIPTION.txt` after
+   fetching — what you know about the delivery medium, an attestation, a hunch.
+   `getytcc` won't overwrite the file, so run it first, then annotate.
 3. **Hand it to a trusted AI:** give Claude (or another trusted assistant) the
-   rubric — [AI-Detection-Scorecard-System-V2.6.md](AI-Detection-Scorecard-System-V2.6.md) —
-   plus the transcript and description files, and ask it to score the content
-   using that system. It scores **Axis A first**, applies the gates, then **Axis B**,
-   then runs the Net-Value relay test for Axis C, giving a timestamp/line reference
-   (from the `.srt`) for every claim.
-4. **Save the scorecard** as `<title>_<id>_SCORE.txt` — plain text, because the
-   output is designed to paste straight into a YouTube comment.
+   rubric — [AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md) —
+   plus the video's folder, and ask it to score using that system. It scores
+   **Axis A first**, applies the gates, then **Axis B**, then runs the Net-Value
+   relay test for Axis C, giving a timestamp/line reference (from the `.srt`) for
+   every claim.
+4. **Save the scorecard** as `<title>_<id>_SCORE.txt` in the same folder — plain
+   text, because the output is designed to paste straight into a YouTube comment.
 
 > **Tell the scorer what you know.** In your prompt, say whether the video is a
 > **real person speaking, an AI voice, or an AI avatar** — this keeps an AI voice
@@ -136,9 +138,9 @@ for one video sorts together in the folder:
 
 | File | Source |
 | --- | --- |
-| `<title>_<id>.txt` | transcript (getytcc) |
-| `<title>_<id>.srt` | subtitles / timestamps (getytcc) |
-| `<title>_<id>_DESCRIPTION.txt` | the video description (you paste it) |
+| `<title>_<id>.srt` | subtitles / timestamps (getytcc, default) |
+| `<title>_<id>_DESCRIPTION.txt` | the video description (getytcc, default; you may annotate) |
+| `<title>_<id>.txt` | clean no-timestamp transcript (getytcc `--only-txt`) |
 | `<title>_<id>_SCORE.txt` | the finished scorecard (the AI writes it) |
 
 ---
