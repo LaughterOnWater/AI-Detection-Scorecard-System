@@ -1,4 +1,4 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.7
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.9.1
 
 ## What This Is
 
@@ -26,7 +26,7 @@ The Gate is the core move: once Axis A lands confidently on "human," the stylist
 2. **EXCLUDE platform-generated elements** (YouTube chapters, timestamps, auto-captions).
 3. **IGNORE caption transcription errors** (misspelled names, garbled technical terms). Assess the *intended* wording.
 4. **Score Axis A (Provenance) first**, using only the Provenance Signals. Record the delivery medium (Delivery-Medium Gate, v2.5) — attested synthetic narration is scored as written prose, so spoken-voice signals do not apply.
-5. **Apply the Gate**, then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2.
+5. **Apply the Gate via the Two-Layer Read** (v2.9 — measure the AI-structural scaffold and the human hand independently, then compare; the gates are its regions), then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2.
 6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
 8. Provide a timestamp or line reference for every claim.
@@ -156,6 +156,32 @@ Blandifiers, throat-clearing, vague assertions, foggy attribution, corporate spe
 
 The gate exists so that an obviously human speaker isn't convicted of being AI for the crime of talking loosely.
 
+## The Two-Layer Read (v2.9)
+
+Provenance has one job — who *produced* the text — but two hands can be in any piece: the **generative** hand that drafted the structure and the sentences, and the **editorial** hand that touched the draft afterward (inserted a line, fixed a name, added a personal aside). The original Gate collapses them: the moment it sees one genuine human voice-marker it routes to the human pole and demotes every structural tell to craft. That protects a loose human talker, but it has a blind spot that is now the common case — an AI draft with a few human edits dropped in. A single inserted anecdote is not authorship of the draft; it is the editorial hand.
+
+**The method: measure the two layers independently, then compare.** Do NOT let a human marker close the read before the machine scaffold has been counted on its own.
+
+1. **AI-structural scaffold.** Measure it first, on its own terms: the structural-tell density (the same non-data measure the Prose-Revision Penalty Gate uses) AND, decisively, whether the tells are *regularly placed* — at section seams, on every emotional beat, at each pivot. Regular placement is the machine's generative signature; irregular, event-driven tells are not. Report the density band and whether placement is regular.
+2. **Human hand.** Measure it separately: the Strong human signals (disfluency/self-correction, owned opinion with a personal stake, personal anecdote, drifting register, self-authored analogy). The question is not merely *present vs. absent* but *pervasive vs. localized* — does the human voice drive the whole text, or does it punctuate a scaffold with a few insertions?
+3. **Compare.** The pairing sets the band:
+
+| AI-structural scaffold | Human hand | → Provenance |
+| ---------------------- | ---------- | ------------ |
+| thin (<15%) | pervasive — drives the text | 2–4 (Human) — the original Gate's protected case |
+| thin | localized | 3–5 (Human, lightly assisted) |
+| moderate–heavy (15–50%), regular | **sparse / localized insertions** | **7–8 (AI, human-edited) — the Edited-AI signature** |
+| roughly matched | present, not dominant | 5–6 (Hybrid — tells count, per the Gate) |
+| total (>50%), regular | absent | 9.5 (raw AI — the Provenance Floor Gate) |
+
+**The gates are regions of this one comparison.** The original Gate is the top-left (thin scaffold, human drives → human pole). The Provenance Floor Gate is the bottom-right (total scaffold, no hand → 9.5). The **Edited-AI** row is the case v2.9 adds: a pervasive, *regular* AI scaffold carrying only sparse, localized human insertions is an AI draft that a human briefed and lightly edited without catching the tells. Score it 7–8 — mostly AI, human touch limited to editing. The insertions keep it off 9–10 (not raw output); they do not make the draft human-authored. This also sharpens the Floor Gate's release clause: a lone voice-marker lifts the 9.5 floor but returns you to *this comparison*, not to the human pole — against a heavy scaffold, one marker lands at 7–8, not 2–4.
+
+**"Dominate" means pervasiveness, not presence.** The original Gate's step 2 ("if strong human signals dominate → human") requires the human voice to *drive* the text, not merely appear in it. A few inserted anecdotes against a pervasive, regular AI scaffold do not dominate — that is the mistake the Two-Layer Read exists to stop.
+
+**Guardrail — do not cry AI at a formulaic human.** A human writing to an internalized format (hook, signpost each section, punchy beat, mid-roll CTA) can also produce regularly-placed tells with no machine involved. Stay in the Hybrid band (5–6) on the text alone unless the tells are the *characteristic AI structural signatures* (the colon-label header, the "why this matters" signpost, the balanced flip, the glossary-quote) AND at least one corroborator holds: the same template repeating across the creator's catalogue (a pipeline signature), or grader knowledge of the workflow. Those corroborators are what license moving an ambiguous text-alone read onto the AI pole. This mirrors the asymmetry the system already keeps — the AI pole is text-licensable (the Floor Gate reads structure off the page), but a confident classification of an otherwise ambiguous case still wants evidence beyond one transcript.
+
+This is authorship reasoning only; it never touches Axis B. A machine draft can carry excellent sourcing and a moving story — score that on Craft, independently, exactly as before.
+
 ## The Provenance Floor Gate (v2.2)
 
 The mirror of the original Gate. That one protects a human who writes loosely; this one refuses to hand a human verdict to text that shows no human in it. Structural AI cadence with no distinctive human voice is, for scoring purposes, AI — and curation or correct facts do not rescue it (see NOT authorship signals).
@@ -164,7 +190,7 @@ The mirror of the original Gate. That one protects a human who writes loosely; t
 1. Structural tell density **> 50%** of non-data sentences (same measure the Prose-Revision Penalty Gate uses), AND
 2. **No distinctive human voice** anywhere in the delivered text — none of the Strong human signals (disfluency/self-correction, owned opinion with a personal stake, personal anecdote, drifting register, self-authored analogy).
 
-**Effect:** Provenance is **floored at 9.5/10** (raw AI). The burden flips: absent positive evidence of a human hand *in the prose*, the text cannot claim a more-human score on the strength of its research alone. A single genuine voice-marker in the delivered text lifts the floor and returns you to normal Gate scoring.
+**Effect:** Provenance is **floored at 9.5/10** (raw AI). The burden flips: absent positive evidence of a human hand *in the prose*, the text cannot claim a more-human score on the strength of its research alone. A single genuine voice-marker in the delivered text lifts the floor and returns you to the Two-Layer Read (v2.9) — not automatically to the human pole; against a heavy, regular scaffold, one marker lands at 7–8 (Edited-AI).
 
 Rationale: you cannot prove a human was in the loop from facts and distinctions a model could have produced unaided. The only proof of human authorship is human voice; its total absence, under heavy AI-structural cadence, is the signature of raw or barely-touched AI output. The user's real failure is not bad research — it is never having worked the draft into a voice of their own.
 
@@ -485,7 +511,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.7)
+ AI-DETECTION SCORECARD (v2.9.1)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -597,7 +623,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.7
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.9.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -605,11 +631,25 @@ Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genr
  COPY / PASTE — POST THIS  (everything above is working notes)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-This is the ONLY part actually posted. Repeat the header block so the comment
-identifies itself, then write four short paragraphs of plain prose. The paragraphs
+This is the ONLY part actually posted. Lead with the HEADER block so the comment
+identifies itself (see HEADER below — it is a fixed template, like P1), then write
+four short paragraphs of plain prose. The paragraphs
 are judged by this same rubric, so they have to pass it: no "not X, it's Y", no
 staccato profundity fragments, no stacked triples, no throat-clearing, no em-dash
 cadence. Keep it specific, and vary the sentence shapes.
+
+Spoken register — contractions (required): write the comment the way a person
+actually talks. Use contractions naturally (it's, you're, isn't, didn't, here's,
+that's); you do NOT have to contract every time, and you should NOT — hold the full
+form where a speaker would lean on it for emphasis (a flat "there is no rig, no
+terminal, no raw clip" lands harder than the contracted version). The failure mode
+to avoid is the opposite extreme: shipping straight uncontracted prose reads as
+Simplified Technical English, which is the very machine register this system flags
+as the "no contractions in spoken content" tell (see Strong AI signals). The mix is
+the point — mostly contracted, a few deliberate full forms for stress. NOTE: this
+governs only the voice of the *posted comment*; how the scored piece itself handles
+contractions stays a separate Axis-A question under the Delivery-Medium and
+co-occurrence rules.
 
 Voice and addressee (v2.7): write the comment as the person publishing it, speaking
 directly to the video's creator. First person "I" is the poster; second person "you"
@@ -623,7 +663,17 @@ Emphasis: YouTube renders `*word*` as BOLD and `_word_` as italic (and nothing
 else — no tables, headers, or backticks). Light emphasis on the axis names is fine;
 do not lean on it.
 
-  P1 — what the two scores mean, including the 1–10 direction of each axis.
+  HEADER — the FIXED title block, and it always leads the posted comment (before P1).
+       Paste it verbatim from the top of the working-notes card so the two never drift:
+       the rule line, "AI-DETECTION SCORECARD (vX.Y)", the [Title], then
+       "[Date] · [Platform] · Genre: [___]", and the closing rule line. Fill the four
+       fields (title, date, platform, genre) with the SAME values already used in the
+       working-notes header — in particular use ONE genre label in both places, do not
+       re-word it per block. Like the P1 opener, it is templated, not re-authored per
+       video; only the four fields and the version number change.
+  P1 — the FIXED method opener, pasted verbatim (see FIXED P1 OPENERS below). Use the
+       two-axis version by default; use the three-axis version ONLY when Axis C fired. Do
+       NOT rewrite it per video — it is invariant across videos and pre-vetted for tells.
   P2 — Provenance: the number and label, plus one or two worst offenders with timestamps.
   P3 — Craft: the number (and "raw X.X, capped to Y" if a gate fired), plus one or two worst offenders.
        When the Penalty Gate cap applied, explain it in plain terms, e.g.:
@@ -631,23 +681,73 @@ do not lean on it.
        half of what's left is the same rhetorical gimmick, the writing is judged
        unrevised AI. Unfortunately for this segment, that hard-caps the craft score
        at [Y]."
+  RECEIPTS — a short labeled tell block, shown when tell density drove the Craft cap
+       OR pushed Provenance toward the AI pole on structural signals (skip it for a
+       clean human piece with nothing to show). It exists so the reader can see the
+       number was counted, not guessed. Rules:
+       - One tell per line, at most FOUR lines. More than four turns the receipts
+         into the very over-listing they indict, and pads the comment — pick the
+         loudest few.
+       - Reader-facing aliases, not spec jargon: "balanced flip" (not "Tell #1"),
+         "profundity beat" (not "staccato profundity-fragment"), "stacked triple,"
+         "numbered scaffold," "throat-clearing."
+       - Each line: the alias in *bold*, the count, then ONE quoted example with a
+         timestamp. No em dashes; use a colon or parentheses as the separator.
+       - Close with the density in plain words ("about one in three of every sentence
+         that is not just a number") so the block ties back to the cap.
+       - Quote the creator's words; never paraphrase a tell into your own voice. This
+         block QUOTES tells as evidence, so it is the one exemption to the "no triples,
+         no profundity fragments" self-check above — the surrounding prose still obeys it.
+       Format (label-led):
+         Where the craft number comes from, a few of the patterns I counted:
+         *Numbered scaffold* (6x): "..." (from [ts])
+         *Balanced flip* (4x): "..." ([ts])
+         *Profundity beat* (8x): "..." ([ts])
+         That is about one in three of every sentence that is not just a number.
   P4 — open with a bold one-line score strip, then the bottom line and challenge:
        *Final Scores:* *Provenance* [X] | *Craft* [X.X] | *[verdict tag, e.g. Lazy User - AI Slop]*
        If Net Value fired (Axis C below zero), lead the strip with it and make it the tag:
        *Final Scores:* *Net Value* [−X] | *Provenance* [X] | *Craft* [X.X] | *Worse Than Useless*
        Reserve "AI Slop" for the AI + unrevised case that still added something (Axis C did NOT fire).
 
+  FIXED P1 OPENERS (paste P1 verbatim — do NOT rewrite it per video; each version has
+  already passed the self-check, and re-deriving it only risks introducing tells). Use the
+  two-axis opener by default; use the three-axis opener ONLY when Axis C (Net Value) fired,
+  because the two-axis wording is wrong once a third score is on the card.
+
+  Two-axis (default — Axis C did NOT fire):
+    For your score card, I created two scores on different axes. Provenance is 1 to 10,
+    where a 1 means the writing reads as fully human and a 10 means it reads as fully
+    machine. Neither end is good or bad on its own, since it's only a call about who or
+    what actually wrote the words. The second is craft, also scored 1 to 10, where a 1 is
+    lazy or padded and a 10 is genuinely well crafted for its genre. Scores are independent
+    because a script can score very human and still be awful, or very AI but still superbly
+    written.
+
+  Three-axis (use ONLY when Axis C — Net Value — fired):
+    For your score card, I created three scores on different axes. Provenance is 1 to 10,
+    where a 1 means the writing reads as fully human and a 10 means it reads as fully
+    machine. Neither end is good or bad on its own, since it's only a call about who or
+    what actually wrote the words. The second is craft, also scored 1 to 10, where a 1 is
+    lazy or padded and a 10 is genuinely well crafted for its genre. The third is net
+    value, which runs from 0 down to −10 and only appears when a video comes out negative.
+    It fires when the piece mostly relays what its own sources already say, so a viewer
+    would have been better off going straight to those sources. When it's on the card it's
+    the headline, and the other two scores sit underneath it.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.7)
+ AI-DETECTION SCORECARD (v2.9.1)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[paragraph 1]
+[paragraph 1 — FIXED opener, pasted verbatim: two-axis by default, three-axis if Axis C fired]
 
 [paragraph 2]
 
 [paragraph 3]
+
+[receipts block — 3 to 4 labeled tell lines + density line; omit if nothing to show]
 
 [paragraph 4]
 ```
@@ -717,7 +817,13 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 
 ## Changelog
 
-**v2.7 (2026-08-30)** — `getytcc` now writes the full description (`<base>_DESCRIPTION.txt`) alongside the `.srt` from the same InnerTube response (no manual copy step; won't overwrite an existing description file; default output is `.srt` + `_DESCRIPTION.txt`, with `--only-srt`/`--only-txt`/`--only-desc`). Recommended layout: one folder per video under `cc/`. Pinned the posted-comment voice: the poster speaks directly to the creator ("I" = poster, "you" = youtuber) and never leaks the grading conversation — triggered by a leak seen in real gradings. No scoring-logic change from v2.6; rubric file is now version-agnostically named (version lives inside).
+**v2.9.1 (2026-09-09)** — Restored the posted-comment HEADER as a first-class template element. The copy/paste comment must lead with the same scorecard header block that tops the working notes — the rule line, "AI-DETECTION SCORECARD" plus version, the Title, then Date · Platform · Genre, and the closing rule line — before the FIXED P1 opener, pasted from the working-notes card so the two never drift (in particular, one genre label in both). This had always been shown in the paste skeleton and mentioned in passing, but it was never enumerated alongside P1–P4, and recent revisions let graders re-type it and drift it (e.g. "History explainer" in the posted block vs. "Explainer / Food History" in the working notes). Now enumerated as HEADER, parallel to the fixed P1 opener. Documentation only — no scoring-logic change to any axis or gate; nothing scored under v2.9 needs rescoring.
+
+**v2.9 (2026-09-08)** — Added the Two-Layer Read to Axis A: score the AI-structural scaffold (tell density AND regularity of placement) and the human hand (voice markers, weighed pervasive vs. localized) *independently*, then compare — so a few human insertions can no longer close the read on "human" before the machine scaffold is counted. Names the Edited-AI signature: a pervasive, regularly-placed AI scaffold carrying only sparse, localized human insertions is an AI draft that a human briefed and lightly edited without catching the tells → Provenance 7–8 (mostly AI, human touch limited to editing), not the human pole. Recast the original Gate, the Provenance Floor Gate, and this new case as regions of one comparison; clarified that "dominate" in the Gate means pervasiveness, not mere presence; sharpened the Floor Gate's release clause (a lone voice-marker returns you to the comparison, not to the human pole). Guardrail retained against convicting a formulaic human: stay Hybrid (5–6) on text alone unless the tells are the characteristic AI signatures AND a corroborator holds (catalogue-wide template, or known workflow). Triggered by the newfiestick "German torpedo" grading, where sparse but genuine human touches had wrongly pulled an AI-drafted, human-edited script to the human pole (2, then 3); corrected to 7. No change to Axis B or Axis C mechanics.
+
+**v2.8 (2026-09-08)** — Fixed the copy-paste P1 opener as verbatim boilerplate: the method explanation (the two/three axes and their 1–10 directions) is invariant across videos, so it is now pasted, not re-authored each time — removing a recurring spot where re-derivation could introduce tells. Two versions are defined under the copy-paste spec: a two-axis default and a three-axis variant used ONLY when Axis C (Net Value) fired, since the two-axis wording is wrong once a third score is on the card. Per-video paragraphs (P2–P4) and the receipts block are unchanged. No scoring-logic change.
+
+**v2.7 (2026-08-30)** — `getytcc` now writes the full description (`<base>_DESCRIPTION.txt`) alongside the `.srt` from the same InnerTube response (no manual copy step; won't overwrite an existing description file; default output is `.srt` + `_DESCRIPTION.txt`, with `--only-srt`/`--only-txt`/`--only-desc`). Recommended layout: one folder per video under `cc/`. Pinned the posted-comment voice: the poster speaks directly to the creator ("I" = poster, "you" = youtuber) and never leaks the grading conversation — triggered by a leak seen in real gradings. No scoring-logic change from v2.6; rubric file is now version-agnostically named (version lives inside). Addendum (2026-09-08): added the RECEIPTS block to the copy/paste comment — a short labeled tell list (at most four lines, reader-facing aliases, count + one quoted example + timestamp each, closing with the plain-words density) shown when tell density drove the Craft cap or pushed Provenance toward AI, so the reader can see the number was counted, not guessed. It is the one exemption to the comment's no-triples/no-profundity self-check because it quotes tells as evidence rather than committing them. Still no scoring-logic change: receipts only surface counts already computed by the Prose-Revision Penalty Gate. Also added a spoken-register requirement for the posted comment: write it with natural contractions (not every time; hold the full form for emphasis), because straight uncontracted prose reads as the STE / "no contractions in spoken content" machine register the system itself flags — a comment-voice rule only, independent of the scored piece's Axis-A contraction analysis.
 
 **v2.6 (2026-08-17)** — Added the AI Art / Generative Media genre and "Scoring AI Art" section: for disclosed AI art, Provenance labels the human/AI mix without moral valence, Axis B is reinterpreted for artistic craft, the prose gates and Cheat-Sheet tells do not fire on lyrics/visuals, and the **narrative-vs-tableau ceiling** caps a mood-only tableau short of 9–10 (genre exception for work whose form *is* the mood). Triggered by disclosed generative work breaking the two-axis machine. Extended the Companion-Source rule across a series — the companion can be an earlier episode that documented the method.
 
