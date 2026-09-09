@@ -1,4 +1,4 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.9.1
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.9.2
 
 ## What This Is
 
@@ -271,6 +271,11 @@ Reweighting makes lazy prose *cost* more; the gate makes it *cap* the score. The
 
     density = tell-bearing non-data sentences ÷ total non-data sentences
 
+**v2.9.2 — count it, don't eyeball it (consistency across reviews).** The density is one *measured* quantity, and it feeds two gates at once — the cap bands below AND the Provenance Floor Gate (>50%). Counting and reporting are different jobs, and only the first sets the score:
+- **Counting is exhaustive.** Sweep the transcript once and tag every non-data sentence with any structural tell it carries from the fixed set in Step 1 (a sentence with one or more counts once toward density; note each tell for the tallies). Do NOT sample a few loud tells and estimate the rest — that is how the count drifts from one review to the next. Numbered / step scaffolds ("first… second… third…", "the first layer… the fourth layer…") count under habitual rules-of-three / over-listing; do not overlook them.
+- **Reporting is selective.** The receipts block in the posted comment is capped at four lines, so *there* you pick the loudest few. That selection never changes the density — it only presents it.
+- **Near a boundary, tally; inside a band, estimate.** When the ratio lands comfortably inside a band (say ~20% or ~60%), a careful estimate is fine. When it lands near a threshold (15 / 30 / 50%), where a few sentences flip the cap or trip the Floor Gate, do the literal per-sentence count instead of eyeballing a band. The thresholds are hard, so the measurement has to be too.
+
 **Step 2 — Apply the cap.** Final Craft = **min(weighted total, cap)**:
 
 | Tell density (non-data sentences) | Reading | Craft cap |
@@ -511,7 +516,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.9.1)
+ AI-DETECTION SCORECARD (v2.9.2)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -623,7 +628,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.9.1
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.9.2
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -736,7 +741,7 @@ do not lean on it.
     the headline, and the other two scores sit underneath it.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.9.1)
+ AI-DETECTION SCORECARD (v2.9.2)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -816,6 +821,8 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 ---
 
 ## Changelog
+
+**v2.9.2 (2026-09-09)** — Spelled out how to *count* structural-tell density so reviews are reproducible. The density is one measured ratio that feeds both the Penalty Gate cap bands and the Provenance Floor Gate (>50%), so the count must be an exhaustive one-sweep tally over the fixed tell set (data sentences excluded, placement test applied), NOT a chase of whichever tells surface loudest. Distinguished counting (exhaustive — sets the score) from reporting (the four-line receipts block, which selects the loudest few and never changes the density), and added the rule: near a band threshold (15/30/50%), do the literal per-sentence count instead of estimating a band. Noted that numbered/step scaffolds count under rules-of-three / over-listing. Triggered by the spelt/Medieval Way grading, where triples were undercounted (~6 vs ~16) and the eyeballed density sat just under 50%; a real count put it over, firing the Floor Gate (Provenance 9→9.5) and dropping the cap (4.0→2.0). No change to the gates, thresholds, or axes — only to how their shared input is measured.
 
 **v2.9.1 (2026-09-09)** — Restored the posted-comment HEADER as a first-class template element. The copy/paste comment must lead with the same scorecard header block that tops the working notes — the rule line, "AI-DETECTION SCORECARD" plus version, the Title, then Date · Platform · Genre, and the closing rule line — before the FIXED P1 opener, pasted from the working-notes card so the two never drift (in particular, one genre label in both). This had always been shown in the paste skeleton and mentioned in passing, but it was never enumerated alongside P1–P4, and recent revisions let graders re-type it and drift it (e.g. "History explainer" in the posted block vs. "Explainer / Food History" in the working notes). Now enumerated as HEADER, parallel to the fixed P1 opener. Documentation only — no scoring-logic change to any axis or gate; nothing scored under v2.9 needs rescoring.
 
