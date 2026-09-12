@@ -1,16 +1,19 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.9.2
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.10
 
 ## What This Is
 
-An AI-detection scorecard: a rubric for judging a piece of writing — or a talking-head video's transcript — on **three independent axes**, kept deliberately apart so one number never has to answer two different questions.
+An AI-detection scorecard: a rubric for judging a piece of writing — or a talking-head video's transcript — on **four independent axes**, kept deliberately apart so one number never has to answer two different questions.
 
 The mistake it exists to prevent is collapsing *who wrote it* and *whether it's any good* into a single "AI score." Those are different questions. The stylistic tells people treat as proof of AI — blandifiers, vague attribution, assert-without-mechanism — are *correlated* with AI, not *exclusive* to it; humans talking off the cuff do all of them. Once strong human signals are present (a named person, first-person ownership, spoken self-correction), counting those same tells toward an "AI score" is double-counting. **Sloppy ≠ synthetic.** A human can write garbage; an AI can write cleanly. And whether the author did original work or summarized someone else's is a *genre and value* judgment, not an authorship one — folding it into provenance punishes every honest explainer.
 
-So the scorecard splits the work into three axes, with a gate between the first two:
+So the scorecard splits the work into four axes, with a gate between the first two:
 
 - **Axis A — Provenance (who wrote it):** Human ↔ AI, judged **first**, from authorship signals only.
 - **Axis B — Craft & Rigor (how good it is):** quality relative to genre — where prose tells, sourcing, and derivativeness live, as craft feedback rather than authorship evidence.
 - **Axis C — Net Value (did it deserve to exist):** conditional; runs 0 → −10 and prints only when negative, for a piece that merely relays what its own sources already say.
+- **Axis D — Influence Gaming (is it honest about what it is):** conditional; runs 0 → −10 and prints only when negative, for a piece that reads as promotion wearing an independent creator's clothes. Unlike A–C it is an explicitly labeled **opinion** ("this comes across to me as…"). When it fires it leads the verdict, above Axis C.
+
+Axes C and D are the two conditional, negative-only axes: you compute them but print them only when they go below zero, and most scorecards show neither.
 
 **The two axes run in opposite directions — this trips people up.** Axis A is a *classification* (low = Human, high = AI; **neither pole is inherently "good"**). Axis B is a *quality* score (**high = good, low = bad**). Always print the pole label next to the number, e.g. `Provenance 2/10 (Human) · Craft 7.5/10 (good)`.
 
@@ -29,9 +32,10 @@ The Gate is the core move: once Axis A lands confidently on "human," the stylist
 5. **Apply the Gate via the Two-Layer Read** (v2.9 — measure the AI-structural scaffold and the human hand independently, then compare; the gates are its regions), then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2.
 6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
-8. Provide a timestamp or line reference for every claim.
-9. Report all scores (Axis C only if it fired) and a one-line verdict. Add the challenge to the creator.
-10. **Save the finished scorecard** as a sibling file named `<title>_<id>_SCORE.txt`, reusing the exact `<title>_<id>` base from the transcript so all of a video's files sort together. Keep it **plain text** — the template output is designed to paste directly as a YouTube comment (see OUTPUT FORMAT below), so do not save it as markdown.
+8. **Apply the Influence Gaming Gate (v2.10):** does the piece advance a specific commercial or ideological interest while disguising that function behind an independent-creator posture, and does it come across to you (or to the person requesting the score) as manufactured authenticity? If not, leave Axis D unscored. If so, score Axis D — Influence Gaming — as a negative number using the severity dials, **stated as an opinion and grounded in named signals**, and let it become the headline verdict (above Axis C if both fired). Never assert payment, ownership, or coordination as fact.
+9. Provide a timestamp or line reference for every claim.
+10. Report all scores (Axes C and D only if they fired) and a one-line verdict. Add the challenge to the creator.
+11. **Save the finished scorecard** as a sibling file named `<title>_<id>_SCORE.txt`, reusing the exact `<title>_<id>` base from the transcript so all of a video's files sort together. Keep it **plain text** — the template output is designed to paste directly as a YouTube comment (see OUTPUT FORMAT below), so do not save it as markdown.
 
 ---
 
@@ -117,7 +121,15 @@ Axis C (Net Value) almost never fires on original art — a made song is the opp
 
 Score these **first**, before touching the Tell Cheat Sheet.
 
-### Strong human signals (hard to fake)
+### Strong human signals — genuine voice, NOT mere first-person (v2.9.3)
+
+**Classify tells first, and register-blind.** Before any sentence can count as a human signal it must survive the tell sweep (the Prose-Revision Penalty Gate's fixed set). A sentence that carries a structural tell CANNOT also be a human signal, and first-person register buys no exemption. The discriminator is **form, not person**: a profundity beat phrased "the line I trust most because it cost them something to say" is a profundity beat — it counts toward tell density like any other, and the "I" is a disguise, not a credit. Modern models emit owned opinion, anecdote, self-correction, and self-authored analogy natively; it is the default costume of a script told to "sound human." So the *presence* of first-person is near-zero evidence of a human author, and against a regular scaffold it corroborates AI rather than rebutting it.
+
+A surviving (tell-free) line counts as genuine human voice only if it clears ONE bar:
+- **Separable from the scaffold** — it leaves a seam: a register break, friction, a tangent the machine structure did not want. A real edit reads as *inserted into* the draft, not *generated with* it. Smooth, on-theme, equally-polished first-person is scaffold, not hand.
+- **Checkable lived specificity** — idiosyncratic, verifiable detail a model could not get from the sources ("it crashed three times before it worked, on my 2019 laptop"). Checkable is not verified: it still caps at 2 without Embodiment Confirmation.
+
+The markers that CAN clear those bars (then weighed pervasive vs. localized, per the Two-Layer Read) — each shown in its genuine, plainly-stated form, not its beat-dressed imitation:
 - Spoken disfluency and self-correction ("the die will look... where right now we're just using pi as an example").
 - First-person ownership of opinions with a personal stake ("I probably wouldn't advise people to switch").
 - A specific, named identity and bio; personal anecdote.
@@ -129,7 +141,7 @@ Score these **first**, before touching the Tell Cheat Sheet.
 ### NOT authorship signals (v2.2 — do NOT credit these as "human")
 - **Research, sourcing, and curation** — finding primary sources, citing them, mapping claims to them, disavowing aggregators. AI does all of this natively.
 - **Finding or articulating theoretical, mathematical, or conceptual distinctions** — catching a sign convention, disambiguating two estimates, steel-manning a counterargument. Current AI is as good as or better than most humans at this. It is NOT evidence of a human author.
-- **Generic first-person accountability copy** — "I checked every source," "I will pin corrections." A model produces this on request. Only first-person with a *personal stake or lived specificity* counts (see Strong human signals).
+- **Generic first-person accountability copy** — "I checked every source," "I will pin corrections." A model produces this on request. First-person in **profundity-beat form** ("the line I trust most because it cost them something to say") is a tell, not a credit: it counts toward tell density (v2.9.3). Only plainly-stated first-person with a *personal stake or lived specificity*, that survives the tell sweep and is separable or checkable, counts (see Strong human signals).
 
 Good research means the *work* is good (that is Axis B). It says nothing about *who wrote the sentences* (Axis A). Do not launder substance into a human-provenance verdict — that was the mistake v2.2 closes.
 
@@ -163,7 +175,7 @@ Provenance has one job — who *produced* the text — but two hands can be in a
 **The method: measure the two layers independently, then compare.** Do NOT let a human marker close the read before the machine scaffold has been counted on its own.
 
 1. **AI-structural scaffold.** Measure it first, on its own terms: the structural-tell density (the same non-data measure the Prose-Revision Penalty Gate uses) AND, decisively, whether the tells are *regularly placed* — at section seams, on every emotional beat, at each pivot. Regular placement is the machine's generative signature; irregular, event-driven tells are not. Report the density band and whether placement is regular.
-2. **Human hand.** Measure it separately: the Strong human signals (disfluency/self-correction, owned opinion with a personal stake, personal anecdote, drifting register, self-authored analogy). The question is not merely *present vs. absent* but *pervasive vs. localized* — does the human voice drive the whole text, or does it punctuate a scaffold with a few insertions?
+2. **Human hand.** Measure it separately, and only from lines that SURVIVED the tell sweep (v2.9.3: a first-person profundity beat is a tell counted toward the scaffold, not a voice-marker; a surviving marker counts as human hand only if it is separable from the scaffold or carries checkable lived specificity): the Strong human signals (disfluency/self-correction, owned opinion with a personal stake, personal anecdote, drifting register, self-authored analogy). A scaffold whose only "human" lines are polished first-person beats has NO human hand. The question is not merely *present vs. absent* but *pervasive vs. localized* — does the human voice drive the whole text, or does it punctuate a scaffold with a few insertions?
 3. **Compare.** The pairing sets the band:
 
 | AI-structural scaffold | Human hand | → Provenance |
@@ -188,9 +200,9 @@ The mirror of the original Gate. That one protects a human who writes loosely; t
 
 **Trigger (BOTH must hold):**
 1. Structural tell density **> 50%** of non-data sentences (same measure the Prose-Revision Penalty Gate uses), AND
-2. **No distinctive human voice** anywhere in the delivered text — none of the Strong human signals (disfluency/self-correction, owned opinion with a personal stake, personal anecdote, drifting register, self-authored analogy).
+2. **No distinctive human voice** anywhere in the delivered text — none of the Strong human signals (disfluency/self-correction, owned opinion with a personal stake, personal anecdote, drifting register, self-authored analogy). (v2.9.3: a first-person profundity beat is NOT a voice-marker — it is a tell that counts toward trigger 1's density, and it does not satisfy this condition.)
 
-**Effect:** Provenance is **floored at 9.5/10** (raw AI). The burden flips: absent positive evidence of a human hand *in the prose*, the text cannot claim a more-human score on the strength of its research alone. A single genuine voice-marker in the delivered text lifts the floor and returns you to the Two-Layer Read (v2.9) — not automatically to the human pole; against a heavy, regular scaffold, one marker lands at 7–8 (Edited-AI).
+**Effect:** Provenance is **floored at 9.5/10** (raw AI). The burden flips: absent positive evidence of a human hand *in the prose*, the text cannot claim a more-human score on the strength of its research alone. A single genuine voice-marker (v2.9.3: one that survives the tell sweep and is separable or carries checkable specificity — never a mere first-person profundity beat) in the delivered text lifts the floor and returns you to the Two-Layer Read (v2.9) — not automatically to the human pole; against a heavy, regular scaffold, one marker lands at 7–8 (Edited-AI).
 
 Rationale: you cannot prove a human was in the loop from facts and distinctions a model could have produced unaided. The only proof of human authorship is human voice; its total absence, under heavy AI-structural cadence, is the signature of raw or barely-touched AI output. The user's real failure is not bad research — it is never having worked the draft into a voice of their own.
 
@@ -265,7 +277,7 @@ Note (v2.4): distinguish *reactive gush* from *structural tells*. Repeated authe
 
 Reweighting makes lazy prose *cost* more; the gate makes it *cap* the score. They work together: a document can ace every substance category and still be capped here if the language was shipped as raw machine output. Rationale — publishing unrevised AI prose is a craft failure that good sourcing does not buy back. And it is fair to doubt that someone who would not reread their own sentences reread their own sources; even where they did, the delivered work is still lazy.
 
-**Step 1 — Measure tell density.** Over the *non-data* sentences only (exclude any sentence whose payload is a sourced figure or a direct quotation — that is substance, not prose), count the sentences carrying a structural/prose AI tell: the "It's not A. It's B." antithesis, the staccato profundity-fragment, meta-signpost throat-clearing, habitual rules-of-three, colon-label headers, the glossary-quote pattern.
+**Step 1 — Measure tell density.** Over the *non-data* sentences only (exclude any sentence whose payload is a sourced figure or a direct quotation — that is substance, not prose), count the sentences carrying a structural/prose AI tell: the "It's not A. It's B." antithesis, the staccato profundity-fragment, meta-signpost throat-clearing, habitual rules-of-three, colon-label headers, the glossary-quote pattern. Count register-blind (v2.9.3): a structural tell phrased in the first person still counts — a profundity beat like "the line I trust most because it cost them something to say" is a profundity beat regardless of the "I," and first-person never exempts a sentence from the density.
 
 **v2.4 — placement test (reactive vs. structural).** Before counting a tell, ask *where* it fires. A tell at a predictable structural seam — every section transition, a mechanically balanced pivot, an even cadence held throughout — is the machine signature: count it. A tell that fires at an irregular, event-driven spot — genuine surprise at a live result, a reaction to something on screen — is spontaneous human mess, not unrevised machine prose. In spoken / live-reaction genres, **exclude reactive filler from the density count**, the same exemption already granted to spoken hedges. Count structural tells, not reactive ones. Rule of thumb: human sloppiness is irregular and event-driven; AI "sloppiness" is regular and placed.
 
@@ -338,7 +350,79 @@ Neither Provenance nor Craft is a *gate* here — a human-authored or well-craft
 
 ## Interaction with A and B
 
-Axis C reads the *outputs* of A and B as inputs to its severity, but it never changes them. Provenance stays whatever it was; Craft stays whatever it was, gates and all. Axis C sits on top and asks the one question those two cannot: given all of that, was the world better or worse for this being made. "Worse Than Useless" (Axis C fired) is a distinct verdict from "AI Slop" (AI + unrevised, but the piece still added *something* and so never tripped the gate). When Axis C fires, report all three — A and B for the record, C for the verdict.
+Axis C reads the *outputs* of A and B as inputs to its severity, but it never changes them. Provenance stays whatever it was; Craft stays whatever it was, gates and all. Axis C sits on top and asks the one question those two cannot: given all of that, was the world better or worse for this being made. "Worse Than Useless" (Axis C fired) is a distinct verdict from "AI Slop" (AI + unrevised, but the piece still added *something* and so never tripped the gate). When Axis C fires, report all axes — A and B for the record, C for the verdict, and D above C if D also fired.
+
+---
+
+# AXIS D — INFLUENCE GAMING (is it honest about what it is?)
+
+**Question:** Set aside who wrote it, how good it is, and whether it relayed its sources. Is the piece what it presents itself to be — or is it promotion (commercial or ideological) wearing an independent creator's clothes, engineered to borrow the trust that organic creators earn and to game the systems that reward that trust?
+
+This is the integrity axis. Axis C asks whether a piece wasted the viewer's time; Axis D asks whether it lied to them about its own nature. A video can pass C (it genuinely synthesized something) and still be a covert advertisement — that is exactly the case D exists to catch, and the one Axis B's Sourcing & Transparency dock is too small to hold. **Undisclosed-but-honest promotion is a transparency ding on Axis B. A piece that manufactures an organic-creator persona to disguise a promotional or coordinated payload is a different and graver thing** — it exploits parasocial trust and the recommendation economy. That is what Axis D names, and why it outranks a craft note.
+
+## This axis is a grounded OPINION — say so, every time
+
+Axes A, B, and C are read from evidence. Axis D is not — it is the grader's judgment of *posture and intent*, which cannot be proven from a transcript. So D carries a different contract, and breaking it is a scoring error:
+
+1. **State it as opinion, always.** Open every Axis-D read — in the working notes AND the posted comment — with "This comes across to me as…" / "reads to me like…". Never a bare assertion.
+2. **Either channel can trigger it.** The grader's own impression fires it; so does a note from the person requesting the score. It is opinion either way, held to the same contract.
+3. **Ground the opinion in named signals.** The *conclusion* is subjective; the *basis* must be concrete. List the specific impressions that produce the feeling (see below). Opinion is not a license to skip the receipts.
+4. **Never assert the unprovable as fact.** Payment, ownership, and coordination are described as impressions ("gives the impression of," "reads as if the same hand made all three"), never as established. Absent proof, the hunch stays a labeled hunch — it fires D, it does not become a factual claim about a real person or company.
+5. **The tag is opinion too.** The verdict tag prints as "Influence Farming (opinion)" so a reader never mistakes a gut read for a proven charge.
+
+## The Gate (necessary conditions — without these, Axis D does not fire)
+
+D can only fire when ALL of these hold:
+
+1. **A promotional or persuasive function.** The piece works to advance a specific commercial or ideological interest — a product, a company, a position — not merely to inform.
+2. **A disguise.** That function is hidden behind an independent-creator posture: no honest disclosure, an "organic explainer" persona, presented as the creator's own neutral curiosity.
+3. **It comes across that way to the grader.** The opinion condition — the signals below add up, in the grader's judgment, to manufactured authenticity.
+
+**Do NOT fire D on** (the disguise is the trigger, not the promotion):
+- disclosed sponsorship ("this video is sponsored by X") — honest, however promotional;
+- a brand's own openly-branded channel — it is not pretending to be an independent creator;
+- a creator's genuine, uncompensated enthusiasm for something they chose to cover;
+- content you simply dislike, or that is merely AI-made or promotional-but-transparent. Being AI or being an ad is not the trigger; the *disguise* is.
+
+## Signals of manufactured authenticity (name the ones present)
+
+- one company/product carried on overwhelmingly positive framing, dressed as neutral analysis;
+- company marketing claims relayed as fact, with no independent verification;
+- a manufactured-organic persona — first-person "just a curious explainer," and especially a **fake-skepticism beat** that exists to inoculate the viewer, then resolves back to the pitch;
+- format engineered to farm algorithmic credibility — shock-claim title grammar, emotional hooks, a call to action that benefits the promoted interest;
+- content-farm production signature — synthetic/anonymous narration at scale, high upload cadence, no accountable human;
+- **coordination** — a shared template, voice, or cross-seeding across channels (a pipeline signature). Unprovable as common ownership; describe it as an impression.
+
+## Severity (how far below zero, once the gate is met)
+
+Influence Gaming starts at 0 and each factor pushes it down.
+
+| Dial | Pushes DOWN when… | Holds UP (toward 0) when… |
+| ---- | ----------------- | -------------------------- |
+| **Coordination** | a multi-channel network / shared pipeline signature — the gravest form | a single channel acting alone |
+| **Concealment effort** | fake balance, a manufactured persona, disclosure buried or absent | the promotional angle is half-visible / clumsy |
+| **Influence-system gaming** | engineered to exploit recommendation and parasocial-trust mechanics | little algorithmic engineering |
+| **Stakes** | health, financial, or political payload | a low-stakes consumer product |
+| **Reach / scale** | automated content-farm cadence, built to flood | a one-off |
+
+Single-channel inauthentic promotion fires at a base depth; coordination is what drives it toward the floor.
+
+## Severity bands (graded label)
+
+| Axis D | Label | Reading |
+| ------ | ----- | ------- |
+| 0 or positive | (not printed) | Reads as honest about what it is. |
+| −1 to −3 | reads as lightly inauthentic | A promotional lean under a creator pose, but mild or half-disclosed. A caution. |
+| −4 to −7 | reads as disguised promotion | Manufactured authenticity in service of a clear interest. |
+| −8 to −10 | reads as a coordinated influence operation | Covert promotion across a manufactured network, engineered to game the trust economy at scale. |
+
+## Direction, reporting, and interaction
+
+**A one-sided opinion score. 0 = reads as honest · −10 = reads as a coordinated influence op.** Conditional, like Axis C: compute it, print it **only when below zero**, and omit it entirely otherwise (most scorecards will not show it).
+
+**When it fires, it leads.** Axis D becomes the headline and the verdict tag ("Influence Farming (opinion)"), with A, B, and C demoted beneath it. **If Axis C also fired, D still leads** — deception about what a piece *is* outranks waste of the viewer's time — and C prints directly under it. D never changes A, B, or C; it reads their outputs (Provenance high, Craft low, a false genre claim) as inputs to its own severity, exactly as C does.
+
+**It is independent of Axis C.** D fires on disguise; C fires on pure relay. A synthesizing explainer (C silent) can still read as covert promo (D fires) — do not force one axis to stand in for the other, and do not fold the disguise into an Axis-B transparency dock and call it handled.
 
 ---
 
@@ -516,7 +600,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.9.2)
+ AI-DETECTION SCORECARD (v2.10)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -532,7 +616,11 @@ NET VALUE (Axis C): [−X]/10 — [WORSE THAN USELESS / actively misleading rela
   scale: 0 = broke even … −10 = actively misleading relay
   OMIT THIS LINE ENTIRELY unless Net Value is below zero (it usually is not)
 
-VERDICT: [one line]
+INFLUENCE GAMING (Axis D): [−X]/10 — [reads as disguised promotion / coordinated influence op] (opinion)
+  scale: 0 = reads as honest … −10 = coordinated influence op
+  OMIT THIS LINE ENTIRELY unless Axis D is below zero; when it fires it LEADS the verdict, above Axis C
+
+VERDICT: [one line — led by Axis D if it fired, else Axis C, else the A+B story]
 
 Note: platform elements and caption errors excluded; only intended prose scored.
 
@@ -593,6 +681,31 @@ Severity dials:
 Net Value = [−X]/10 — [thin/borderline waste | worse than useless — net time loss | actively misleading relay]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ AXIS D · INFLUENCE GAMING — [−X]/10     (INCLUDE THIS SECTION ONLY IF IT FIRED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This reads to me as: [the opinion, in the grader's own voice — "manufactured-organic promotion for X" / "a coordinated influence channel"]
+
+Influence Gaming Gate: [FIRED / not triggered — if not triggered, delete this whole section]
+  - Promotional/persuasive function: [the interest it advances]
+  - Disguise: [the independent-creator posture hiding it]
+  - Comes across that way: [yes — opinion]
+
+Signals I am reading (opinion grounded in these):
+  - [signal] ([timestamp])
+
+Severity dials:
+  - Coordination: [single channel / multi-channel pipeline signature — describe as impression, not proven]
+  - Concealment effort: [fake balance / manufactured persona / disclosure absent]
+  - Influence-system gaming: [present / absent]
+  - Stakes: [health / financial / political / low-stakes product]
+  - Reach / scale: [content-farm cadence / one-off]
+
+Not asserted as fact: [payment / ownership / coordination remain impressions, unproven]
+
+Axis D = [−X]/10 — [reads as lightly inauthentic | reads as disguised promotion | reads as a coordinated influence operation] (opinion)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  EVIDENCE LOG
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -628,7 +741,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.9.2
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.10
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -638,7 +751,8 @@ Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genr
 
 This is the ONLY part actually posted. Lead with the HEADER block so the comment
 identifies itself (see HEADER below — it is a fixed template, like P1), then write
-four short paragraphs of plain prose. The paragraphs
+four short paragraphs of plain prose (plus one extra opinion/relay paragraph when Axis C
+or Axis D fired — the P-CD slot below). The paragraphs
 are judged by this same rubric, so they have to pass it: no "not X, it's Y", no
 staccato profundity fragments, no stacked triples, no throat-clearing, no em-dash
 cadence. Keep it specific, and vary the sentence shapes.
@@ -677,7 +791,7 @@ do not lean on it.
        re-word it per block. Like the P1 opener, it is templated, not re-authored per
        video; only the four fields and the version number change.
   P1 — the FIXED method opener, pasted verbatim (see FIXED P1 OPENERS below). Use the
-       two-axis version by default; use the three-axis version ONLY when Axis C fired. Do
+       two-axis version by default; use the extended version when Axis C and/or Axis D fired. Do
        NOT rewrite it per video — it is invariant across videos and pre-vetted for tells.
   P2 — Provenance: the number and label, plus one or two worst offenders with timestamps.
   P3 — Craft: the number (and "raw X.X, capped to Y" if a gate fired), plus one or two worst offenders.
@@ -709,16 +823,27 @@ do not lean on it.
          *Balanced flip* (4x): "..." ([ts])
          *Profundity beat* (8x): "..." ([ts])
          That is about one in three of every sentence that is not just a number.
+  P-CD — a short paragraph, added ONLY when Axis C and/or Axis D fired, placed just before P4.
+       If Axis C fired: explain the relay in plain terms. If Axis D fired: it MUST open with
+       "This comes across to me as…", name the signals behind the opinion, and never assert
+       payment, ownership, or coordination as fact. If both fired, lead this paragraph with the
+       Axis-D opinion (it is the headline), then the Axis-C relay beneath it.
   P4 — open with a bold one-line score strip, then the bottom line and challenge:
        *Final Scores:* *Provenance* [X] | *Craft* [X.X] | *[verdict tag, e.g. Lazy User - AI Slop]*
        If Net Value fired (Axis C below zero), lead the strip with it and make it the tag:
        *Final Scores:* *Net Value* [−X] | *Provenance* [X] | *Craft* [X.X] | *Worse Than Useless*
-       Reserve "AI Slop" for the AI + unrevised case that still added something (Axis C did NOT fire).
+       If Influence Gaming fired (Axis D below zero), lead the strip with it and make it the tag —
+       it OUTRANKS Net Value, so when both fired D leads and C follows:
+       *Final Scores:* *Influence* [−X] | *Net Value* [−X] | *Provenance* [X] | *Craft* [X.X] | *Influence Farming (opinion)*
+       Keep the "(opinion)" marker on the Axis-D tag; it is a judgment, not a proven charge.
+       Reserve "AI Slop" for the AI + unrevised case that still added something (Axes C and D did NOT fire).
 
   FIXED P1 OPENERS (paste P1 verbatim — do NOT rewrite it per video; each version has
   already passed the self-check, and re-deriving it only risks introducing tells). Use the
-  two-axis opener by default; use the three-axis opener ONLY when Axis C (Net Value) fired,
-  because the two-axis wording is wrong once a third score is on the card.
+  two-axis opener by default; use the extended opener when EITHER Axis C (Net Value) or
+  Axis D (Influence Gaming) fired, because the two-axis wording is wrong once a negative
+  axis is on the card. The extended opener describes both conditional axes and is correct
+  whether C fired, D fired, or both.
 
   Two-axis (default — Axis C did NOT fire):
     For your score card, I created two scores on different axes. Provenance is 1 to 10,
@@ -729,30 +854,35 @@ do not lean on it.
     because a script can score very human and still be awful, or very AI but still superbly
     written.
 
-  Three-axis (use ONLY when Axis C — Net Value — fired):
-    For your score card, I created three scores on different axes. Provenance is 1 to 10,
+  Extended (use when Axis C and/or Axis D fired — describes both conditional axes):
+    For your score card, I use up to four scores on different axes. Provenance is 1 to 10,
     where a 1 means the writing reads as fully human and a 10 means it reads as fully
     machine. Neither end is good or bad on its own, since it's only a call about who or
     what actually wrote the words. The second is craft, also scored 1 to 10, where a 1 is
-    lazy or padded and a 10 is genuinely well crafted for its genre. The third is net
-    value, which runs from 0 down to −10 and only appears when a video comes out negative.
-    It fires when the piece mostly relays what its own sources already say, so a viewer
-    would have been better off going straight to those sources. When it's on the card it's
-    the headline, and the other two scores sit underneath it.
+    lazy or padded and a 10 is genuinely well crafted for its genre. The last two only show
+    up when a video comes out negative on them. Net value runs from 0 down to −10 and fires
+    when a piece mostly relays what its own sources already say, so you'd have been better
+    off going straight to those sources. Influence gaming also runs from 0 down to −10, and
+    it's the one opinion score here: it fires when the video comes across to me as promotion
+    wearing an independent creator's clothes, built to borrow the trust that real creators
+    earn. Whichever of those two is on the card becomes the headline, and if both show up,
+    influence gaming leads.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.9.2)
+ AI-DETECTION SCORECARD (v2.10)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[paragraph 1 — FIXED opener, pasted verbatim: two-axis by default, three-axis if Axis C fired]
+[paragraph 1 — FIXED opener, pasted verbatim: two-axis by default, extended opener if Axis C and/or Axis D fired]
 
 [paragraph 2]
 
 [paragraph 3]
 
 [receipts block — 3 to 4 labeled tell lines + density line; omit if nothing to show]
+
+[P-CD paragraph — ONLY if Axis C and/or Axis D fired; if D fired it opens "This comes across to me as…"]
 
 [paragraph 4]
 ```
@@ -821,6 +951,10 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 ---
 
 ## Changelog
+
+**v2.10 (2026-09-11)** — Added Axis D — Influence Gaming: a fourth axis, conditional and negative-only like Axis C (0 → −10, prints only when it fires), that catches promotion wearing an independent creator's clothes — a piece engineered to borrow the parasocial trust organic creators earn and to game the recommendation system. Unlike A/B/C it is an explicitly labeled OPINION ("This comes across to me as…"), grounded in named signals but never asserting payment, ownership, or coordination as fact; either the grader's own read or the requester's note can trigger it, and the carve-outs spare disclosed sponsorship, openly-branded channels, and genuine enthusiasm. The trigger is the disguise, not the promotion — which is what makes it graver than an Axis-B Sourcing/Transparency dock. Coordination across channels is the deepest severity dial. When it fires it leads the verdict, above Axis C (deception about what a piece is outranks waste of the viewer's time). Added the extended (four-axis) P1 opener, the P-CD paragraph slot, the working-notes Axis-D block, and the "Influence Farming (opinion)" tag; bumped every version string to v2.10. Triggered by the like-milk (Asahi) grading, where a synthesizing explainer cleared Axis C yet read as covert single-vendor promotion. No change to A, B, or C mechanics.
+
+**v2.9.3 (2026-09-11)** — Closed the first-person-texture loophole in Axis A. Tell-classification now runs FIRST and register-blind: a sentence carrying a structural tell cannot also be a human signal, and first-person grants no exemption — a profundity beat phrased "the line I trust most because it cost them something to say" is a profundity beat, counted toward tell density like any other (it no longer sits in the human-hand column, and it now counts toward the >50% Floor-Gate trigger). The discriminator is **form, not person**. A tell-free line counts as genuine human voice only if it is *separable from the scaffold* (leaves a seam) or carries *checkable lived specificity*; smooth, equally-polished first-person is scaffold, not hand. Retitled the "Strong human signals (hard to fake)" list — the label conflated human-*characteristic* with hard-to-*fake*, and its own examples were written as beats — tightened the NOT-authorship entry, and rewrote the Two-Layer Read human-hand step plus the Floor-Gate condition and release clause to match. Triggered by the Cloud Codes "33 lines" grading, where first-person asides wrongly held Provenance at 8 off the 9.5 floor. Scoring-logic change: a piece whose human pole rested on first-person beats may need rescoring.
 
 **v2.9.2 (2026-09-09)** — Spelled out how to *count* structural-tell density so reviews are reproducible. The density is one measured ratio that feeds both the Penalty Gate cap bands and the Provenance Floor Gate (>50%), so the count must be an exhaustive one-sweep tally over the fixed tell set (data sentences excluded, placement test applied), NOT a chase of whichever tells surface loudest. Distinguished counting (exhaustive — sets the score) from reporting (the four-line receipts block, which selects the loudest few and never changes the density), and added the rule: near a band threshold (15/30/50%), do the literal per-sentence count instead of estimating a band. Noted that numbered/step scaffolds count under rules-of-three / over-listing. Triggered by the spelt/Medieval Way grading, where triples were undercounted (~6 vs ~16) and the eyeballed density sat just under 50%; a real count put it over, firing the Floor Gate (Provenance 9→9.5) and dropping the cap (4.0→2.0). No change to the gates, thresholds, or axes — only to how their shared input is measured.
 
