@@ -1,9 +1,10 @@
 # 🧠 AI-Detection Scorecard System
 
-A rubric for judging a piece of writing or a talking-head video on **three
-independent axes** — *who wrote it*, *how good it is*, and *whether it deserved
-to exist* — without collapsing them into one misleading number. Ships with
-`getytcc`, a small tool for pulling the YouTube transcripts you score.
+A rubric for judging a piece of writing or a talking-head video on **four
+independent axes** — *who wrote it*, *how good it is*, *whether it deserved
+to exist*, and *whether it's honest about what it is* — without collapsing them
+into one misleading number. Ships with `getytcc`, a small tool for pulling the
+YouTube transcripts you score.
 
 > **The core idea:** "AI-generated" and "bad" are different questions, and
 > conflating them produces junk verdicts. Sloppy ≠ synthetic. A human can write
@@ -12,13 +13,14 @@ to exist* — without collapsing them into one misleading number. Ships with
 
 ---
 
-## The three axes
+## The four axes
 
 | Axis | Name | Range | What it answers |
 | --- | --- | --- | --- |
 | **A** | **Provenance** | 1–10 · Human → AI | *Who wrote it?* Judged **first**, from authorship signals only. Low = Human, high = AI — **neither pole is inherently "good."** |
 | **B** | **Craft & Rigor** | 0–10 · bad → good | *Is it any good, relative to its genre?* Where prose tells, sourcing, and derivativeness live — as **quality** feedback, not authorship evidence. |
-| **C** | **Net Value** | 0 → −10 | *Did it deserve to exist?* Printed **only when negative** — a pure relay that leaves the viewer no better off than reading its own sources. When it fires, it becomes the headline verdict. |
+| **C** | **Net Value** | 0 → −10 | *Did it deserve to exist?* Printed **only when negative** — a pure relay that leaves the viewer no better off than reading its own sources. When it fires it becomes the headline verdict (unless Axis D also fired). |
+| **D** | **Influence Gaming** | 0 → −10 · *opinion* | *Is it honest about what it is?* Printed **only when negative** — promotion wearing an independent creator's clothes, built to borrow the trust real creators earn and to game the systems that reward it. An explicitly labeled **opinion** ("this comes across to me as…"), grounded in named signals but never asserting payment, ownership, or coordination as fact. When it fires it **leads the verdict, above Axis C**. |
 
 Always print the pole label next to the number, e.g.:
 
@@ -26,9 +28,10 @@ Always print the pole label next to the number, e.g.:
 Provenance 2/10 (Human) · Craft 7.5/10 (good)
 ```
 
-The two axes run in **opposite directions** — Axis A is a *classification*
+The two graded axes run in **opposite directions** — Axis A is a *classification*
 (low = Human), Axis B is a *quality* score (high = good). That trips people up;
-label every number.
+label every number. Axes **C and D are conditional** — computed but printed only
+when they go below zero, and most scorecards show neither.
 
 ### Key gates
 
@@ -47,10 +50,16 @@ label every number.
   collaboration rather than grading it**; Axis B is judged on artistic craft with
   the categories reinterpreted, and a **narrative-vs-tableau ceiling** separates a
   moving mood-piece from a story actually told in image and song.
+- **Influence Gaming Gate (v2.10)** — Axis D. Fires when a piece advances a
+  commercial or ideological interest while disguising that function behind an
+  independent-creator posture, and it reads that way to the grader. The **trigger
+  is the disguise, not the promotion** — disclosed sponsorship and openly-branded
+  channels are spared. It is a labeled **opinion**, so payment, ownership, and
+  coordination are named as impressions, never asserted as fact.
 
 The full rubric, scoring dials, worked examples, and the fill-in template live
 in **[AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md)** (the
-current version is stated inside the file; it is **v2.7** as of this writing).
+current version is stated inside the file; it is **v2.10** as of this writing).
 
 ---
 
@@ -119,8 +128,8 @@ prerequisites, manual install, and troubleshooting are in
    rubric — [AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md) —
    plus the video's folder, and ask it to score using that system. It scores
    **Axis A first**, applies the gates, then **Axis B**, then runs the Net-Value
-   relay test for Axis C, giving a timestamp/line reference (from the `.srt`) for
-   every claim.
+   relay test for Axis C and the Influence-Gaming check for Axis D, giving a
+   timestamp/line reference (from the `.srt`) for every claim.
 4. **Save the scorecard** as `<title>_<id>_SCORE.txt` in the same folder — plain
    text, because the output is designed to paste straight into a YouTube comment.
 
