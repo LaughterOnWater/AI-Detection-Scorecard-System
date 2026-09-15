@@ -1,4 +1,4 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.10
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.11
 
 ## What This Is
 
@@ -29,7 +29,7 @@ The Gate is the core move: once Axis A lands confidently on "human," the stylist
 2. **EXCLUDE platform-generated elements** (YouTube chapters, timestamps, auto-captions).
 3. **IGNORE caption transcription errors** (misspelled names, garbled technical terms). Assess the *intended* wording.
 4. **Score Axis A (Provenance) first**, using only the Provenance Signals. Record the delivery medium (Delivery-Medium Gate, v2.5) — attested synthetic narration is scored as written prose, so spoken-voice signals do not apply.
-5. **Apply the Gate via the Two-Layer Read** (v2.9 — measure the AI-structural scaffold and the human hand independently, then compare; the gates are its regions), then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2.
+5. **Apply the Gate via the Two-Layer Read** (v2.9 — measure the AI-structural scaffold and the human hand independently, then compare; the gates are its regions), then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4), and the **Automation Gate** (v2.11). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2. Its mirror at the AI pole: a score of 10 requires Automation Confirmation that no human hand touched any part of the artifact — default UNCONFIRMED caps the AI pole at 9.5.
 6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
 8. **Apply the Influence Gaming Gate (v2.10):** does the piece advance a specific commercial or ideological interest while disguising that function behind an independent-creator posture, and does it come across to you (or to the person requesting the score) as manufactured authenticity? If not, leave Axis D unscored. If so, score Axis D — Influence Gaming — as a negative number using the severity dials, **stated as an opinion and grounded in named signals**, and let it become the headline verdict (above Axis C if both fired). Never assert payment, ownership, or coordination as fact.
@@ -115,7 +115,7 @@ Axis C (Net Value) almost never fires on original art — a made song is the opp
 | 3–4   | Human with light AI assistance (outline, grammar, tightening). Voice is still the person's. |
 | 5–6   | Genuinely ambiguous / hybrid. Signals mixed. This is the band where stylistic tells legitimately count. |
 | 7–8   | Mostly AI. Structural AI signals dominate; human touch limited to light editing. |
-| 9–10  | Raw AI output. Little or no editing. |
+| 9–10  | Raw AI output. Little or no editing. 9.5 is the transcript-only ceiling; 10 requires Automation Confirmation (see the Automation Gate) that no human editorial hand touched any part of the artifact — unreachable on transcript evidence alone. |
 
 ## Provenance Signals
 
@@ -239,6 +239,24 @@ Provenance asks who wrote the words. It does not ask who — or what — read th
 - Score the words as written prose against the normal signal set (structure, cadence, the Cheat-Sheet tells) — just do not credit or debit anything that only makes sense for a live human mouth.
 
 **What it is NOT.** Synthetic delivery is not itself an AI-authorship signal, and it never pushes Provenance toward AI on its own. It is also independent of embodiment: a piece can show a real person's live screen work (embodiment present) yet be voiced by an avatar (delivery synthetic). Keep the two fields separate.
+
+## The Automation Gate (v2.11)
+
+The mirror of the Embodiment Gate at the *AI* pole. The Embodiment Gate refuses the *bottom* human verdict — a 1 — to a grader who cannot see past the text; the Automation Gate refuses the *top* AI verdict — a 10 — on the same logic. The two certainty poles are symmetric: each is a claim about the world a transcript alone cannot license.
+
+**Why 10 is special.** A 10 says the *entire artifact* is machine-produced with no human editorial hand anywhere — not in the words, and not in whatever wraps them. Text can show the *prose* reads as raw AI; it cannot show that no human sequenced the images, wrote the description, cut the audio, or quietly fixed a line. Strong *textual* raw-AI signal earns a 9.5 — the honest ceiling for text-alone analysis — and no more. This is the exact mirror of the human pole capping at 2 without Embodiment Confirmation.
+
+**How 10 is unlocked.** Automation Confirmation is corroboration from outside the text that the whole artifact is unedited machine output — no human hand across delivery, visuals, packaging, and prose. Like embodiment, it can arrive by either channel:
+- a reviewer/user attestation, placed in the description or given at the time the scoring is requested; or
+- the grader's own viewing of the video — e.g. synthetic narration over auto-placed stills with no art direction or consistent palette, an uncurated description, and wall-to-wall unrevised prose, together showing no editorial hand in any modality.
+
+**Default is UNCONFIRMED → the AI pole is capped at 9.5.** Print the status on its own line in the Axis A block:
+- `Automation confirmation: UNCONFIRMED — capped at 9.5`, or
+- `Automation confirmation: CONFIRMED by [who / channel] — fully-automated artifact, no human hand → 10 unlocked`.
+
+Confirmation only *unlocks* 10; the piece still has to earn it — a single genuine human touch in any modality (a curated image sequence, a hand-written description, one revised passage) holds it at 9.5. And the finding stays **rebuttable**: if the creator comes forward to attest a human hand, the 10 returns to the text-only read. The gate never pushes a score *toward* the human pole — it only governs whether the top rung of the AI pole is reachable.
+
+**Relationship to the Provenance Floor Gate.** The Floor Gate (>50% structural density + no human voice) still floors Provenance at 9.5 from the text alone; 9.5 is now explicitly both that floor and the transcript-only ceiling. The Automation Gate is the only route above it, and only with out-of-band confirmation.
 
 ---
 
@@ -600,7 +618,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.10)
+ AI-DETECTION SCORECARD (v2.11)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -741,7 +759,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.10
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.11
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -869,7 +887,7 @@ do not lean on it.
     influence gaming leads.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.10)
+ AI-DETECTION SCORECARD (v2.11)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -951,6 +969,8 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 ---
 
 ## Changelog
+
+**v2.11 (2026-09-15)** — Added the Automation Gate, the mirror of the Embodiment Gate at the AI pole. A 10 (a fully-automated artifact with no human editorial hand anywhere) is a claim about the world a transcript cannot license, so text alone now caps the AI pole at 9.5 — made explicit as both the Provenance Floor Gate's floor and the transcript-only ceiling. Reaching 10 requires Automation Confirmation: corroboration from outside the text (a user attestation or the grader's own viewing) that no human hand touched delivery, visuals, packaging, or prose. Like embodiment it only unlocks the pole — one genuine human touch in any modality holds the score at 9.5 — and it stays rebuttable by creator attestation. New Axis-A field: Automation confirmation, UNCONFIRMED (default, capped 9.5) or CONFIRMED (10 unlocked). Bumped every live version string to v2.11. Triggered by the medieval-alehouse (Medieval Way) grading, where the grader's own viewing confirmed a synthetic voice, auto-placed un-art-directed AI stills, an uncurated description, and wall-to-wall unrevised prose — no human hand in any modality — which the 9.5 text-only ceiling could not express. No change to Axis A below the ceiling, or to B, C, or D mechanics.
 
 **v2.10 (2026-09-11)** — Added Axis D — Influence Gaming: a fourth axis, conditional and negative-only like Axis C (0 → −10, prints only when it fires), that catches promotion wearing an independent creator's clothes — a piece engineered to borrow the parasocial trust organic creators earn and to game the recommendation system. Unlike A/B/C it is an explicitly labeled OPINION ("This comes across to me as…"), grounded in named signals but never asserting payment, ownership, or coordination as fact; either the grader's own read or the requester's note can trigger it, and the carve-outs spare disclosed sponsorship, openly-branded channels, and genuine enthusiasm. The trigger is the disguise, not the promotion — which is what makes it graver than an Axis-B Sourcing/Transparency dock. Coordination across channels is the deepest severity dial. When it fires it leads the verdict, above Axis C (deception about what a piece is outranks waste of the viewer's time). Added the extended (four-axis) P1 opener, the P-CD paragraph slot, the working-notes Axis-D block, and the "Influence Farming (opinion)" tag; bumped every version string to v2.10. Triggered by the like-milk (Asahi) grading, where a synthesizing explainer cleared Axis C yet read as covert single-vendor promotion. No change to A, B, or C mechanics.
 
