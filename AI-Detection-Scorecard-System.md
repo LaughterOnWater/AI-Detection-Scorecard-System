@@ -1,21 +1,22 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.11
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.13
 
 ## What This Is
 
-An AI-detection scorecard: a rubric for judging a piece of writing — or a talking-head video's transcript — on **four independent axes**, kept deliberately apart so one number never has to answer two different questions.
+An AI-detection scorecard: a rubric for judging a piece of writing — or a talking-head video's transcript — on **five independent axes**, kept deliberately apart so one number never has to answer two different questions.
 
 The mistake it exists to prevent is collapsing *who wrote it* and *whether it's any good* into a single "AI score." Those are different questions. The stylistic tells people treat as proof of AI — blandifiers, vague attribution, assert-without-mechanism — are *correlated* with AI, not *exclusive* to it; humans talking off the cuff do all of them. Once strong human signals are present (a named person, first-person ownership, spoken self-correction), counting those same tells toward an "AI score" is double-counting. **Sloppy ≠ synthetic.** A human can write garbage; an AI can write cleanly. And whether the author did original work or summarized someone else's is a *genre and value* judgment, not an authorship one — folding it into provenance punishes every honest explainer.
 
-So the scorecard splits the work into four axes, with a gate between the first two:
+So the scorecard splits the work into five axes, with a gate between the first two:
 
 - **Axis A — Provenance (who wrote it):** Human ↔ AI, judged **first**, from authorship signals only.
 - **Axis B — Craft & Rigor (how good it is):** quality relative to genre — where prose tells, sourcing, and derivativeness live, as craft feedback rather than authorship evidence.
+- **Axis E — Presentation & Production (is the finished artifact well made?):** a standing quality score like Craft, but for the *audiovisual execution* — the visuals, the narration as delivered, the on-screen text. Assessable only from watching the video (a transcript cannot license it) and scored as a holistic impression, not a per-moment tally; its floor (1–2, "broken") can take the headline when no graver axis fired.
 - **Axis C — Net Value (did it deserve to exist):** conditional; runs 0 → −10 and prints only when negative, for a piece that merely relays what its own sources already say.
 - **Axis D — Influence Gaming (is it honest about what it is):** conditional; runs 0 → −10 and prints only when negative, for a piece that reads as promotion wearing an independent creator's clothes. Unlike A–C it is an explicitly labeled **opinion** ("this comes across to me as…"). When it fires it leads the verdict, above Axis C.
 
-Axes C and D are the two conditional, negative-only axes: you compute them but print them only when they go below zero, and most scorecards show neither.
+Axes C and D are the two conditional, negative-only axes: you compute them but print them only when they go below zero, and most scorecards show neither. Axis E is a standing quality score like A and B, but it prints only on a card where the grader actually watched the video (a transcript cannot license it).
 
-**The two axes run in opposite directions — this trips people up.** Axis A is a *classification* (low = Human, high = AI; **neither pole is inherently "good"**). Axis B is a *quality* score (**high = good, low = bad**). Always print the pole label next to the number, e.g. `Provenance 2/10 (Human) · Craft 7.5/10 (good)`.
+**The axes run in different directions — this trips people up.** Axis A is a *classification* (low = Human, high = AI; **neither pole is inherently "good"**). Axes B and E are *quality* scores (**high = good, low = bad**). Always print the pole label next to the number, e.g. `Provenance 2/10 (Human) · Craft 7.5/10 (good) · Production 3/10 (poor)`.
 
 The Gate is the core move: once Axis A lands confidently on "human," the stylistic tells stop counting toward authorship and become Axis-B craft notes only. Report the axes separately; never collapse them into one number.
 
@@ -30,7 +31,7 @@ The Gate is the core move: once Axis A lands confidently on "human," the stylist
 3. **IGNORE caption transcription errors** (misspelled names, garbled technical terms). Assess the *intended* wording.
 4. **Score Axis A (Provenance) first**, using only the Provenance Signals. Record the delivery medium (Delivery-Medium Gate, v2.5) — attested synthetic narration is scored as written prose, so spoken-voice signals do not apply.
 5. **Apply the Gate via the Two-Layer Read** (v2.9 — measure the AI-structural scaffold and the human hand independently, then compare; the gates are its regions), then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4), and the **Automation Gate** (v2.11). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2. Its mirror at the AI pole: a score of 10 requires Automation Confirmation that no human hand touched any part of the artifact — default UNCONFIRMED caps the AI pole at 9.5.
-6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
+6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high, and the **Firehose Ceiling** (v2.12) to cap it if the piece skims breadth without depth (Final Craft = min of the raw total and every cap that fired). If you watched the video (or have an AV attestation), also score **Axis E — Presentation & Production** (v2.13): a holistic 1–10 impression of the visuals, the delivered narration, and the on-screen text; omit it on a transcript-only grade. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
 8. **Apply the Influence Gaming Gate (v2.10):** does the piece advance a specific commercial or ideological interest while disguising that function behind an independent-creator posture, and does it come across to you (or to the person requesting the score) as manufactured authenticity? If not, leave Axis D unscored. If so, score Axis D — Influence Gaming — as a negative number using the severity dials, **stated as an opinion and grounded in named signals**, and let it become the headline verdict (above Axis C if both fired). Never assert payment, ownership, or coordination as fact.
 9. Provide a timestamp or line reference for every claim.
@@ -282,7 +283,7 @@ Confirmation only *unlocks* 10; the piece still has to earn it — a single genu
 | **Sourcing & Transparency** | 25% | Are claims traceable to *named* sources appropriate to the genre? Or attributed to fog ("experts say")? |
 | **Accuracy & Mechanism** | 20% | Are claims walked through and correct, or asserted? Can the reader trace the conclusion back? |
 | **Specificity** | 15% | Concrete numbers, names, examples — vs. vague intensifiers. |
-| **Value-Add (genre-relative)** | 15% | Does it add framing, analysis, synthesis, or firsthand work *appropriate to its genre*? (Derivativeness is judged HERE, against genre — not as authorship evidence.) |
+| **Value-Add (genre-relative)** | 15% | Does it add framing, analysis, synthesis, or firsthand work *appropriate to its genre*? (Derivativeness is judged HERE, against genre — not as authorship evidence.) Breadth-without-depth — a skim that never develops any claim — is docked here; see the Firehose Ceiling (v2.12). |
 | **Prose Craft** | 25% | Tightness and clarity, AND evidence the language was revised rather than shipped as raw machine output. The weak Cheat-Sheet tells are scored here as quality, not as AI proof. **v2.1: reweighted 10%→25% so unrevised prose actually bites.** |
 
 Note: the same tell (say, a blandifier) is invisible to Axis A once the Gate has closed on "human," but still costs Prose Craft on Axis B. That is the intended, non-double-counting behavior.
@@ -318,6 +319,34 @@ Reweighting makes lazy prose *cost* more; the gate makes it *cap* the score. The
 **v2.2:** the top-tier cap is now **2.0**, reaching into the "Empty" band, and the 30–50% tier drops to 4.0 to keep the curve monotone. This is deliberate. The cap scores the *delivered work product*, not its latent substance: unrevised machine prose is near-worthless as a finished piece even when the research under it is sound. The raw weighted total still records the substance — **report both** ("raw X.X → capped 2.0") so nothing is hidden — but the headline craft number reflects what was actually shipped. Good research does not buy back a refusal to revise.
 
 **Interaction with Axis A:** the gate lives on Axis B only. It never touches Provenance. A human who habitually leans on these devices can be capped (lazy prose is lazy regardless of author), and an AI-drafted piece with a genuinely revised human voice pays no cap. The gate punishes *unrevised prose*, not *AI provenance* — keep them separate.
+
+## The Firehose Ceiling (Breadth-Without-Depth) (v2.12)
+
+The Penalty Gate prices *how* the prose reads; this ceiling prices what the piece is *doing to the viewer*. An explainer can be accurate, well-sourced, even genuinely synthesizing (so Axis C stays silent) and STILL leave the viewer with nothing to hold, because it maximizes claim throughput and never dwells on any of them. Facts arrive faster than anyone can weigh them, each gone before the next; the viewer finishes with the *sensation* of having learned and no reconstructable substance. That is a craft failure, and the tell-density measure cannot see it — clean, revised prose firehoses just as easily as machine prose.
+
+**The mechanism — false authority by volume (the Gish-gallop asymmetry).** Asserting a claim is cheap; evaluating one is expensive. A monologue needs no opponent to exploit that gap: the viewer is put in the rebutter's seat, handed fifty claims in fifteen minutes, and can get purchase on none before the next arrives. Confident narration then banks trust that per-claim scrutiny would never have granted — the piece is believed *because* it cannot be checked in real time, not because it earned belief claim by claim. This pairs naturally with high-AI provenance (a model emits confident, correct-sounding facts at zero marginal cost, so breadth is its native output mode), but the ceiling is authorship-blind: a human who firehoses is capped the same. Craft only; it never touches Axis A.
+
+**The test (breadth vs. dwell).** Two readings, compared:
+1. **Throughput** — is the piece running a high rate of discrete factual claims, one after another?
+2. **Dwell** — count the *landing points*: passages where the piece slows to develop ONE thing — walks a mechanism, sits inside a single scene, honours a caveat, follows one thread far enough that a viewer could reconstruct or question it. A landing point is where the viewer is invited to *identify with a moment*, not merely receive a fact.
+
+High throughput with near-zero landing points across the whole runtime is a firehose. A **comprehensiveness claim in the framing** — "the ENTIRE history of X in N minutes," "everything about Y" — is a strong corroborator, not a requirement: when it is present the skim is the advertised product, and the ceiling bites harder.
+
+**Effect — a ceiling, routed through Value-Add.** Like the narrative-vs-tableau ceiling, this caps the top; it does not zero the piece. A competent, accurate skim is still a competent, accurate skim — it simply cannot reach the "excellent for its genre" band while it refuses to develop anything. Dock **Value-Add** (the breadth without depth is the missing contribution) and hold the Craft total out of the top band:
+
+| Dwell against throughput | Reading | Craft ceiling |
+| ------------------------ | ------- | ------------- |
+| develops its claims — real landing points throughout | normal explainer | none |
+| skims but lands sometimes | partial firehose | 6.5 |
+| near-zero dwell; breadth advertised as the product | firehose | 5.0 |
+
+Final Craft = **min(weighted total, tell-density cap, firehose ceiling)** — all three are caps; take the lowest, and report which one bound ("raw X.X → firehose ceiling 5.0", or "→ Penalty-Gate cap 2.0, the lower"). Note the common case: when a piece is *also* unrevised, the tell cap is usually lower and binds first, so the ceiling changes no number — but you still name the firehose in the notes, because it is the deeper reason the piece is thin, and because for a piece with *clean* prose the ceiling is the only thing that catches it.
+
+**Guardrails.**
+- **Ceiling, not floor.** Do not use it to sink a competent piece into the empty band; that is the Penalty Gate's job when the prose is also unrevised. A clean, accurate skim lands at the ceiling (a competent 5–6.5), not at 2.
+- **Genre exception (mirror of the tableau's mood-form exception).** A format whose honest form *is* rapid breadth — a "ten facts about X," a trivia reel, a highlights montage — earns it and is not docked. The test is whether the piece *promises understanding* (an explainer or documentary claiming to teach) and delivers only a skim. A list that is labelled a list keeps its ceiling.
+- **Not Axis C.** The firehose still *adds* synthesis, so the relay test comes back non-empty and Net Value stays silent. This ceiling exists to name the thinness Axis C cannot reach — a piece that metabolizes its sources into a real frame yet still routes the viewer past every one of them at speed. If instead the piece adds nothing, that is Axis C (pure relay), not this.
+- **Authorship-blind.** Never a Provenance signal. Firehosing is a pacing-and-depth choice, not a machine fingerprint.
 
 ---
 
@@ -441,6 +470,53 @@ Single-channel inauthentic promotion fires at a base depth; coordination is what
 **When it fires, it leads.** Axis D becomes the headline and the verdict tag ("Influence Farming (opinion)"), with A, B, and C demoted beneath it. **If Axis C also fired, D still leads** — deception about what a piece *is* outranks waste of the viewer's time — and C prints directly under it. D never changes A, B, or C; it reads their outputs (Provenance high, Craft low, a false genre claim) as inputs to its own severity, exactly as C does.
 
 **It is independent of Axis C.** D fires on disguise; C fires on pure relay. A synthesizing explainer (C silent) can still read as covert promo (D fires) — do not force one axis to stand in for the other, and do not fold the disguise into an Axis-B transparency dock and call it handled.
+
+---
+
+# AXIS E — PRESENTATION & PRODUCTION (is the finished artifact well made?)
+
+**Question:** Set aside who wrote it, how good the writing is, whether it relayed its sources, and whether it is honest about itself. Is the finished *audiovisual artifact* — the visuals, the narration as delivered, the on-screen text — competently produced, or does the production degrade or misinform on its own?
+
+Axis A asks who produced the words. Axis B asks how good the words are. Neither hears the narration or sees the screen. A perfectly decent script can be shipped over mangled imagery, butchered pronunciation, broken visual continuity, and gibberish on-screen text — and at some point the production is so broken the artifact fails as communication no matter what the script said. Axis E names that.
+
+## Direction
+
+**A standing QUALITY score, 1–10. High = well made · Low = broken.** Same orientation as Craft (mind the flip from Provenance). It is the fifth axis and the third *always-on* one: **A, B, and E print on every card; C and D print only when they fire.**
+
+## It requires viewing — and it is an impression, not a tally
+
+Two things make Axis E unlike the others, and both are deliberate:
+
+1. **Only assessable from the artifact itself.** Axis E cannot be scored from a transcript — it needs the actual video (or a requester's attestation about the visuals, audio, and on-screen text). This mirrors the Embodiment and Automation gates: a transcript cannot license a claim about how the thing was *made*. On a transcript-only grade with no AV attestation, print `Presentation: not assessed (transcript-only)` and omit the score. For a grader who watched, it prints every time.
+2. **A holistic impression, not a per-moment count.** Axis B is *measured* — you tally tells sentence by sentence. Axis E is the opposite by design: a **viewing gestalt**, the general impression of the production as you scan through it. You do NOT owe a frame-by-frame audit or a timestamp for every flaw; a few representative examples carry it ("the on-screen hieroglyphs are gibberish, and one caption is real Chinese characters standing in for Egyptian script; the narrator's character flips between flat and 3D shot to shot"). Production quality is perceived holistically, and the honest evidence base is the watch-through, not a spreadsheet. This is the one axis scored on impression rather than count — say so when you score it.
+
+## What it measures (name the ones present)
+
+- **Narration / audio — delivery, not the words.** Mispronunciation of common words, unnatural pause timing, robotic or broken prosody, TTS artifacts. (The *words themselves* are Craft; how they are *delivered* is here.)
+- **Visual fidelity.** AI-mangled or incoherent imagery; the subject drawn wrong so you cannot tell what you are looking at (a loom, a spindle, hands on fabric that do not work; flax that looks like corn).
+- **Visual continuity.** Whether the look holds together — a character that flips between flat and 3D, mostly uncolored then suddenly colored for no reason, or becomes a different figure entirely; no held palette or style; no scene-to-scene consistency. Broken continuity is a loud "no human finishing pass" tell.
+- **On-screen text integrity.** Garbled or fake glyphs; pseudo-hieroglyphs that are gibberish rather than real signs; the WRONG script entirely (real Chinese characters standing in for Egyptian hieroglyphs); nonsense baked into the art.
+- **Human finishing / QA pass.** Whether anything shows a review of the finished cut — or whether errors a single watch-through would have caught were shipped as-is.
+
+## Severity bands
+
+| Axis E | Label | Reading |
+| ------ | ----- | ------- |
+| 8–10 | polished | Coherent art direction, clean delivery, real and consistent on-screen text. |
+| 5–7 | competent → rough | Some weak visuals or stiff delivery, but you can follow it. |
+| 3–4 | poor | Pervasive AV problems that get in the way of the content. |
+| 1–2 | broken | Imagery so mangled you cannot tell what it is, delivery that loses the words, wrong-language or gibberish on-screen text, no continuity, no QA. Fails as communication regardless of the script. |
+
+## The floor can take the headline
+
+Axis E does not run negative, but its floor bites like the conditional axes. **A floored Axis E (1–2) is a headline-grade failure.** Verdict precedence is **D > C > E > the A+B story**: deception (D) and wasted time (C) still outrank a production failure, so when either fired it still leads and E prints as a supporting number beneath it. But when neither C nor D fired and Axis E is at the floor, **E becomes the verdict** and the tag is **"Badly Produced"** (or "Unwatchable" at a 1). A broken artifact you cannot follow is its own damning verdict, even when the writing underneath was fine and honestly made.
+
+## Interaction and guardrails
+
+- **Independent of Provenance.** A human can produce a slick video or a broken one; so can an AI. Production quality is NEVER an authorship signal and never moves Axis A. The same observations (mangled visuals, botched TTS) may *separately* serve as Automation Confirmation — but that answers a different question ("was a human hand involved?"), exactly as one tell can inform both A and B. Score the quality here; use the signal there. Not double-counting.
+- **Independent of Craft.** Axis B scores the words; Axis E scores how they were made and shown. A beautiful script can be butchered in production, and elegant production can carry empty writing. Keep the boundary sharp: bad *wording* is Craft; bad *delivery of the wording* is Presentation.
+- **A severity signal for D, not a substitute.** Clumsy, un-QA'd production is legitimate evidence that a piece is a low-effort farm (an Axis-D severity dial). Score the production quality here; let it inform D's severity there. Do not fold one into the other.
+- **Not the AI-Art genre.** For openly-disclosed AI art, audiovisual craft is scored under the "Scoring AI Art" reinterpretation of Axis B, not here. Axis E is for ordinary videos whose production is incidental to the content, not the artwork itself.
 
 ---
 
@@ -618,7 +694,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.11)
+ AI-DETECTION SCORECARD (v2.13)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -630,6 +706,10 @@ CRAFT & RIGOR (Axis B): [X.X]/10 — [genre-relative quality]
   scale: 1 = lazy / AI tells … 10 = well-crafted for its genre
   if a gate fired, show it →  raw [X.X] capped to [X.X] by [gate name]
 
+PRESENTATION & PRODUCTION (Axis E): [X]/10 — [polished / competent / poor / broken]
+  scale: 1 = broken production … 10 = well made
+  standing quality score; OMIT only if transcript-only (mark "not assessed"). A floor of 1–2 can LEAD the verdict when Axes C and D did not fire
+
 NET VALUE (Axis C): [−X]/10 — [WORSE THAN USELESS / actively misleading relay / thin waste]
   scale: 0 = broke even … −10 = actively misleading relay
   OMIT THIS LINE ENTIRELY unless Net Value is below zero (it usually is not)
@@ -638,7 +718,7 @@ INFLUENCE GAMING (Axis D): [−X]/10 — [reads as disguised promotion / coordin
   scale: 0 = reads as honest … −10 = coordinated influence op
   OMIT THIS LINE ENTIRELY unless Axis D is below zero; when it fires it LEADS the verdict, above Axis C
 
-VERDICT: [one line — led by Axis D if it fired, else Axis C, else the A+B story]
+VERDICT: [one line — led by Axis D if it fired, else Axis C, else a floored Axis E (1–2), else the A+B story]
 
 Note: platform elements and caption errors excluded; only intended prose scored.
 
@@ -724,6 +804,23 @@ Not asserted as fact: [payment / ownership / coordination remain impressions, un
 Axis D = [−X]/10 — [reads as lightly inauthentic | reads as disguised promotion | reads as a coordinated influence operation] (opinion)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ AXIS E · PRESENTATION & PRODUCTION — [X]/10     (OMIT ONLY IF TRANSCRIPT-ONLY / NOT ASSESSED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Basis: [assessed from viewing / requester's AV attestation] — a holistic impression, not a per-moment tally
+
+Production impression: [polished / competent / rough / poor / broken]
+
+Signals I am reading (a few representative examples, not exhaustive):
+  - Narration / audio (delivery): [mispronunciations, dead pauses, robotic prosody / clean]
+  - Visual fidelity: [subject drawn wrong, can't tell what it is / coherent]
+  - Visual continuity: [character / style / color flips shot to shot / consistent]
+  - On-screen text: [gibberish or wrong-script glyphs / real and correct]
+  - QA / finishing pass: [none evident / present]
+
+Axis E = [X]/10 — [label]. [If 1–2 and neither C nor D fired: LEADS the verdict, tag "Badly Produced" / "Unwatchable".]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  EVIDENCE LOG
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -759,7 +856,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.11
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.13
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -842,10 +939,20 @@ do not lean on it.
          *Profundity beat* (8x): "..." ([ts])
          That is about one in three of every sentence that is not just a number.
   P-CD — a short paragraph, added ONLY when Axis C and/or Axis D fired, placed just before P4.
-       If Axis C fired: explain the relay in plain terms. If Axis D fired: it MUST open with
-       "This comes across to me as…", name the signals behind the opinion, and never assert
-       payment, ownership, or coordination as fact. If both fired, lead this paragraph with the
-       Axis-D opinion (it is the headline), then the Axis-C relay beneath it.
+       If Axis C fired: explain the relay in plain terms. If Axis D fired: use the P-CD AXIS-D
+       SKELETON below — a FIXED frame (the opener, the not-asserted-as-fact disclaimer, and the
+       lead-in clause) wrapped around a per-video slot for the named signals. It is NOT pasted
+       verbatim the way P1 is: the frame is fixed so it holds the opinion contract and stays
+       tell-free, but the signal list is ALWAYS bespoke, because Axis D is an opinion grounded in
+       THIS video's named signals and a verbatim paragraph would strip the very receipts that
+       legitimize it. However filled, it MUST open with "This comes across to me as…", name the
+       signals behind the opinion, and never assert payment, ownership, or coordination as fact.
+       If both fired, lead this paragraph with the Axis-D opinion (it is the headline), then the
+       Axis-C relay beneath it.
+  P-PROD — a short production paragraph, added when Axis E was assessed and is notably low (roughly ≤4),
+       placed after P3 (Craft). Describe the visual, audio, and on-screen-text problems in plain language
+       with a couple of representative examples — it is an impression, so no timestamp receipts are owed.
+       When Axis E is floored (1–2) and it leads the card, this paragraph carries the headline reasoning.
   P4 — open with a bold one-line score strip, then the bottom line and challenge:
        *Final Scores:* *Provenance* [X] | *Craft* [X.X] | *[verdict tag, e.g. Lazy User - AI Slop]*
        If Net Value fired (Axis C below zero), lead the strip with it and make it the tag:
@@ -855,30 +962,59 @@ do not lean on it.
        *Final Scores:* *Influence* [−X] | *Net Value* [−X] | *Provenance* [X] | *Craft* [X.X] | *Influence Farming (opinion)*
        Keep the "(opinion)" marker on the Axis-D tag; it is a judgment, not a proven charge.
        Reserve "AI Slop" for the AI + unrevised case that still added something (Axes C and D did NOT fire).
+       Presentation (Axis E) prints in the strip whenever it was assessed, as a plain number after Craft,
+       e.g. *Production* [X]. When Axis E is floored (1–2) and NEITHER C nor D fired, lead the strip with
+       it and make it the tag:
+       *Final Scores:* *Production* [X] | *Provenance* [X] | *Craft* [X.X] | *Badly Produced*
+       When D or C led, Production stays a plain number in the strip, not the tag.
+
+  P-CD AXIS-D SKELETON (v2.12.1 — a fixed frame with a per-video slot; NOT full-verbatim like P1).
+  The bracketed [slots] are filled per video; the surrounding sentences are the fixed frame,
+  pre-vetted for tells and carrying the opinion contract — the "This comes across to me as…" opener
+  and the not-asserted-as-fact disclaimer live here so a grader cannot forget them:
+
+    This comes across to me as [the read, in the grader's own words — e.g. "a template being run at
+    scale rather than one creator's project"]. [The named signals, bespoke to this video — what you
+    are actually reading: the persona, the format, any cross-channel / pipeline pattern, the
+    narration, the title and CTA grammar.] I can't prove [ownership / coordination / payment] and
+    I'm not claiming that, it's the impression the pattern leaves. That impression is what puts
+    influence gaming at the top of this card.
+
+  Keep the disclaimer clause even when the impression is strong: it is the line between a labeled
+  hunch (which fires D) and an asserted charge (which the axis forbids). Vary the wording of the
+  fixed sentences if a phrasing repeats too often across your cards — the REQUIREMENTS are the
+  opener, the disclaimer, and the lead-in, not their exact words. If Axis C also fired, the Axis-C
+  relay explanation follows this paragraph, beneath the Axis-D opinion.
 
   FIXED P1 OPENERS (paste P1 verbatim — do NOT rewrite it per video; each version has
   already passed the self-check, and re-deriving it only risks introducing tells). Use the
-  two-axis opener by default; use the extended opener when EITHER Axis C (Net Value) or
-  Axis D (Influence Gaming) fired, because the two-axis wording is wrong once a negative
-  axis is on the card. The extended opener describes both conditional axes and is correct
-  whether C fired, D fired, or both.
+  default opener when neither Axis C nor Axis D fired; use the extended opener when EITHER
+  Axis C (Net Value) or Axis D (Influence Gaming) fired, because the default wording is
+  wrong once a negative axis is on the card. Both openers describe production (Axis E); if
+  the grade is transcript-only and Presentation was NOT assessed, drop the one production
+  sentence from whichever opener you use. The extended opener describes both conditional
+  axes and is correct whether C fired, D fired, or both.
 
-  Two-axis (default — Axis C did NOT fire):
-    For your score card, I created two scores on different axes. Provenance is 1 to 10,
+  Default (use when neither Axis C nor Axis D fired):
+    For your score card, I use a few scores on different axes. Provenance is 1 to 10,
     where a 1 means the writing reads as fully human and a 10 means it reads as fully
     machine. Neither end is good or bad on its own, since it's only a call about who or
-    what actually wrote the words. The second is craft, also scored 1 to 10, where a 1 is
-    lazy or padded and a 10 is genuinely well crafted for its genre. Scores are independent
-    because a script can score very human and still be awful, or very AI but still superbly
-    written.
+    what actually wrote the words. Craft is also 1 to 10, where a 1 is lazy or padded and a
+    10 is genuinely well crafted for its genre. And when I've actually watched the video, I
+    add production, again 1 to 10, for how well the thing is made, the visuals, the
+    narration as it's spoken, and the on-screen text, which is separate from whether the
+    writing itself is any good. These are independent, since a script can read very human
+    and still be awful, and a sharp script can be buried under terrible production.
 
   Extended (use when Axis C and/or Axis D fired — describes both conditional axes):
-    For your score card, I use up to four scores on different axes. Provenance is 1 to 10,
+    For your score card, I use a few scores on different axes. Provenance is 1 to 10,
     where a 1 means the writing reads as fully human and a 10 means it reads as fully
     machine. Neither end is good or bad on its own, since it's only a call about who or
-    what actually wrote the words. The second is craft, also scored 1 to 10, where a 1 is
-    lazy or padded and a 10 is genuinely well crafted for its genre. The last two only show
-    up when a video comes out negative on them. Net value runs from 0 down to −10 and fires
+    what actually wrote the words. Craft is also 1 to 10, where a 1 is lazy or padded and a
+    10 is genuinely well crafted for its genre. And when I've watched the video, I add
+    production, again 1 to 10, for how well it's made, the visuals, the spoken narration,
+    and the on-screen text, separate from whether the writing is any good. The last two
+    scores only show up when a video comes out negative on them. Net value runs from 0 down to −10 and fires
     when a piece mostly relays what its own sources already say, so you'd have been better
     off going straight to those sources. Influence gaming also runs from 0 down to −10, and
     it's the one opinion score here: it fires when the video comes across to me as promotion
@@ -887,7 +1023,7 @@ do not lean on it.
     influence gaming leads.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.11)
+ AI-DETECTION SCORECARD (v2.13)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -969,6 +1105,12 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 ---
 
 ## Changelog
+
+**v2.13 (2026-09-19)** — Added Axis E — Presentation & Production: a fifth axis and the third always-on quality score (A, B, and E print on every card; C and D stay conditional). It scores the finished AUDIOVISUAL artifact — the visuals, the narration as delivered, the on-screen text — on 1–10 (high = well made), separate from the words (Craft) and from who wrote them (Provenance). Two deliberate differences from the other axes: it is assessable ONLY from watching the video or an AV attestation (a transcript cannot license it — it prints "not assessed" and is omitted on a transcript-only grade, mirroring the Embodiment/Automation logic), and it is scored as a HOLISTIC IMPRESSION, not a per-moment tally (a viewing gestalt with a few representative examples, no timestamp receipts owed — the honest counterpart to Craft's rigor). It does not run negative, but its floor bites: a floored Axis E (1–2 — mangled imagery you can't read, delivery that loses the words, wrong-script or gibberish on-screen text, broken continuity, no QA) is a headline-grade failure. Verdict precedence is D > C > E > the A+B story: a floored E leads and tags "Badly Produced" only when neither C nor D fired; otherwise it prints as a supporting number. Independent of Provenance (production is never an authorship signal, though the same observations may separately serve as Automation Confirmation) and of Craft (bad wording is Craft; bad delivery of the wording is Presentation); clumsy production is also a legitimate Axis-D severity signal. Added the Axis-E summary line, working-notes block, score-strip marker, the P-PROD paragraph slot, and production sentences in both P1 openers; bumped every live version string to v2.13. Triggered by the nileside-stories "clothes" grading, where an attested-AI explainer paired an empty script with a broken production — flax that looks like corn, looms and spindles drawn wrong, characters flipping flat/3D and uncolored/colored with no continuity, real Chinese characters and gibberish standing in for hieroglyphs, and botched TTS — a disaster Craft (a prose axis) had no clean way to score. No change to Axis A, B, C, or D mechanics.
+
+**v2.12.1 (2026-09-19)** — Enumerated the P-CD Axis-D paragraph as a first-class template element with its own fixed frame, parallel to how v2.9.1 restored the HEADER. The Axis-D paragraph is now specified as a SKELETON: a fixed frame (the "This comes across to me as…" opener, the "I can't prove … and I'm not claiming that" disclaimer, and the "that impression is what puts influence gaming at the top of this card" lead-in) wrapped around a per-video slot for the named signals. It is deliberately NOT full-verbatim like P1 — Axis D is an opinion grounded in the specific video's signals, so a verbatim paragraph would strip the receipts that legitimize it; the frame is fixed to hold the opinion contract and stay tell-free, the signal list stays bespoke. The mandatory disclaimer clause is now anchored in the skeleton so a grader cannot omit it (the line between a labeled hunch, which fires D, and an asserted charge, which the axis forbids). Documentation only — no scoring-logic change to any axis or gate, and the live version strings stay v2.12; nothing scored under v2.12 needs rescoring.
+
+**v2.12 (2026-09-19)** — Added the Firehose Ceiling (Breadth-Without-Depth) to Axis B: a craft ceiling (not a floor), routed through Value-Add, for an explainer that maximizes claim throughput and never dwells — accurate, sourced, even synthesizing, yet leaving the viewer with the sensation of learning and no reconstructable substance, a thing the tell-density measure cannot see. Names the mechanism as false authority by volume / the Gish-gallop asymmetry: assertion is cheap and evaluation expensive, so confident narration banks trust that per-claim scrutiny would deny. Measured by breadth vs. dwell (claim throughput against landing points — passages that develop one thing), with a comprehensiveness claim in the framing ("the ENTIRE history in N minutes") as a corroborator; ceilings 6.5 / 5.0, and Final Craft = min(weighted total, tell-density cap, firehose ceiling). Ceiling-not-floor; authorship-blind (a human can firehose — never an Axis-A signal); distinct from Axis C (the firehose still adds synthesis, so Net Value stays silent — this names the thinness the relay test cannot reach); genre exception for formats whose honest form is rapid breadth (a labelled list, a trivia reel). Bumped every live version string to v2.12. Triggered by the Egypt (histinmin/egypt) grading, where an accurate, well-sourced documentary skimmed 5,000 years with nothing to land on; the Penalty Gate's tell cap (2.0) already bound there, so the ceiling changed no number, but it is what catches the same failure in a piece whose prose is clean. No change to Axis A, C, or D mechanics.
 
 **v2.11 (2026-09-15)** — Added the Automation Gate, the mirror of the Embodiment Gate at the AI pole. A 10 (a fully-automated artifact with no human editorial hand anywhere) is a claim about the world a transcript cannot license, so text alone now caps the AI pole at 9.5 — made explicit as both the Provenance Floor Gate's floor and the transcript-only ceiling. Reaching 10 requires Automation Confirmation: corroboration from outside the text (a user attestation or the grader's own viewing) that no human hand touched delivery, visuals, packaging, or prose. Like embodiment it only unlocks the pole — one genuine human touch in any modality holds the score at 9.5 — and it stays rebuttable by creator attestation. New Axis-A field: Automation confirmation, UNCONFIRMED (default, capped 9.5) or CONFIRMED (10 unlocked). Bumped every live version string to v2.11. Triggered by the medieval-alehouse (Medieval Way) grading, where the grader's own viewing confirmed a synthetic voice, auto-placed un-art-directed AI stills, an uncurated description, and wall-to-wall unrevised prose — no human hand in any modality — which the 9.5 text-only ceiling could not express. No change to Axis A below the ceiling, or to B, C, or D mechanics.
 

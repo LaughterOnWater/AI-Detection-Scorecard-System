@@ -1,9 +1,9 @@
 # 🧠 AI-Detection Scorecard System
 
-A rubric for judging a piece of writing or a talking-head video on **four
-independent axes** — *who wrote it*, *how good it is*, *whether it deserved
-to exist*, and *whether it's honest about what it is* — without collapsing them
-into one misleading number. Ships with `getytcc`, a small tool for pulling the
+A rubric for judging a piece of writing or a talking-head video on **five
+independent axes** — *who wrote it*, *how good the writing is*, *how well it's
+produced*, *whether it deserved to exist*, and *whether it's honest about what
+it is* — without collapsing them into one misleading number. Ships with `getytcc`, a small tool for pulling the
 YouTube transcripts you score.
 
 > **The core idea:** "AI-generated" and "bad" are different questions, and
@@ -13,25 +13,27 @@ YouTube transcripts you score.
 
 ---
 
-## The four axes
+## The five axes
 
 | Axis | Name | Range | What it answers |
 | --- | --- | --- | --- |
 | **A** | **Provenance** | 1–10 · Human → AI | *Who wrote it?* Judged **first**, from authorship signals only. Low = Human, high = AI — **neither pole is inherently "good."** |
-| **B** | **Craft & Rigor** | 0–10 · bad → good | *Is it any good, relative to its genre?* Where prose tells, sourcing, and derivativeness live — as **quality** feedback, not authorship evidence. |
+| **B** | **Craft & Rigor** | 1–10 · bad → good | *Is it any good, relative to its genre?* Where prose tells, sourcing, and derivativeness live — as **quality** feedback, not authorship evidence. |
+| **E** | **Presentation & Production** | 1–10 · bad → good | *Is the finished video well made?* The audiovisual execution — visuals, delivered narration, on-screen text — scored separately from the writing. A **standing** score like A and B, but assessable **only from watching** (omitted on a transcript-only grade) and scored as a **holistic impression**, not a tally. Its floor (**1–2, broken**) can take the headline when no graver axis fired. |
 | **C** | **Net Value** | 0 → −10 | *Did it deserve to exist?* Printed **only when negative** — a pure relay that leaves the viewer no better off than reading its own sources. When it fires it becomes the headline verdict (unless Axis D also fired). |
 | **D** | **Influence Gaming** | 0 → −10 · *opinion* | *Is it honest about what it is?* Printed **only when negative** — promotion wearing an independent creator's clothes, built to borrow the trust real creators earn and to game the systems that reward it. An explicitly labeled **opinion** ("this comes across to me as…"), grounded in named signals but never asserting payment, ownership, or coordination as fact. When it fires it **leads the verdict, above Axis C**. |
 
 Always print the pole label next to the number, e.g.:
 
 ```
-Provenance 2/10 (Human) · Craft 7.5/10 (good)
+Provenance 2/10 (Human) · Craft 7.5/10 (good) · Production 3/10 (poor)
 ```
 
-The two graded axes run in **opposite directions** — Axis A is a *classification*
-(low = Human), Axis B is a *quality* score (high = good). That trips people up;
-label every number. Axes **C and D are conditional** — computed but printed only
-when they go below zero, and most scorecards show neither.
+The axes run in **different directions** — Axis A is a *classification*
+(low = Human), while Axes B and E are *quality* scores (high = good). That trips
+people up; label every number. Axes **C and D are conditional** — computed but
+printed only when they go below zero, and most scorecards show neither — and
+**Axis E prints only on a card where the grader actually watched the video.**
 
 ### Key gates
 
@@ -56,10 +58,22 @@ when they go below zero, and most scorecards show neither.
   is the disguise, not the promotion** — disclosed sponsorship and openly-branded
   channels are spared. It is a labeled **opinion**, so payment, ownership, and
   coordination are named as impressions, never asserted as fact.
+- **Automation Gate (v2.11)** — the mirror of the Embodiment Gate at the AI pole.
+  A **10** (a fully-automated artifact, no human hand anywhere) is a claim a
+  transcript can't license, so text alone caps the AI pole at **9.5**; reaching 10
+  needs Automation Confirmation from outside the text, and it stays rebuttable.
+- **Firehose Ceiling (v2.12)** — an Axis-B craft ceiling for an explainer that
+  maximises claim throughput and never dwells: accurate, even synthesising, yet
+  leaving nothing to hold. Names *false authority by volume* (the Gish-gallop
+  asymmetry); routed through Value-Add, a ceiling not a floor.
+- **Presentation & Production (v2.13)** — Axis E (above). Scores the audiovisual
+  execution as a holistic viewing impression; its **1–2 "broken"** floor (mangled
+  imagery, wrong-script or gibberish on-screen text, botched delivery, no
+  continuity) can headline as **"Badly Produced"** when no graver axis fired.
 
 The full rubric, scoring dials, worked examples, and the fill-in template live
 in **[AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md)** (the
-current version is stated inside the file; it is **v2.10** as of this writing).
+current version is stated inside the file; it is **v2.13** as of this writing).
 
 ---
 
@@ -127,7 +141,8 @@ prerequisites, manual install, and troubleshooting are in
 3. **Hand it to a trusted AI:** give Claude (or another trusted assistant) the
    rubric — [AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md) —
    plus the video's folder, and ask it to score using that system. It scores
-   **Axis A first**, applies the gates, then **Axis B**, then runs the Net-Value
+   **Axis A first**, applies the gates, then **Axis B** (plus its production
+   companion **Axis E** when the video was watched), then runs the Net-Value
    relay test for Axis C and the Influence-Gaming check for Axis D, giving a
    timestamp/line reference (from the `.srt`) for every claim.
 4. **Save the scorecard** as `<title>_<id>_SCORE.txt` in the same folder — plain
