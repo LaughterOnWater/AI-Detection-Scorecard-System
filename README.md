@@ -70,10 +70,20 @@ printed only when they go below zero, and most scorecards show neither — and
   execution as a holistic viewing impression; its **1–2 "broken"** floor (mangled
   imagery, wrong-script or gibberish on-screen text, botched delivery, no
   continuity) can headline as **"Badly Produced"** when no graver axis fired.
+- **The Politician's Answer (v2.14)** — an Axis-B craft finding for a piece that
+  sounds responsive but leaves nothing to hold: no position you could dispute (the
+  **stance test**) or no point developed far enough to retell (the **landing
+  test**). Its forms are the firehose, water-treading, too tidy, and no
+  throughline. Authorship-blind; it docks Value-Add and adds no new cap.
 
 The full rubric, scoring dials, worked examples, and the fill-in template live
 in **[AI-Detection-Scorecard-System.md](AI-Detection-Scorecard-System.md)** (the
-current version is stated inside the file; it is **v2.13** as of this writing).
+current version is stated inside the file; it is **v2.14** as of this writing).
+
+Every tell the system counts (the balanced flip, the profundity beat, the stacked
+triple and the rest) is listed in one place, with plain-English names, counting
+rules and honest human uses, in the
+**[AI Tell Index](docs/TELL-INDEX.md)**.
 
 ---
 
@@ -123,7 +133,8 @@ prerequisites, manual install, and troubleshooting are in
 ├── install.sh                             ← installs getytcc + its venv
 ├── requirements.txt                       ← getytcc's one dependency
 └── docs/
-    └── INSTALL-getytcc.md                 ← full install & usage guide
+    ├── INSTALL-getytcc.md                 ← full install & usage guide
+    └── TELL-INDEX.md                      ← every AI tell, with aliases and counting rules
 ```
 
 ---

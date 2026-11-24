@@ -1,4 +1,4 @@
-# 🧠 AI-DETECTION SCORECARD SYSTEM v2.13
+# 🧠 AI-DETECTION SCORECARD SYSTEM v2.14
 
 ## What This Is
 
@@ -31,7 +31,7 @@ The Gate is the core move: once Axis A lands confidently on "human," the stylist
 3. **IGNORE caption transcription errors** (misspelled names, garbled technical terms). Assess the *intended* wording.
 4. **Score Axis A (Provenance) first**, using only the Provenance Signals. Record the delivery medium (Delivery-Medium Gate, v2.5) — attested synthetic narration is scored as written prose, so spoken-voice signals do not apply.
 5. **Apply the Gate via the Two-Layer Read** (v2.9 — measure the AI-structural scaffold and the human hand independently, then compare; the gates are its regions), then the **Provenance Floor Gate** (v2.2), then the **Embodiment Gate** (v2.4), and the **Automation Gate** (v2.11). Decide whether the stylistic tells count toward Axis A or drop to Axis B; if the prose is structural AI with no human voice, floor Provenance at 9.5; and remember a score of 1 requires confirmation the work is a real person's embodied, real-time effort — default UNVERIFIED caps the human pole at 2. Its mirror at the AI pole: a score of 10 requires Automation Confirmation that no human hand touched any part of the artifact — default UNCONFIRMED caps the AI pole at 9.5.
-6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high, and the **Firehose Ceiling** (v2.12) to cap it if the piece skims breadth without depth (Final Craft = min of the raw total and every cap that fired). If you watched the video (or have an AV attestation), also score **Axis E — Presentation & Production** (v2.13): a holistic 1–10 impression of the visuals, the delivered narration, and the on-screen text; omit it on a transcript-only grade. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
+6. **Score Axis B (Craft & Rigor)**, calibrated to the genre, then **apply the Prose-Revision Penalty Gate** (v2.1) to cap the Craft total if tell density is high, and the **Firehose Ceiling** (v2.12) to cap it if the piece skims breadth without depth (Final Craft = min of the raw total and every cap that fired). Then run the two probes of **The Politician's Answer** (v2.14), the stance test and the landing test, and dock Value-Add if either fails. If you watched the video (or have an AV attestation), also score **Axis E — Presentation & Production** (v2.13): a holistic 1–10 impression of the visuals, the delivered narration, and the on-screen text; omit it on a transcript-only grade. Before scoring Sourcing, check for companion sources (Companion-Source rule, v2.5) — including an earlier episode in a series (v2.6) — not just the description. **If the genre is AI Art / Generative Media, use the dedicated "Scoring AI Art" section (v2.6) instead of the default reads: reinterpret the categories for the form and do NOT fire the prose gates or Cheat-Sheet tells on lyrics/visuals.**
 7. **Apply the Net Value Gate (v2.3):** run the relay test — can you name and quote one thing the piece adds beyond its (available) sources? If yes, leave Axis C unscored. If no, the piece is a pure relay; score Axis C — Net Value — as a negative number using the severity dials, and let it become the headline verdict.
 8. **Apply the Influence Gaming Gate (v2.10):** does the piece advance a specific commercial or ideological interest while disguising that function behind an independent-creator posture, and does it come across to you (or to the person requesting the score) as manufactured authenticity? If not, leave Axis D unscored. If so, score Axis D — Influence Gaming — as a negative number using the severity dials, **stated as an opinion and grounded in named signals**, and let it become the headline verdict (above Axis C if both fired). Never assert payment, ownership, or coordination as fact.
 9. Provide a timestamp or line reference for every claim.
@@ -122,7 +122,7 @@ Axis C (Net Value) almost never fires on original art — a made song is the opp
 
 Score these **first**, before touching the Tell Cheat Sheet.
 
-### Strong human signals — genuine voice, NOT mere first-person (v2.9.3)
+### <a id="strong-human-signals"></a>Strong human signals — genuine voice, NOT mere first-person (v2.9.3)
 
 **Classify tells first, and register-blind.** Before any sentence can count as a human signal it must survive the tell sweep (the Prose-Revision Penalty Gate's fixed set). A sentence that carries a structural tell CANNOT also be a human signal, and first-person register buys no exemption. The discriminator is **form, not person**: a profundity beat phrased "the line I trust most because it cost them something to say" is a profundity beat — it counts toward tell density like any other, and the "I" is a disguise, not a credit. Modern models emit owned opinion, anecdote, self-correction, and self-authored analogy natively; it is the default costume of a script told to "sound human." So the *presence* of first-person is near-zero evidence of a human author, and against a regular scaffold it corroborates AI rather than rebutting it.
 
@@ -146,18 +146,18 @@ The markers that CAN clear those bars (then weighed pervasive vs. localized, per
 
 Good research means the *work* is good (that is Axis B). It says nothing about *who wrote the sentences* (Axis A). Do not launder substance into a human-provenance verdict — that was the mistake v2.2 closes.
 
-### Strong AI signals (structural — hard to produce unconsciously)
+### <a id="strong-ai-signals"></a>Strong AI signals (structural — hard to produce unconsciously)
 - The colon-label header formula repeated at every level.
 - Stacked rules-of-three / padded comprehensive lists as a habit.
-- Mechanically balanced structure ("On the one hand… on the other hand…") with frictionless seams.
+- <a id="tell-19"></a>Mechanically balanced structure ("On the one hand… on the other hand…") with frictionless seams.
 - Quote-introduce-a-term-then-explain-its-significance as a recurring pattern.
-- Uniform paragraph shape and even em-dash cadence throughout.
-- **No contractions in spoken/conversational content** — "does not / do not / will not / it is / here is" all the way through a script meant to be read aloud, where a speaker would say doesn't, don't, won't, it's, here's. People contract constantly when they talk; formal prose read verbatim does not. Beyond pointing at AI, the total absence is a *revision* tell: the writer never worked the draft toward how a person actually speaks.
+- <a id="tell-20"></a>Uniform paragraph shape and even em-dash cadence throughout.
+- <a id="tell-21"></a>**No contractions in spoken/conversational content** — "does not / do not / will not / it is / here is" all the way through a script meant to be read aloud, where a speaker would say doesn't, don't, won't, it's, here's. People contract constantly when they talk; formal prose read verbatim does not. Beyond pointing at AI, the total absence is a *revision* tell: the writer never worked the draft toward how a person actually speaks.
   - Genre caveat: a deliberately formal essay may drop contractions by style, so weigh this only where a natural speaking voice is expected — narration, vlog, casual explainer — not a legal or academic register. Possessive apostrophes like "METR's" are not contractions; don't count them.
   - Delivery caveat (v2.5): if delivery is attested synthetic (an AI avatar or TTS), this signal is recalibrated to the written register and does not apply as speech — see the Delivery-Medium Gate.
   - **Co-occurrence gate (mechanical):** contraction-absence only counts when it travels with other tells. Measure structural tell density the same way the Prose-Revision Penalty Gate does — structural tells ÷ non-data sentences. **If that density is under ~10%, treat contraction-absence as an intentional register choice, not evidence: it does NOT move Provenance.** At 10% or above, it may corroborate the structural signals (it never leads on its own). Below the floor, the missing contractions are more likely discipline than a tell — Simplified Technical English (STE), writing for an international or ESL audience, accessibility and readability passes, and evergreen instructional or science content all drop contractions on purpose, for clarity and cleaner machine translation.
 
-### Weak signals (BOTH humans and AI do these)
+### <a id="weak-signals"></a>Weak signals (BOTH humans and AI do these)
 Blandifiers, throat-clearing, vague assertions, foggy attribution, corporate speak, assert-without-mechanism. **These do not move Axis A on their own.** They only nudge provenance when the strong signals are mixed or absent (the 5–6 band).
 
 ## The Gate (the core rule of v2.0)
@@ -169,7 +169,7 @@ Blandifiers, throat-clearing, vague assertions, foggy attribution, corporate spe
 
 The gate exists so that an obviously human speaker isn't convicted of being AI for the crime of talking loosely.
 
-## The Two-Layer Read (v2.9)
+## <a id="two-layer-read"></a>The Two-Layer Read (v2.9)
 
 Provenance has one job — who *produced* the text — but two hands can be in any piece: the **generative** hand that drafted the structure and the sentences, and the **editorial** hand that touched the draft afterward (inserted a line, fixed a name, added a personal aside). The original Gate collapses them: the moment it sees one genuine human voice-marker it routes to the human pole and demotes every structural tell to craft. That protects a loose human talker, but it has a blind spot that is now the common case — an AI draft with a few human edits dropped in. A single inserted anecdote is not authorship of the draft; it is the editorial hand.
 
@@ -191,11 +191,11 @@ Provenance has one job — who *produced* the text — but two hands can be in a
 
 **"Dominate" means pervasiveness, not presence.** The original Gate's step 2 ("if strong human signals dominate → human") requires the human voice to *drive* the text, not merely appear in it. A few inserted anecdotes against a pervasive, regular AI scaffold do not dominate — that is the mistake the Two-Layer Read exists to stop.
 
-**Guardrail — do not cry AI at a formulaic human.** A human writing to an internalized format (hook, signpost each section, punchy beat, mid-roll CTA) can also produce regularly-placed tells with no machine involved. Stay in the Hybrid band (5–6) on the text alone unless the tells are the *characteristic AI structural signatures* (the colon-label header, the "why this matters" signpost, the balanced flip, the glossary-quote) AND at least one corroborator holds: the same template repeating across the creator's catalogue (a pipeline signature), or grader knowledge of the workflow. Those corroborators are what license moving an ambiguous text-alone read onto the AI pole. This mirrors the asymmetry the system already keeps — the AI pole is text-licensable (the Floor Gate reads structure off the page), but a confident classification of an otherwise ambiguous case still wants evidence beyond one transcript.
+**Guardrail — do not cry AI at a formulaic human.** A human writing to an internalized format (hook, signpost each section, punchy beat, mid-roll CTA) can also produce regularly-placed tells with no machine involved. Stay in the Hybrid band (5–6) on the text alone unless the tells are the *characteristic AI structural signatures* (the colon-label header, <a id="tell-18"></a>the "why this matters" signpost, the balanced flip, the glossary-quote) AND at least one corroborator holds: the same template repeating across the creator's catalogue (a pipeline signature), or grader knowledge of the workflow. Those corroborators are what license moving an ambiguous text-alone read onto the AI pole. This mirrors the asymmetry the system already keeps — the AI pole is text-licensable (the Floor Gate reads structure off the page), but a confident classification of an otherwise ambiguous case still wants evidence beyond one transcript.
 
 This is authorship reasoning only; it never touches Axis B. A machine draft can carry excellent sourcing and a moving story — score that on Craft, independently, exactly as before.
 
-## The Provenance Floor Gate (v2.2)
+## <a id="floor-gate"></a>The Provenance Floor Gate (v2.2)
 
 The mirror of the original Gate. That one protects a human who writes loosely; this one refuses to hand a human verdict to text that shows no human in it. Structural AI cadence with no distinctive human voice is, for scoring purposes, AI — and curation or correct facts do not rescue it (see NOT authorship signals).
 
@@ -283,7 +283,7 @@ Confirmation only *unlocks* 10; the piece still has to earn it — a single genu
 | **Sourcing & Transparency** | 25% | Are claims traceable to *named* sources appropriate to the genre? Or attributed to fog ("experts say")? |
 | **Accuracy & Mechanism** | 20% | Are claims walked through and correct, or asserted? Can the reader trace the conclusion back? |
 | **Specificity** | 15% | Concrete numbers, names, examples — vs. vague intensifiers. |
-| **Value-Add (genre-relative)** | 15% | Does it add framing, analysis, synthesis, or firsthand work *appropriate to its genre*? (Derivativeness is judged HERE, against genre — not as authorship evidence.) Breadth-without-depth — a skim that never develops any claim — is docked here; see the Firehose Ceiling (v2.12). |
+| **Value-Add (genre-relative)** | 15% | Does it add framing, analysis, synthesis, or firsthand work *appropriate to its genre*? (Derivativeness is judged HERE, against genre — not as authorship evidence.) Breadth-without-depth — a skim that never develops any claim — is docked here; see the Firehose Ceiling (v2.12). So is a piece that takes no position or never lands a point; see The Politician's Answer (v2.14). |
 | **Prose Craft** | 25% | Tightness and clarity, AND evidence the language was revised rather than shipped as raw machine output. The weak Cheat-Sheet tells are scored here as quality, not as AI proof. **v2.1: reweighted 10%→25% so unrevised prose actually bites.** |
 
 Note: the same tell (say, a blandifier) is invisible to Axis A once the Gate has closed on "human," but still costs Prose Craft on Axis B. That is the intended, non-double-counting behavior.
@@ -292,18 +292,18 @@ Note (v2.4): distinguish *reactive gush* from *structural tells*. Repeated authe
 
 **v2.1 weighting rationale:** shipping unrevised AI prose is a failure of *effort*, and effort is what craft measures. At 10% the prose category could not register that failure (a document could floor Prose Craft and still score ~8). At 25% — plus the penalty gate below — lazy language carries real weight without letting a single style axis erase genuinely good research.
 
-## The Prose-Revision Penalty Gate (v2.1)
+## <a id="penalty-gate"></a>The Prose-Revision Penalty Gate (v2.1)
 
 Reweighting makes lazy prose *cost* more; the gate makes it *cap* the score. They work together: a document can ace every substance category and still be capped here if the language was shipped as raw machine output. Rationale — publishing unrevised AI prose is a craft failure that good sourcing does not buy back. And it is fair to doubt that someone who would not reread their own sentences reread their own sources; even where they did, the delivered work is still lazy.
 
-**Step 1 — Measure tell density.** Over the *non-data* sentences only (exclude any sentence whose payload is a sourced figure or a direct quotation — that is substance, not prose), count the sentences carrying a structural/prose AI tell: the "It's not A. It's B." antithesis, the staccato profundity-fragment, meta-signpost throat-clearing, habitual rules-of-three, colon-label headers, the glossary-quote pattern. Count register-blind (v2.9.3): a structural tell phrased in the first person still counts — a profundity beat like "the line I trust most because it cost them something to say" is a profundity beat regardless of the "I," and first-person never exempts a sentence from the density.
+<a id="density-set"></a>**Step 1 — Measure tell density.** Over the *non-data* sentences only (exclude any sentence whose payload is a sourced figure or a direct quotation — that is substance, not prose), count the sentences carrying a structural/prose AI tell: the "It's not A. It's B." antithesis, <a id="tell-16"></a>the staccato profundity-fragment, meta-signpost throat-clearing, habitual rules-of-three, colon-label headers, the glossary-quote pattern. Count register-blind (v2.9.3): a structural tell phrased in the first person still counts — a profundity beat like "the line I trust most because it cost them something to say" is a profundity beat regardless of the "I," and first-person never exempts a sentence from the density.
 
 **v2.4 — placement test (reactive vs. structural).** Before counting a tell, ask *where* it fires. A tell at a predictable structural seam — every section transition, a mechanically balanced pivot, an even cadence held throughout — is the machine signature: count it. A tell that fires at an irregular, event-driven spot — genuine surprise at a live result, a reaction to something on screen — is spontaneous human mess, not unrevised machine prose. In spoken / live-reaction genres, **exclude reactive filler from the density count**, the same exemption already granted to spoken hedges. Count structural tells, not reactive ones. Rule of thumb: human sloppiness is irregular and event-driven; AI "sloppiness" is regular and placed.
 
     density = tell-bearing non-data sentences ÷ total non-data sentences
 
 **v2.9.2 — count it, don't eyeball it (consistency across reviews).** The density is one *measured* quantity, and it feeds two gates at once — the cap bands below AND the Provenance Floor Gate (>50%). Counting and reporting are different jobs, and only the first sets the score:
-- **Counting is exhaustive.** Sweep the transcript once and tag every non-data sentence with any structural tell it carries from the fixed set in Step 1 (a sentence with one or more counts once toward density; note each tell for the tallies). Do NOT sample a few loud tells and estimate the rest — that is how the count drifts from one review to the next. Numbered / step scaffolds ("first… second… third…", "the first layer… the fourth layer…") count under habitual rules-of-three / over-listing; do not overlook them.
+- **Counting is exhaustive.** Sweep the transcript once and tag every non-data sentence with any structural tell it carries from the fixed set in Step 1 (a sentence with one or more counts once toward density; note each tell for the tallies). Do NOT sample a few loud tells and estimate the rest — that is how the count drifts from one review to the next. <a id="tell-17"></a>Numbered / step scaffolds ("first… second… third…", "the first layer… the fourth layer…") count under habitual rules-of-three / over-listing; do not overlook them.
 - **Reporting is selective.** The receipts block in the posted comment is capped at four lines, so *there* you pick the loudest few. That selection never changes the density — it only presents it.
 - **Near a boundary, tally; inside a band, estimate.** When the ratio lands comfortably inside a band (say ~20% or ~60%), a careful estimate is fine. When it lands near a threshold (15 / 30 / 50%), where a few sentences flip the cap or trip the Floor Gate, do the literal per-sentence count instead of eyeballing a band. The thresholds are hard, so the measurement has to be too.
 
@@ -320,7 +320,7 @@ Reweighting makes lazy prose *cost* more; the gate makes it *cap* the score. The
 
 **Interaction with Axis A:** the gate lives on Axis B only. It never touches Provenance. A human who habitually leans on these devices can be capped (lazy prose is lazy regardless of author), and an AI-drafted piece with a genuinely revised human voice pays no cap. The gate punishes *unrevised prose*, not *AI provenance* — keep them separate.
 
-## The Firehose Ceiling (Breadth-Without-Depth) (v2.12)
+## <a id="firehose-ceiling"></a>The Firehose Ceiling (Breadth-Without-Depth) (v2.12)
 
 The Penalty Gate prices *how* the prose reads; this ceiling prices what the piece is *doing to the viewer*. An explainer can be accurate, well-sourced, even genuinely synthesizing (so Axis C stays silent) and STILL leave the viewer with nothing to hold, because it maximizes claim throughput and never dwells on any of them. Facts arrive faster than anyone can weigh them, each gone before the next; the viewer finishes with the *sensation* of having learned and no reconstructable substance. That is a craft failure, and the tell-density measure cannot see it — clean, revised prose firehoses just as easily as machine prose.
 
@@ -347,6 +347,33 @@ Final Craft = **min(weighted total, tell-density cap, firehose ceiling)** — al
 - **Genre exception (mirror of the tableau's mood-form exception).** A format whose honest form *is* rapid breadth — a "ten facts about X," a trivia reel, a highlights montage — earns it and is not docked. The test is whether the piece *promises understanding* (an explainer or documentary claiming to teach) and delivers only a skim. A list that is labelled a list keeps its ceiling.
 - **Not Axis C.** The firehose still *adds* synthesis, so the relay test comes back non-empty and Net Value stays silent. This ceiling exists to name the thinness Axis C cannot reach — a piece that metabolizes its sources into a real frame yet still routes the viewer past every one of them at speed. If instead the piece adds nothing, that is Axis C (pure relay), not this.
 - **Authorship-blind.** Never a Provenance signal. Firehosing is a pacing-and-depth choice, not a machine fingerprint.
+
+## <a id="politicians-answer"></a>The Politician's Answer (No Editorial Perspective) (v2.14)
+
+Some pieces sound as if they address the topic and still leave the viewer with nothing: no position to weigh, no point developed far enough to keep. It works like a politician's answer. The words seem responsive, but nothing in them is usable. The root failure is **no editorial perspective**: nobody decided what mattered, so nothing lands. The Penalty Gate can't see it (clean prose does it too), and Axis C can't either (the piece may add plenty of material). Politicians are human, and the name is a deliberate reminder: this is a craft finding, never evidence about who wrote the piece.
+
+**Its forms.** These can appear alone or together:
+
+| Form | What it feels like | Probe that catches it |
+| ---- | ------------------ | --------------------- |
+| **Firehose** (too much) | A flood of claims, none dwelt on. Keeps its own gate and ceiling — see the Firehose Ceiling (v2.12). | Landing |
+| **Water-treading** (too little) | A few points restated to fill the runtime. Dwell without development. | Stance (and often Landing) |
+| **Too tidy** | Every concern is raised and immediately answered or hedged away; no tension is left standing. The whole-piece form of the balanced flip. | Stance |
+| **No throughline** | Sections that are each complete in themselves (own mini-intro, own mini-conclusion) and build on nothing. You could shuffle them and lose nothing. | Landing |
+
+**The two probes.** Run both after the Craft categories are scored. Failing either one fires the finding.
+
+1. **Stance test.** Can you state, in one sentence, a position the piece takes that an informed, reasonable person could dispute? The position may be implicit in what the piece chooses to stress. **Truism clause:** a claim nobody disputes ("clothing signalled status") does not count. A well-worn thesis that is still arguable ("the river is the whole story") does pass.
+2. **Landing test.** Can you retell one point the piece actually *developed*, walked through far enough that you could explain it to someone else or push back on it? Repetition is not development: a point restated six times has landed no further than it did the first time.
+
+**Effect — a Value-Add finding, no new cap (v2.14).** Dock **Value-Add**: at most **5** when one probe fails, at most **3** when both fail. Name the finding and the forms present in the working notes and in the posted Craft paragraph (P3). The Firehose form still applies its own ceiling when it fires; nothing else here caps the Craft total. Whether this finding should earn a cap of its own is left open until more cases have been graded against it.
+
+**Guardrails.**
+- **Authorship-blind.** Never a Provenance signal. A human who writes a politician's answer is docked the same, and a clear AI script that argues a real position passes.
+- **Honest caveats are not "too tidy."** Craft rewards tension left honest. A caveat that qualifies the claim and leaves it standing is good writing; the failure is when every claim gets dissolved by its own hedge, so the piece ends where it began.
+- **Genre exception.** Where neutrality *is* the honest form (a reference summary, straight news reporting, a procedural how-to, a labelled list), skip the stance test. The landing test still applies.
+- **Not Axis C.** Axis C asks whether the piece added anything beyond its sources. This asks whether anyone was steering. A piece can add material and still take no position.
+- **Not Axis D on its own.** Padding built to farm watch-time can be an Axis-D signal, but that is a separate judgment with its own gate. This finding stays on Axis B.
 
 ---
 
@@ -520,13 +547,15 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-## AI Tells Cheat Sheet (with Full Prose Evidence)
+## <a id="cheat-sheet"></a>AI Tells Cheat Sheet (with Full Prose Evidence)
 
 **How to use this in v2.0:** These are the *weak* signals. Under the Gate, they count toward **Axis A only when provenance is ambiguous (5–6)**. Otherwise they are **Axis-B Prose Craft** notes. Two of them — the colon-label header formula and stacked rules-of-three — double as *structural* signals and may inform Axis A directly (see Strong AI signals).
 
+**Full list of tells (v2.13.1):** this Cheat Sheet covers Tells #1–15. Tells defined elsewhere in this rubric (the profundity beat, numbered scaffold, "why this matters" signpost, and the structural signals), plus reader-facing aliases and proposed candidate tells, are collected in the **[AI Tell Index](docs/TELL-INDEX.md)**. The index is a guide; this rubric governs.
+
 ---
 
-### Tell #1: "It's not X. It's Y." Template
+### <a id="tell-01"></a>Tell #1: "It's not X. It's Y." Template
 
 > _"It's a fine move once as a spice. Readers who've seen a lot of AI text now read it as a tell. Rework these instances into a plain claim. 'It's not just a product, it's an experience.' (It's a toaster.)"_
 
@@ -537,7 +566,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #2: Throat-Clearing Phrases
+### <a id="tell-02"></a>Tell #2: Throat-Clearing Phrases
 
 > _"Remove nearly all throat clearing phrases. 'Let me be clear…', 'And here's the kicker…', 'It is important to highlight that…' Just… no. Cut all that AI cruft out."_
 
@@ -549,7 +578,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #3: Gobbledygook, Triteness, Corporate Speak
+### <a id="tell-03"></a>Tell #3: Gobbledygook, Triteness, Corporate Speak
 
 > _"'Game-changer', 'Circle back', 'Leveraging insights', 'Drill Down', 'Leveraging your synergies'"_
 
@@ -560,7 +589,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #4: Meaningless Modifiers (The "Blandifiers")
+### <a id="tell-04"></a>Tell #4: Meaningless Modifiers (The "Blandifiers")
 
 > _"'A plethora of', 'truly', 'simply', 'just', 'Very unique', 'A wide array of'"_
 
@@ -571,7 +600,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #5: Annoying Compound Offenders
+### <a id="tell-05"></a>Tell #5: Annoying Compound Offenders
 
 > _"'Let's unpack this.', 'This begs the question…', 'At the end of the day…', 'In the grand scheme of things…'"_
 
@@ -580,7 +609,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #6: Stacking Rules of Three (or More) — *also a structural signal*
+### <a id="tell-06"></a>Tell #6: Stacking Rules of Three (or More) — *also a structural signal*
 
 > _"Don't stack rules of three… Pick the two that matter. The padded series signals filler even when every item is real."_
 
@@ -591,7 +620,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #7: Colon-Label Formula Headers — *also a structural signal*
+### <a id="tell-07"></a>Tell #7: Colon-Label Formula Headers — *also a structural signal*
 
 > _"Don't use the colon-label formula at every level… Repeated at every scale, the alliterative-label-then-elaboration pattern is the single loudest AI tell there is."_
 
@@ -602,7 +631,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #8: Attribute to Fog
+### <a id="tell-08"></a>Tell #8: Attribute to Fog
 
 > _"'Studies show,' 'experts agree,' 'research suggests.' Name the source or drop the claim."_
 
@@ -613,7 +642,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #9: "That is what makes this" Framing
+### <a id="tell-09"></a>Tell #9: "That is what makes this" Framing
 
 > _"Show, don't tell. Don't tell the reader a problem was serious; put them in the place and let them feel it."_
 
@@ -622,7 +651,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #10: The "Yes, But..." Seamless Transition
+### <a id="tell-10"></a>Tell #10: The "Yes, But..." Seamless Transition
 
 > _"Leave some tension unresolved. Real work is messy."_
 
@@ -633,7 +662,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #11: Introducing Terms in Quotes + Explaining Significance
+### <a id="tell-11"></a>Tell #11: Introducing Terms in Quotes + Explaining Significance
 
 > _"Don't introduce a term in quotes and then explain its significance… As a habit it reads like a textbook glossary."_
 
@@ -644,7 +673,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #12: Assert Without Mechanism
+### <a id="tell-12"></a>Tell #12: Assert Without Mechanism
 
 > _"Don't assert without mechanism… A conclusion the reader can't trace back is a conclusion they won't trust."_
 
@@ -655,18 +684,18 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #13: No First-Person / Avoiding Accountability
+### <a id="tell-13"></a>Tell #13: No First-Person / Avoiding Accountability
 
 > _"Have a point of view… Write to one reader. One person, across a table."_
 
 - ❌ "The results are promising." (who says?)
 - ✅ "I ran this model and it crashed three times before working."
 
-**Count:** Absence of a person owning the judgment. NOTE: *presence* of natural first-person is a **strong human signal (Axis A)**.
+**Count:** Absence of a person owning the judgment. NOTE (corrected v2.14 to match v2.9.3): the *presence* of first person is NOT on its own a human signal; models produce owned opinion and anecdote natively. A first-person line counts as human voice (Axis A) only if it survives the tell sweep AND is either separable from the scaffold or carries checkable lived specificity, like the ✅ example above. See Strong human signals.
 
 ---
 
-### Tell #14: Over-Listing
+### <a id="tell-14"></a>Tell #14: Over-Listing
 
 > _"Don't over-list… If the items have a logic connecting them, that logic is the writing. When in doubt, write the paragraph."_
 
@@ -675,7 +704,7 @@ Axis E does not run negative, but its floor bites like the conditional axes. **A
 
 ---
 
-### Tell #15: Em Dash Overuse
+### <a id="tell-15"></a>Tell #15: Em Dash Overuse
 
 > _"Em dashes are appropriate for poetry quote author callouts… Find alternative punctuation."_
 
@@ -694,7 +723,7 @@ Copy from the first rule line to the last:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.13)
+ AI-DETECTION SCORECARD (v2.14)
  [Title of Content]
  [Date] · [Platform] · Genre: [Explainer/News · Review · Research · Tutorial]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -754,7 +783,9 @@ Each line reads →  category — score/10 · weight · note
 
 Weighted raw total: [X.X]
 Prose-Revision Penalty Gate: tell density [_]% of non-data sentences → cap [_]
-Final Craft = min(raw, cap) = [X.X]
+Firehose Ceiling (v2.12): [none / 6.5 / 5.0] · [one-line reason]
+Politician's Answer (v2.14): stance [pass/fail] · landing [pass/fail] → [not fired / forms: ___] · Value-Add ≤ [_]
+Final Craft = min(raw, cap, ceiling) = [X.X]
 
 Prose-craft tells (Axis B only — NOT authorship evidence):
   - [tell] ×[count] — "[example quote]" ([timestamp])
@@ -856,7 +887,7 @@ What would improve this:
 Provenance reads [Human/Hybrid/AI] at [X]/10; craft scores [X.X]/10 for its genre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.13
+ Scorecard generated using AI-DETECTION SCORECARD SYSTEM v2.14
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
@@ -1023,7 +1054,7 @@ do not lean on it.
     influence gaming leads.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- AI-DETECTION SCORECARD (v2.13)
+ AI-DETECTION SCORECARD (v2.14)
  [Title of Content]
  [Date] · [Platform] · Genre: [___]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1105,6 +1136,10 @@ Note how the same behaviors that would be *forgiven* in an explainer are *fatal*
 ---
 
 ## Changelog
+
+**v2.14 (2026-11-24)** — Added The Politician's Answer (No Editorial Perspective) to Axis B: an umbrella craft finding for a piece that sounds responsive but leaves the viewer nothing to hold, because nobody decided what mattered. Its forms are the firehose (too much; keeps the v2.12 Firehose Ceiling as its own gate and ceiling), water-treading (too little: a few points restated to fill the runtime, the padding failure carried on the task list since the nileside-stories "clothes" grading), too tidy (every concern answered or hedged away, the whole-piece form of the balanced flip), and no throughline (self-contained sections that build on nothing, checked by the shuffle test). It fires on either of two probes: the stance test (one disputable position, stated in a sentence, with a truism clause) and the landing test (one point developed far enough to retell or push back on; repetition is not development). Effect is a Value-Add dock only (at most 5 for one failed probe, at most 3 for both), with no new cap until more cases are graded. Guardrails: authorship-blind, honest caveats are not "too tidy", a genre exception that skips the stance test where neutrality is the honest form, and kept distinct from Axes C and D. The single-probe draft was dry-run on three pieces before adoption and failed to catch the Egypt firehose, which takes a real (if well-worn) position; the landing test was added to fix that. With both probes, Dr. Taylor Jones's "How to Detect AI Slop" passes both, "clothes" fails the stance test, and Egypt fails the landing test. Also: corrected Tell #13's outdated note (first person is no longer called a strong human signal on its own, matching v2.9.3); added the missing Firehose Ceiling line and the Politician's Answer line to the working-notes template, with Final Craft now shown as min(raw, cap, ceiling); updated the Tell Index's whole-piece reads. Bumped every live version string to v2.14. Scoring-logic change on Axis B only (Value-Add); no change to Axis A, C, D, or E mechanics.
+
+**v2.13.1 (2026-11-24)** — Added `docs/TELL-INDEX.md`, a single human-readable index of every tell class the system uses: a summary table (ID, reader-facing alias, tier, whether it counts toward Penalty-Gate density, where it is defined) followed by one descriptive entry per tell (what it is, invented examples, how to count, the human false positive, related tells). Cheat Sheet numbering #1–15 is preserved; tells previously defined only in other sections take #16–21 (profundity beat, numbered scaffold, "why this matters" signpost, mechanical balance, uniform paragraph shape, no contractions in speech). Names two tell families for reporting: the importance stamp (asserting significance before, in place of, or after a point: #18, #9, and candidate C1) and the balanced flip (#1, #10, #19). Four proposed tells are listed in a separate Candidate section marked not-for-scoring (the validation tag, broken picture with its three-step picture test, default picks by genre, and assistant residue), prompted by Dr. Taylor Jones's "How to Detect AI Slop." A Whole-piece reads section lists impressions that are never tallied per sentence. Linked from the Cheat Sheet intro and the README. The rubric stays authoritative. Documentation only: no scoring-logic change to any axis or gate, and the live version strings stay v2.13; nothing scored under v2.13 needs rescoring.
 
 **v2.13 (2026-09-19)** — Added Axis E — Presentation & Production: a fifth axis and the third always-on quality score (A, B, and E print on every card; C and D stay conditional). It scores the finished AUDIOVISUAL artifact — the visuals, the narration as delivered, the on-screen text — on 1–10 (high = well made), separate from the words (Craft) and from who wrote them (Provenance). Two deliberate differences from the other axes: it is assessable ONLY from watching the video or an AV attestation (a transcript cannot license it — it prints "not assessed" and is omitted on a transcript-only grade, mirroring the Embodiment/Automation logic), and it is scored as a HOLISTIC IMPRESSION, not a per-moment tally (a viewing gestalt with a few representative examples, no timestamp receipts owed — the honest counterpart to Craft's rigor). It does not run negative, but its floor bites: a floored Axis E (1–2 — mangled imagery you can't read, delivery that loses the words, wrong-script or gibberish on-screen text, broken continuity, no QA) is a headline-grade failure. Verdict precedence is D > C > E > the A+B story: a floored E leads and tags "Badly Produced" only when neither C nor D fired; otherwise it prints as a supporting number. Independent of Provenance (production is never an authorship signal, though the same observations may separately serve as Automation Confirmation) and of Craft (bad wording is Craft; bad delivery of the wording is Presentation); clumsy production is also a legitimate Axis-D severity signal. Added the Axis-E summary line, working-notes block, score-strip marker, the P-PROD paragraph slot, and production sentences in both P1 openers; bumped every live version string to v2.13. Triggered by the nileside-stories "clothes" grading, where an attested-AI explainer paired an empty script with a broken production — flax that looks like corn, looms and spindles drawn wrong, characters flipping flat/3D and uncolored/colored with no continuity, real Chinese characters and gibberish standing in for hieroglyphs, and botched TTS — a disaster Craft (a prose axis) had no clean way to score. No change to Axis A, B, C, or D mechanics.
 
