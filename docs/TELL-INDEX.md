@@ -8,7 +8,7 @@ for honest reasons.
 [rubric](../AI-Detection-Scorecard-System.md) defines it. If the two ever disagree, the rubric
 wins and this file needs fixing.
 
-- **Matches rubric:** v2.14 (index added in v2.13.1)
+- **Matches rubric:** v2.14.1 (index added in v2.13.1)
 - **Examples:** invented for illustration. None are quoted from scored videos.
 
 ---
@@ -354,8 +354,11 @@ wrote the piece.
 
 - **Firehose Ceiling** (live, v2.12): breadth without depth. A flood of claims, nothing dwelt
   on. See the [Firehose Ceiling][firehose].
-- **[The Politician's Answer][politician]** (live, v2.14): no editorial perspective. The words
-  sound like they address the topic, but nothing lands. Its forms are the *firehose* (above),
+- **[The Politician's Answer][politician]** (live, v2.14): no editorial perspective. It reads
+  as toneless and frictionless: an even register with no attitude, nothing that pushes back
+  on the reader. The words sound like they address the topic, but nothing lands. (This
+  whole-piece texture is a craft impression. It is not the sentence-level "frictionless seam"
+  of #19, which is an authorship signal.) Its forms are the *firehose* (above),
   *water-treading* (too little, stretched to fill time), *too tidy* (every concern answered, no
   tension left), and *no throughline* (sections that don't build on each other). It fires on
   either of two probes:
